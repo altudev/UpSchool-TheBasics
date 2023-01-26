@@ -29,7 +29,7 @@ if (colour == Colour.Red)
     Console.WriteLine("Red");
 }
 
-Console.WriteLine(student.FinalNotes);
+//Console.WriteLine(student.FinalNotes);
 
 Console.WriteLine(student.FullName);
 
