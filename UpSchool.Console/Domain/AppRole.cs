@@ -12,6 +12,7 @@ namespace UpSchool.Console.Domain
             Student student = new Student();
 
             System.Console.WriteLine(student.GetFullName());
+
         }
     }
 }

@@ -1,36 +1,97 @@
-﻿using UpSchool.Console.Domain;
+﻿
+using UpSchool.Console.Domain;
+using UpSchool.Console.Enums;
 using UpSchool.Console.FirstExample;
 
-Student student = new Student();
+const string filePath = "c:\\users\\alper\\desktop\\Access_Control_Logs.txt"; // \
 
-student.FirstName = "Alper";
+var logsText = File.ReadAllText(filePath);
 
-student.LastName = "Tunga";
+// \n bir alt satıra geç demektir
 
-student.TCID = "33377788999111";
+var splitLines = logsText.Split('\n', StringSplitOptions.RemoveEmptyEntries);
 
-Console.WriteLine(student.FullName);
+var logs = new List<AccessControlLog>();
 
-student.FullName = "Alper Tunga";
-
-Teacher teacher = new Teacher();
-
-teacher.FirstName = "Arman";
-
-teacher.LastName = "Tunga";
-
-Console.WriteLine(student.FullName);
-
-var alper = "";
-var colour = Colour.Blue;
-
-if (colour == Colour.Red)
+foreach (var line in splitLines.Skip(1))
 {
-    Console.WriteLine("Red");
+    // " " => ""
+
+    var logFields = line.Replace(" ",string.Empty)
+        .Replace("\r", string.Empty)
+        .Split("---", StringSplitOptions.RemoveEmptyEntries);
+
+    var accessControlLog = new AccessControlLog()
+    {
+        UserId = Convert.ToInt32(logFields[0]),
+        DeviceSerialNo = logFields[1],
+        AccessType = AccessControlLog.ConvertToAccessType(logFields[2]),
+        Date = Convert.ToDateTime(logFields[3])
+    };
+
+    logs.Add(accessControlLog);
 }
 
-//Console.WriteLine(student.FinalNotes);
+var cardLogs = logs
+    .Where(x => x.AccessType == AccessType.FACE)
+    .Where(x=> x.DeviceSerialNo == "X01X2500S")
+    .ToList();
 
-Console.WriteLine(student.FullName);
+// where1 && where 2 && where 3 && where n
+
+
+cardLogs.ForEach(log => Console.WriteLine($"{log.UserId} - {log.DeviceSerialNo} - {log.AccessType} - {log.Date}"));
+
+//foreach (var x in splitLines)
+//{
+//    Console.WriteLine(x);
+//}
 
 Console.ReadLine();
+
+#region ReferenceExample
+
+//int sayi1 = 15;
+
+//Console.WriteLine(sayi1);
+
+//int sayi2 = sayi1;
+
+//sayi1 = 25;
+
+//Console.WriteLine(sayi1);
+
+//Console.WriteLine(sayi2);
+
+//Student student1 = new Student();
+
+//student1.FirstName = "Alper";
+//student1.LastName = "Tunga";
+
+//string name = "Maxwell";
+
+//string surName = name;
+
+//name = "Roberto Carlos";
+
+//Student student2 = new Student(student1.FirstName,student1.LastName);
+
+//student1.FirstName = student2.FirstName;
+
+//student2.FirstName = "Tuba";
+
+//Console.WriteLine(name);
+
+//Console.WriteLine(surName);
+
+//Console.ReadLine();
+
+//var accessControlLog = new AccessControlLog();
+
+//if (accessControlLog.AccessType == AccessType.FACE)
+//{
+
+
+//}
+
+#endregion

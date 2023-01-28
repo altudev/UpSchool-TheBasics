@@ -8,6 +8,17 @@
         public string GovertmentId { get; set; } // SW-5528899
         public int Age { get; set; }
 
+        public Student()
+        {
+            
+        }
+
+        public Student(string firstName,string lastName)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+        }
+
         //public string FullName
         //{
         //    get
