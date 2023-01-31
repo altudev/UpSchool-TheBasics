@@ -1,0 +1,68 @@
+﻿@page "/counter"
+@using UpSchool.Wasm.Models
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<input @bind="name" @bind:event="oninput" class="form-control" />
+
+<h2 class="@(name.Contains("@") ? "text-success" : "text-danger")">@name</h2>
+
+<br />
+
+@if (name.Contains("@") == false)
+{
+    <p class="text-danger">Email field must contain @@ character</p>
+}
+
+@if (currentCount % 2 == 0)
+{
+    <p role="status" class="text-primary">Current count is Even: @currentCount</p>
+}
+else
+{
+    <p role="status" class="text-danger">Current count is Odd: @currentCount</p>
+}
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int currentCount = 0;
+    private string name = String.Empty;
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+
+    void SwitchMyCase(Colour colour)
+    {
+        switch (colour)
+        {
+            case Colour.Red:
+                break;
+
+            case Colour.Orange: break;
+
+            case Colour.Blue:
+                break;
+
+            case Colour.Green:
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    void SwitchMyCaseWithIf(Colour colour)
+    {
+        if (colour == Colour.Red) return;
+        if (colour == Colour.Green) return;
+        if (colour == Colour.Orange) return;
+        else
+        {
+
+        }
+    }
+}
