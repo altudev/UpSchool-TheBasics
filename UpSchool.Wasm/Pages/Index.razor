@@ -1,9 +1,44 @@
 ﻿@page "/"
+@using UpSchool.Domain.Dtos
+@using UpSchool.Domain.Utilities
 
 <PageTitle>Index</PageTitle>
 
-<h1>Hello, world!</h1>
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="card-title text-center">
+            <h2 class="text-info">UpStorage Password Generator</h2>
+            <p>Create secure passwords with our Password Generator</p>
+        </div>
+        
+        <div class="mt-2 text-center">
+            <label class="form-label">
+                Password Length <span class="badge bg-primary">@GeneratePasswordDto.Length</span>
+            </label>
+            
+            <input class="form-range" type="range" @onchange="InputOnChange" min="6" max="40" step="1" />
+            
+            <p>@Password</p>
+        </div>
+    </div>
+</div>
 
-Welcome to your new app.
+@code
+{
+    public GeneratePasswordDto GeneratePasswordDto = new GeneratePasswordDto();
+    public string Password { get; set; } = string.Empty;
+    public PasswordGenerator PasswordGenerator = new PasswordGenerator();
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+    private void InputOnChange(ChangeEventArgs args)
+    {
+        GeneratePasswordDto.Length = Convert.ToInt32(args.Value);
+
+        Password = PasswordGenerator.Generate(GeneratePasswordDto);
+    }
+}
+
+<style>
+    body {
+        background: #393E46
+    }
+</style>

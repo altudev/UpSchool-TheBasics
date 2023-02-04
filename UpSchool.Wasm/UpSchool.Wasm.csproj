@@ -11,4 +11,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.2" PrivateAssets="all" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\UpSchool.Domain\UpSchool.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
