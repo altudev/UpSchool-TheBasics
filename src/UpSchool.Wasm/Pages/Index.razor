@@ -1,11 +1,102 @@
 ﻿@page "/"
+@using UpSchool.Domain.Dtos
+@using UpSchool.Domain.Utilities
 
+<div class="container">
+    
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-3">
+                <div class="card-body">
+                    <div class="mt-2 text-center">
+                        <label>
+                            Password Length <span class="badge bg-danger">@generatePasswordDto.Length</span>
+                            <p>@password</p>
+                        </label>
+                        
+                        <input class="form-range" type="range" 
+                               value="@generatePasswordDto.Length" @oninput=@OnInputChange min="6" max="40" step="1" />
+                    </div>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" @bind="@generatePasswordDto.IncludeNumbers" 
+                               @bind:event="oninput" 
+                               @onchange="@((args) => CheckboxOnChange(args, "numbers"))" id="numbers" />
+                        <label class="form-check-label" for="numbers">Numbers</label>
+                    </div>
 
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" @bind="@generatePasswordDto.IncludeLowercaseCharacters" 
+                               @bind:event="oninput" 
+                               @onchange="@((args) => CheckboxOnChange(args, "lowercaseChars"))" id="lowercaseChars" />
+                        <label class="form-check-label" for="lowercaseChars">Lowercase Chars</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" @bind="@generatePasswordDto.IncludeUppercaseCharacters" 
+                               @bind:event="oninput" 
+                               @onchange="@((args) => CheckboxOnChange(args, "uppercaseChars"))" id="uppercaseChars" />
+                        <label class="form-check-label" for="uppercaseChars">Uppercase Chars</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" @bind="@generatePasswordDto.IncludeSpecialCharacters" 
+                               @bind:event="oninput" 
+                               @onchange="@((args) => CheckboxOnChange(args, "specialChars"))" id="specialChars" />
+                        <label class="form-check-label" for="specialChars">Special Chars</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
 
 
 @code
 {
+    public PasswordGenerator passwordGenerator = new PasswordGenerator();
 
+    public GeneratePasswordDto generatePasswordDto = new GeneratePasswordDto();
+
+    public string password = string.Empty;
+
+    private void CheckboxOnChange(ChangeEventArgs args, string checkBoxName)
+    {
+        switch (checkBoxName)
+        {
+            case "numbers":
+                generatePasswordDto.IncludeNumbers = Convert.ToBoolean(args.Value);
+                break;
+
+            case "lowercaseChars":
+                generatePasswordDto.IncludeLowercaseCharacters = Convert.ToBoolean(args.Value);
+                break;
+
+            case "uppercaseChars":
+                generatePasswordDto.IncludeUppercaseCharacters = Convert.ToBoolean(args.Value);
+                break;
+
+            case "specialChars":
+                generatePasswordDto.IncludeSpecialCharacters = Convert.ToBoolean(args.Value);
+                break;
+
+                default:
+                    throw new Exception("Beklenmedik bir Checkbox adı geldi.");
+                    break;
+
+        }
+
+        password = passwordGenerator.Generate(generatePasswordDto);
+    }
+
+    private void OnInputChange(ChangeEventArgs args)
+    {
+        generatePasswordDto.Length = Convert.ToInt32(args.Value);
+
+        password = passwordGenerator.Generate(generatePasswordDto);
+    }
 }
 
 <style>
