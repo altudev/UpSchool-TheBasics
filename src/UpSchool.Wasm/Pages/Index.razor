@@ -1,17 +1,52 @@
 ﻿@page "/"
 @using UpSchool.Domain.Dtos
 @using UpSchool.Domain.Utilities
+@inject IJSRuntime JsRuntime
+@inject IToastService ToastService
 
 <div class="container">
-    
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-3">
+                <div class="card-header">
+                    <div class="card-title text-center">
+                        <h2 class="text-info">
+                            Password Generator
+                        </h2>
+                        <p>Create secure passwords with our Password Generator</p>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <p>@password</p>
+                        </div>
+                        <div class="col-md-1">
+                            <span class="oi oi-folder clickable" aria-hidden="true"></span>
+                        </div>
+                        <div class="col-md-1">
+                            <span @onclick="@(() => CopyToClipboardAsync())" class="oi oi-document clickable" aria-hidden="true"></span>
+                        </div>
+                        <div class="col-md-1">
+                            <span @onclick=@GeneratePassword class="oi oi-loop-circular clickable" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <hr class=@CssColourClass style="height: 2vh !important;" />
+                </div>
+            </div>
+        </div>
+
+    </div>
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card mt-3">
                 <div class="card-body">
                     <div class="mt-2 text-center">
                         <label>
-                            Password Length <span class="badge bg-danger">@generatePasswordDto.Length</span>
-                            <p>@password</p>
+                            Password Length <span class="@($"badge {CssColourClass}")">@generatePasswordDto.Length</span>
                         </label>
                         
                         <input class="form-range" type="range" 
@@ -62,6 +97,27 @@
 
     public string password = string.Empty;
 
+    public string CssColourClass = "bg-danger";
+
+    protected override void OnInitialized()
+    {
+        GeneratePassword();
+
+        base.OnInitialized();
+    }
+
+    private void GeneratePassword()
+    {
+        password = passwordGenerator.Generate(generatePasswordDto);
+    }
+
+    private ValueTask CopyToClipboardAsync()
+    {
+        ToastService.ShowSuccess("The selected password was copied to the clipboard.");
+
+        return JsRuntime.InvokeVoidAsync("navigator.clipboard.writeText", password);
+    }
+
     private void CheckboxOnChange(ChangeEventArgs args, string checkBoxName)
     {
         switch (checkBoxName)
@@ -96,6 +152,26 @@
         generatePasswordDto.Length = Convert.ToInt32(args.Value);
 
         password = passwordGenerator.Generate(generatePasswordDto);
+
+
+        switch (generatePasswordDto.Length)
+        {
+            case var value when (value>=6 && value <=12):
+                CssColourClass = "bg-danger";
+                break;
+
+            case var value when (value>12 && value <= 19):
+                CssColourClass = "bg-warning";
+                break;
+
+            case var value when (value>19 && value <= 40):
+                CssColourClass = "bg-success";
+                break;
+
+                default:
+                    throw new Exception("Beklenmedik bir password uzunluğu geldi.");
+                    break;
+        }
     }
 }
 
@@ -103,4 +179,5 @@
     body {
         background: #393E46
     }
+    
 </style>

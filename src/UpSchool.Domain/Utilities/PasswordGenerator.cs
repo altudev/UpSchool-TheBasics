@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using UpSchool.Domain.Common;
 using UpSchool.Domain.Dtos;
 
 namespace UpSchool.Domain.Utilities
@@ -36,6 +37,16 @@ namespace UpSchool.Domain.Utilities
             if (generatePasswordDto.IncludeUppercaseCharacters) _charSetBuilder.Append(UppercaseCharacters);
 
             if (generatePasswordDto.IncludeSpecialCharacters) _charSetBuilder.Append(SpecialCharacters);
+
+            //if (!generatePasswordDto.IncludeNumbers && !generatePasswordDto.IncludeLowercaseCharacters &&
+            //!generatePasswordDto.IncludeUppercaseCharacters && !generatePasswordDto.IncludeSpecialCharacters
+            //    )
+            if(generatePasswordDto is
+               {IncludeNumbers:false, IncludeLowercaseCharacters:false, 
+                   IncludeUppercaseCharacters:false, IncludeSpecialCharacters:false})
+            {
+                return string.Empty;
+            }
 
             var charSet = _charSetBuilder.ToString();
 
