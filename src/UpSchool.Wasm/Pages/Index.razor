@@ -3,6 +3,7 @@
 @using UpSchool.Domain.Utilities
 @inject IJSRuntime JsRuntime
 @inject IToastService ToastService
+@inject Blazored.LocalStorage.ILocalStorageService LocalStorage
 
 <div class="container">
     <div class="row justify-content-center">
@@ -22,7 +23,7 @@
                             <p>@password</p>
                         </div>
                         <div class="col-md-1">
-                            <span class="oi oi-folder clickable" aria-hidden="true"></span>
+                            <span @onclick="@(() => SavePasswordAsync())" class="oi oi-folder clickable" aria-hidden="true"></span>
                         </div>
                         <div class="col-md-1">
                             <span @onclick="@(() => CopyToClipboardAsync())" class="oi oi-document clickable" aria-hidden="true"></span>
@@ -86,6 +87,39 @@
         </div>
 
     </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-3">
+                <div class="card-header text-center">
+                    <div class="card-title">
+                        <h3 class="text-primary">Saved Passwords</h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @if (savedPasswords.Any())
+                    {
+                        <ul class="list-group text-center">
+                            @foreach (var savedPassword in savedPasswords)
+                            {
+                                <li @onclick="@(() => CopyToClipboardAsync())" class="@($"list-group-item text-white clickable {GetCssColourClass(savedPassword.Length)}")">@savedPassword</li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <div class="text-center">
+                            <h5>There isn't any passwords.</h5>
+                        </div>
+                    }
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <button class="btn btn-outline-danger" @onclick=@ClearSavedPasswords>Clear</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
 </div>
 
 
@@ -99,16 +133,39 @@
 
     public string CssColourClass = "bg-danger";
 
-    protected override void OnInitialized()
+    private List<string> savedPasswords;
+
+    protected override async Task OnInitializedAsync()
     {
+        savedPasswords = new List<string>();
+
         GeneratePassword();
 
-        base.OnInitialized();
+        var localStoragePasswords = await LocalStorage.GetItemAsync<List<string>>("savedPasswords");
+
+        if (localStoragePasswords is not null) savedPasswords = localStoragePasswords;
+
+        await base.OnInitializedAsync();
+    }
+
+    private ValueTask SavePasswordAsync()
+    {
+        ToastService.ShowSuccess("The selected password was successfully saved.");
+
+        if (savedPasswords.Any(x => x == password)) return ValueTask.CompletedTask;
+
+        savedPasswords.Add(password);
+
+        return LocalStorage.SetItemAsync("savedPasswords", savedPasswords);
     }
 
     private void GeneratePassword()
     {
         password = passwordGenerator.Generate(generatePasswordDto);
+
+        CssColourClass = GetCssColourClass(password.Length);
+
+        //savedPasswords.Add(password);
     }
 
     private ValueTask CopyToClipboardAsync()
@@ -153,25 +210,32 @@
 
         password = passwordGenerator.Generate(generatePasswordDto);
 
+        CssColourClass = GetCssColourClass(generatePasswordDto.Length);
 
-        switch (generatePasswordDto.Length)
+    }
+
+    private string GetCssColourClass(int length)
+    {
+        switch (length)
         {
             case var value when (value>=6 && value <=12):
-                CssColourClass = "bg-danger";
-                break;
+                return "bg-danger";
 
             case var value when (value>12 && value <= 19):
-                CssColourClass = "bg-warning";
-                break;
+                return "bg-warning";
 
             case var value when (value>19 && value <= 40):
-                CssColourClass = "bg-success";
-                break;
+                return "bg-success";
 
-                default:
-                    throw new Exception("Beklenmedik bir password uzunluğu geldi.");
-                    break;
+            default:
+                throw new Exception("Beklenmedik bir password uzunluğu geldi.");
+                break;
         }
+    }
+
+    private void ClearSavedPasswords()
+    {
+        savedPasswords.Clear();
     }
 }
 

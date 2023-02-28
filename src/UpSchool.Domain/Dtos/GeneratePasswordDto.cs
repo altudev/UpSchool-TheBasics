@@ -14,7 +14,7 @@
 
             IncludeLowercaseCharacters = true;
 
-            Length = 25;
+            Length = 6;
         }
     }
 }
