@@ -1,9 +1,11 @@
 ﻿@page "/counter"
 @using UpSchool.Wasm.Models
-
+@using UpSchool.Domain.Services
+@inject IToasterService ToastService
+@inject IUrlHelperService UrlHelperService
 <PageTitle>Counter</PageTitle>
 
-<h1>Counter</h1>
+<h1>Counter - @UrlHelperService.ApiUrl</h1>
 
 <input @bind="name" @bind:event="oninput" class="form-control" />
 
