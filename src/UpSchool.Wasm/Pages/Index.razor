@@ -1,33 +1,207 @@
 ﻿@page "/"
+@using UpSchool.Domain.Dtos
 @using UpSchool.Domain.Services
+@using UpSchool.Domain.Utilities
 @using UpSchool.Wasm.Common.Utilities
-@inject NavigationManager NavigationManager
+@using UpSchool.Wasm.Components
+@inject IJSRuntime JsRuntime
 @inject IToasterService ToastService
-@inject IUrlHelperService UrlHelperService
-<h2>Index Page - @TitanicUrl</h2>
+@inject Blazored.LocalStorage.ILocalStorageService LocalStorage
+@inject HttpClient HttpClient
 
-<button class="btn btn-info" @onclick="@(() => NavigationManager.NavigateTo($"/passwordGenerator/{Length}"))">Go to the Password Generator Page</button>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-3">
+                <div class="card-header">
+                    <div class="card-title text-center">
+                        <h2 class="text-info">
+                            Password Generator
+                        </h2>
+                        <p>Create secure passwords with our Password Generator</p>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <p>@password</p>
+                        </div>
+                        <div class="col-md-1">
+                            <span @onclick="@(() => SavePasswordAsync())" class="oi oi-folder clickable" aria-hidden="true"></span>
+                        </div>
+                        <div class="col-md-1">
+                            <span @onclick="@(() => CopyToClipboardAsync())" class="oi oi-document clickable" aria-hidden="true"></span>
+                        </div>
+                        <div class="col-md-1">
+                            <span @onclick=@GeneratePassword class="oi oi-loop-circular clickable" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="card-footer">
+                    <hr class=@CssColourClass style="height: 2vh !important;" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-3">
+                <div class="card-body">
+                    <div class="mt-2 text-center">
+                        <label>
+                            Password Length <span class="@($"badge {CssColourClass}")">@generatePasswordDto.Length</span>
+                        </label>
+
+                        <input class="form-range" type="range"
+                               value="@generatePasswordDto.Length" @oninput=@OnInputChange min="6" max="40" step="1" />
+                    </div>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" @bind="@generatePasswordDto.IncludeNumbers"
+                               @bind:event="oninput"
+                               @onchange="@((args) => CheckboxOnChange(args, "numbers"))" id="numbers" />
+                        <label class="form-check-label" for="numbers">Numbers</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" @bind="@generatePasswordDto.IncludeLowercaseCharacters"
+                               @bind:event="oninput"
+                               @onchange="@((args) => CheckboxOnChange(args, "lowercaseChars"))" id="lowercaseChars" />
+                        <label class="form-check-label" for="lowercaseChars">Lowercase Chars</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" @bind="@generatePasswordDto.IncludeUppercaseCharacters"
+                               @bind:event="oninput"
+                               @onchange="@((args) => CheckboxOnChange(args, "uppercaseChars"))" id="uppercaseChars" />
+                        <label class="form-check-label" for="uppercaseChars">Uppercase Chars</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" @bind="@generatePasswordDto.IncludeSpecialCharacters"
+                               @bind:event="oninput"
+                               @onchange="@((args) => CheckboxOnChange(args, "specialChars"))" id="specialChars" />
+                        <label class="form-check-label" for="specialChars">Special Chars</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <SavedPasswordsCard savedPasswords="@savedPasswords"
+                        OnCopyToClipboardAsync="CopyToClipboardAsync"
+                        OnClearSavedPasswords=@ClearSavedPasswords />
+
+</div>
 
 
 @code
 {
-    public string Length = "25";
-    public string TitanicUrl { get; set; }
-    public ConsoleLogger ConsoleLogger;
-    public ToasterLogger ToasterLogger;
+    public PasswordGenerator passwordGenerator = new PasswordGenerator();
 
-    protected override void OnInitialized()
+    public GeneratePasswordDto generatePasswordDto = new GeneratePasswordDto();
+
+    public string password = string.Empty;
+
+    public string CssColourClass = "bg-danger";
+
+    private List<string> savedPasswords;
+
+    protected override async Task OnInitializedAsync()
     {
-        ConsoleLogger = new ConsoleLogger(UrlHelperService.ApiUrl);
+        savedPasswords = new List<string>();
 
-        ToasterLogger = new ToasterLogger(ToastService, UrlHelperService.ApiUrl);
+        GeneratePassword();
 
-        ToasterLogger.Log("Component is being initialized.");
+        savedPasswords = await HttpClient.GetFromJsonAsync<List<string>>("Passwords");
 
-        //ConsoleLogger.Log("Component is being initialized.");
+    //var localStoragePasswords = await LocalStorage.GetItemAsync<List<string>>("savedPasswords");
 
-        TitanicUrl = UrlHelperService.ApiUrl;
-        base.OnInitialized();
+        //if (localStoragePasswords is not null) savedPasswords = localStoragePasswords;
+
+        await base.OnInitializedAsync();
+    }
+
+    private ValueTask SavePasswordAsync()
+    {
+        ToastService.ShowSuccess("The selected password was successfully saved.");
+
+        if (savedPasswords.Any(x => x == password)) return ValueTask.CompletedTask;
+
+        savedPasswords.Add(password);
+
+        return LocalStorage.SetItemAsync("savedPasswords", savedPasswords);
+    }
+
+    private void GeneratePassword()
+    {
+        password = passwordGenerator.Generate(generatePasswordDto);
+
+        CssColourClass = CssUtilities.GetCssColourClassForPasswords(password.Length);
+
+        //savedPasswords.Add(password);
+    }
+
+    private async Task CopyToClipboardAsync()
+    {
+        ToastService.ShowSuccess("The selected password was copied to the clipboard.");
+
+        await JsRuntime.InvokeVoidAsync("navigator.clipboard.writeText", password);
+    }
+
+    private void CheckboxOnChange(ChangeEventArgs args, string checkBoxName)
+    {
+        switch (checkBoxName)
+        {
+            case "numbers":
+                generatePasswordDto.IncludeNumbers = Convert.ToBoolean(args.Value);
+                break;
+
+            case "lowercaseChars":
+                generatePasswordDto.IncludeLowercaseCharacters = Convert.ToBoolean(args.Value);
+                break;
+
+            case "uppercaseChars":
+                generatePasswordDto.IncludeUppercaseCharacters = Convert.ToBoolean(args.Value);
+                break;
+
+            case "specialChars":
+                generatePasswordDto.IncludeSpecialCharacters = Convert.ToBoolean(args.Value);
+                break;
+
+            default:
+                throw new Exception("Beklenmedik bir Checkbox adı geldi.");
+                break;
+
+        }
+
+        password = passwordGenerator.Generate(generatePasswordDto);
+    }
+
+    private void OnInputChange(ChangeEventArgs args)
+    {
+        generatePasswordDto.Length = Convert.ToInt32(args.Value);
+
+        password = passwordGenerator.Generate(generatePasswordDto);
+
+        CssColourClass = CssUtilities.GetCssColourClassForPasswords(generatePasswordDto.Length);
+
+    }
+
+
+
+    private void ClearSavedPasswords()
+    {
+        savedPasswords.Clear();
     }
 }
+
+<style>
+    body {
+        background: #393E46
+    }
+</style>
