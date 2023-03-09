@@ -11,7 +11,7 @@ namespace UpSchool.WebApi.Controllers
     {
         private readonly PasswordGenerator _passwordGenerator;
         private readonly GeneratePasswordDto _generatePasswordDto;
-
+        private static List<string>  _passwords = new List<string>();
         public PasswordsController()
         {
             _passwordGenerator = new PasswordGenerator();
@@ -27,12 +27,19 @@ namespace UpSchool.WebApi.Controllers
         [HttpGet]
         public IActionResult GetPasswords()
         {
-            List<string> passwords = new List<string>();
+            return Ok(_passwords);
+        }
 
-            for (int i = 0; i < 9; i++)
-                passwords.Add(_passwordGenerator.Generate(_generatePasswordDto));
 
-            return Ok(passwords);
+        [HttpPost]
+        public IActionResult Add(PasswordAddRequest addRequest)
+        {
+            if (_passwords.Any(p => p == addRequest.Password))
+                return BadRequest("The given password has already been saved before.");
+
+            _passwords.Add(addRequest.Password);
+
+            return NoContent();
         }
     }
 }

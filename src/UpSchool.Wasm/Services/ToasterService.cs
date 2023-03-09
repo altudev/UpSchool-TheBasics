@@ -22,5 +22,15 @@ namespace UpSchool.Wasm.Services
                 Heading = "UpSchool"
             });
         }
+
+        public void ShowError(string message)
+        {
+            _jsRuntime.ShowToastAsync(new ToastOptions
+            {
+                Text = message,
+                Position = ToastPosition.TopCenter,
+                Heading = "Error!"
+            });
+        }
     }
 }
