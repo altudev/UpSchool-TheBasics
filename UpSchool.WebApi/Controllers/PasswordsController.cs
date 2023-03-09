@@ -30,7 +30,7 @@ namespace UpSchool.WebApi.Controllers
             return Ok(_passwords);
         }
 
-
+        
         [HttpPost]
         public IActionResult Add(PasswordAddRequest addRequest)
         {
@@ -38,6 +38,17 @@ namespace UpSchool.WebApi.Controllers
                 return BadRequest("The given password has already been saved before.");
 
             _passwords.Add(addRequest.Password);
+
+            return NoContent();
+        }
+
+        [HttpDelete("{password}")]
+        public IActionResult Delete(string password)
+        {
+            if (!_passwords.Any(p => p == password))
+                return BadRequest("The given password was not found.");
+
+            _passwords.Remove(password);
 
             return NoContent();
         }
