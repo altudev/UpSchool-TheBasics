@@ -1,0 +1,10 @@
+﻿@page "/accounts/edit/{Id:guid}"
+
+<h3>@Id.ToString()</h3>
+
+@code {
+
+    [Parameter]
+    public Guid Id { get; set; }
+
+}
