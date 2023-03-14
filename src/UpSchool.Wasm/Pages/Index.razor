@@ -16,6 +16,11 @@
                 <div class="container-fluid">
                     <h1 class="display-5 fw-bold text-center">My Accounts</h1>
                     <hr />
+                    <div class="d-flex flex-row">
+                        <button class="btn btn-success" @onclick="@(() => NavigationManager.NavigateTo("/accounts/add"))">Add</button>
+                        <button class="btn btn-warning ms-2" @onclick="@(() => NavigationManager.NavigateTo("/accounts/add"))">Undo</button>
+                    </div>
+                    <hr/>
                     <div class="row">
                         @foreach (var account in accounts)
                         {
@@ -46,7 +51,7 @@
                                     <div class="card-footer">
                                         <div class="d-flex justify-content-between">
                                             <button class="btn btn-info" @onclick="@(() => GoToEditPage(account.Id))">Edit</button>
-                                            <button class="btn btn-danger">Delete</button>
+                                            <button class="btn btn-danger" @onclick="@(() => DeleteAccountAsync(account.Id))">Delete</button>
                                         </div>
                                         
                                     </div>
@@ -95,6 +100,26 @@
 
         accountDto.Password = StringHelper.Base64Encode(accountDto.Password);
         Console.WriteLine(accountDto.Password);
+    }
+
+    private async Task DeleteAccountAsync(Guid id)
+    {
+        var response = await HttpClient.DeleteAsync($"Accounts/{id}");
+
+        if (response.IsSuccessStatusCode)
+        {
+            var account = accounts.FirstOrDefault(x => x.Id == id);
+
+            accounts.Remove(account);
+
+            ToastService.ShowSuccess("The selected account was successfully deleted.");
+
+            return;
+        }
+        
+        ToastService.ShowError("An unexpected error occurred.");
+
+        return;
     }
 }
 

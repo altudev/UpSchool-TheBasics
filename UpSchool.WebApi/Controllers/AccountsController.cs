@@ -53,5 +53,36 @@ namespace UpSchool.WebApi.Controllers
 
             return Ok(accountDtos);
         }
+
+        [HttpPost]
+        public IActionResult Add(AccountAddDto accountAddDto)
+        {
+            var account = new Account()
+            {
+                Id = Guid.NewGuid(),
+                Title = accountAddDto.Title,
+                UserName = accountAddDto.UserName,
+                Password = accountAddDto.Password,
+                IsFavourite = accountAddDto.IsFavourite,
+                CreatedOn = DateTimeOffset.Now,
+                Url = accountAddDto.Url,
+            };
+
+            _accounts.Add(account);
+
+            return Ok(AccountDto.MapFromAccount(account));
+        }
+
+        [HttpDelete("{id:guid}")]
+        public IActionResult Delete(Guid id)
+        {
+            var account = _accounts.FirstOrDefault(x => x.Id == id);
+
+            if (account is null) return NotFound("The selected account was not found.");
+
+            _accounts.Remove(account);
+
+            return NoContent();
+        }
     }
 }
