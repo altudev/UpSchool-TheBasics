@@ -1,10 +1,126 @@
 ﻿@page "/accounts/edit/{Id:guid}"
+@using UpSchool.Domain.Dtos
+@using UpSchool.Domain.Services
+@using UpSchool.Domain.Utilities
+@inject HttpClient HttpClient
+@inject NavigationManager NavigationManager
+@inject IToasterService ToasterService
 
-<h3>@Id.ToString()</h3>
+<div class="card">
+    <div class="card-header text-center">
+        <div class="d-flex justify-content-center align-items-center">
+            <img src="svgs/pencil.svg" class="me-2" /> <h2>Edit The Account</h2>
+        </div>
+    </div>
+
+   
+    <div class="card-body">
+        @if (editDto is not null)
+        {
+            <EditForm Model="@editDto" OnValidSubmit=@SendForm>
+
+                <DataAnnotationsValidator/>
+                <ValidationSummary/>
+
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <InputText class="form-control" id="title" @bind-Value="@editDto.Title"/>
+                    <ValidationMessage For="@(() => editDto.Title)"/>
+                </div>
+
+                <div class="mb-3">
+                    <label for="userName" class="form-label">UserName</label>
+                    <InputText class="form-control" id="userName" @bind-Value="@editDto.UserName"/>
+                    <ValidationMessage For="@(() => editDto.UserName)"/>
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <InputText class="form-control" id="password" @bind-Value="@editDto.Password"/>
+                    <ValidationMessage For="@(() => editDto.Password)"/>
+                </div>
+
+                <div class="mb-3">
+                    <label for="url" class="form-label">Url</label>
+                    <InputText class="form-control" id="url" @bind-Value="@editDto.Url"/>
+                    <ValidationMessage For="@(() => editDto.Url)"/>
+                </div>
+
+                <div class="mb-3 form-check">
+                    <InputCheckbox class="form-check-input" id="isFavourite" @bind-Value="@editDto.IsFavourite"/>
+                    <label class="form-check-label" for="isFavourite">Is Favourite?</label>
+                    <ValidationMessage For="@(() => editDto.IsFavourite)"/>
+                </div>
+
+                <div class="mb-3 d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="reset" class="btn btn-danger">Cancel</button>
+                    <button type="button" class="btn btn-secondary" @onclick=@OnGoBack>Go Back</button>
+                </div>
+
+            </EditForm>
+        }
+        else
+        {
+            <div class="d-flex justify-content-center">
+                <img src="images/loading_dilan.gif" alt="loading"/>
+            </div>
+        }
+    </div>
+
+</div>
 
 @code {
 
     [Parameter]
     public Guid Id { get; set; }
+
+    private AccountEditDto editDto;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(1000);
+
+        var accountDto = await HttpClient.GetFromJsonAsync<AccountDto>($"Accounts/{Id}");
+
+        editDto = new AccountEditDto()
+        {
+            Id = accountDto.Id,
+            UserName = accountDto.UserName,
+            Password = StringHelper.Base64Decode(accountDto.Password),
+            Title = accountDto.Title,
+            IsFavourite = accountDto.IsFavourite,
+            Url = accountDto.Url
+        };
+
+        await base.OnInitializedAsync();
+    }
+
+    private void OnGoBack()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+
+    private async Task SendForm()
+    {
+        editDto.Password = StringHelper.Base64Encode(editDto.Password);
+
+        var response = await HttpClient.PutAsJsonAsync("Accounts", editDto);
+
+        if (response.IsSuccessStatusCode)
+        {
+            var accountDto = await response.Content.ReadFromJsonAsync<AccountDto>();
+
+            ToasterService.ShowSuccess($"The account titled \"{accountDto.Title}\" was successfully edited.");
+
+            NavigationManager.NavigateTo("/");
+
+            return;
+        }
+
+        ToasterService.ShowError("An unexpected error occurred.");
+
+        return;
+    }
 
 }
