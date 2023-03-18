@@ -1,6 +1,7 @@
 ﻿@page "/accounts/add"
 @using UpSchool.Domain.Dtos
 @using UpSchool.Domain.Services
+@using UpSchool.Domain.Utilities
 @inject NavigationManager NavigationManager
 @inject IToasterService ToasterService
 @inject HttpClient HttpClient
@@ -73,6 +74,8 @@
 
     private async Task SendForm()
     {
+        addDto.Password = StringHelper.Base64Encode(addDto.Password);
+
         var response = await HttpClient.PostAsJsonAsync("Accounts", addDto);
 
         if (response.IsSuccessStatusCode)

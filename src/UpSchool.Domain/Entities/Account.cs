@@ -1,4 +1,6 @@
-﻿namespace UpSchool.Domain.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace UpSchool.Domain.Entities
 {
     public class Account
     {
