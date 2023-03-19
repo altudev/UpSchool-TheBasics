@@ -11,7 +11,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<UpStorageDbContext>(opt=>opt.UseMySQL(builder.Configuration.GetConnectionString("MySQLDB")!));
+var mariaDbConnectionString = builder.Configuration.GetConnectionString("MariaDB")!;
+
+builder.Services.AddDbContext<UpStorageDbContext>(opt=>opt.UseMySql(mariaDbConnectionString,ServerVersion.AutoDetect(mariaDbConnectionString)));
 
 builder.Services.AddCors(options =>
 {
