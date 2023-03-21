@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using UpSchool.Domain.Dtos;
 using UpSchool.Domain.Entities;
 using UpSchool.Domain.Utilities;
@@ -21,49 +22,21 @@ namespace UpSchool.WebApi.Controllers
             _dbContext = dbContext;
         }
 
-       // private static List<Account> _accounts = new()
-       // {
-       //     new Account()
-       //     {
-       //         Id = new Guid("0bb85132-e3fa-4229-a3cf-f817baa418f5"),
-       //         UserName = "mrpickle",
-       //         Password = StringHelper.Base64Encode("123pickle123"),
-       //         IsFavourite = false,
-       //         CreatedOn = DateTimeOffset.Now,
-       //         Title = "UpSchool",
-       //         Url = "https://www.upschool.com",
-       //     },
-
-       //     new Account()
-       //     {
-       //     Id = new Guid("f4c43715-59d6-4806-9ee9-8cf8a1de8d19"),
-       //     UserName = "fullspeed@gmail.com",
-       //     Password = StringHelper.Base64Encode("123fullspeed123"),
-       //     IsFavourite = true,
-       //     CreatedOn = DateTimeOffset.Now,
-       //     Title = "Gmail",
-       //     Url = "https://www.google.com/intl/tr/gmail/about/",
-       //     },
-
-       //new Account
-       // {
-       //     Id = new Guid("bf5f7461-becc-46f8-b4cd-a39b8e6ca626"),
-       //     UserName = "movieguy",
-       //     Password = StringHelper.Base64Encode("123movieguy123"),
-       //     IsFavourite = false,
-       //     CreatedOn = DateTimeOffset.Now,
-       //     Title = "Sinemalar",
-       //     Url = "https://www.sinemalar.com",
-       // }
-    // };
-
-        
 
         [HttpGet]
-        public IActionResult GetAll()
+        public IActionResult GetAll(string? searchKeyword)
         {
 
-            var accounts = _dbContext.Accounts.ToList();
+            var accounts = string.IsNullOrEmpty(searchKeyword)
+                ?
+                _dbContext
+                    .Accounts
+                    .ToList()
+                :
+                _dbContext
+                    .Accounts
+                    .Where(x=>x.Title.Contains(searchKeyword))
+                    .ToList();
 
             var accountDtos = accounts.Select(account => AccountDto.MapFromAccount(account)).ToList();
 
@@ -87,6 +60,7 @@ namespace UpSchool.WebApi.Controllers
         [HttpPost]
         public IActionResult Add(AccountAddDto accountAddDto)
         {
+            
             var account = new Account()
             {
                 Id = Guid.NewGuid(),

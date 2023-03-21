@@ -18,7 +18,7 @@
                     <hr />
                     <div class="d-flex flex-row">
                         <button class="btn btn-success" @onclick="@(() => NavigationManager.NavigateTo("/accounts/add"))">Add</button>
-                        <button class="btn btn-warning ms-2" @onclick="@(() => NavigationManager.NavigateTo("/accounts/add"))">Undo</button>
+                        <input type="text" @oninput=@SearchInputChange class="form-control w-25 ms-2" placeholder="Search"/>
                     </div>
                     <hr/>
                     <div class="row">
@@ -70,11 +70,31 @@
 {
     List<AccountDto> accounts = new ();
 
+    private string searchKeyword = string.Empty;
+
     protected override async Task OnInitializedAsync()
     {
         accounts = await FetchAccountsAsync();
 
         await base.OnInitializedAsync();
+    }
+
+    private async Task SearchInputChange(ChangeEventArgs args)
+    {
+        if (args is not null && !string.IsNullOrEmpty(args.Value.ToString()))
+        {
+            searchKeyword = args.Value.ToString();
+
+            await OnSearchAsync();
+        }
+        else
+        {
+            searchKeyword = string.Empty;
+
+            accounts = await FetchAccountsAsync();
+        }
+
+        
     }
 
     private Task<List<AccountDto>?> FetchAccountsAsync()
@@ -85,6 +105,20 @@
     private void GoToEditPage(Guid id)
     {
         NavigationManager.NavigateTo($"/accounts/edit/{id}");
+    }
+
+    private async Task OnSearchAsync()
+    {
+        Console.WriteLine("OnSearchAsync");
+
+        if (string.IsNullOrEmpty(searchKeyword))
+        {
+            return;
+        }
+
+        var searchedAccounts = await HttpClient.GetFromJsonAsync<List<AccountDto>>($"Accounts?searchKeyword={searchKeyword}");
+
+        accounts = searchedAccounts;
     }
 
     private void SetShowPassword(AccountDto accountDto)

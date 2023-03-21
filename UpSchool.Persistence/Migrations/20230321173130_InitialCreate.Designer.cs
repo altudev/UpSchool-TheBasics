@@ -11,7 +11,7 @@ using UpSchool.Persistence.EntityFramework.Contexts;
 namespace UpSchool.Persistence.Migrations
 {
     [DbContext(typeof(UpStorageDbContext))]
-    [Migration("20230319150852_InitialCreate")]
+    [Migration("20230321173130_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
