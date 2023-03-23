@@ -24,19 +24,19 @@ namespace UpSchool.WebApi.Controllers
 
 
         [HttpGet]
-        public IActionResult GetAll(string? searchKeyword)
+        public IActionResult GetAll(bool isAscending, string? searchKeyword)
         {
+            IQueryable<Account> accountsQuery= _dbContext.Accounts.AsQueryable();
 
-            var accounts = string.IsNullOrEmpty(searchKeyword)
-                ?
-                _dbContext
-                    .Accounts
-                    .ToList()
-                :
-                _dbContext
-                    .Accounts
-                    .Where(x=>x.Title.Contains(searchKeyword))
-                    .ToList();
+            if (!string.IsNullOrEmpty(searchKeyword))
+                accountsQuery = accountsQuery.Where(x =>
+                    x.Title.Contains(searchKeyword) || x.UserName.Contains(searchKeyword));
+
+            accountsQuery = isAscending
+                ? accountsQuery.OrderBy(x => x.Title)
+                : accountsQuery.OrderByDescending(x => x.Title);
+
+            var accounts = accountsQuery.ToList();
 
             var accountDtos = accounts.Select(account => AccountDto.MapFromAccount(account)).ToList();
 

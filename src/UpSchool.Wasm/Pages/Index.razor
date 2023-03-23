@@ -19,6 +19,10 @@
                     <div class="d-flex flex-row">
                         <button class="btn btn-success" @onclick="@(() => NavigationManager.NavigateTo("/accounts/add"))">Add</button>
                         <input type="text" @oninput=@SearchInputChange class="form-control w-25 ms-2" placeholder="Search"/>
+                        <select class="form-control w-25 ms-2" @onchange=@OnSelectChange>
+                            <option value="true">Ascending</option>
+                            <option value="false">Descending</option>
+                        </select>
                     </div>
                     <hr/>
                     <div class="row">
@@ -32,7 +36,7 @@
                                     <div class="card-body">
                                         <div class="input-group text-center">
                                             <input type="text" class="form-control text-center" value="@account.UserName">
-                                            <span class="input-group-text oi oi-document clickable" id="basic-addon1"></span>
+                                            <span class="input-group-text oi oi-document clickable" id="basic-addon1" @onclick="@(() => CopyUserNameToClipBoardAsync(account.UserName))"></span>
                                         </div>
                                         <div class="input-group text-center mt-2">
                                             @if (account.ShowPassword)
@@ -44,7 +48,7 @@
                                                 <input type="password" class="form-control text-center" value="@account.Password">
                                             }
                                             <span class="input-group-text oi oi-eye clickable" @onclick="@(() => SetShowPassword(account))"></span>
-                                            <span class="input-group-text oi oi-document clickable"></span>
+                                            <span class="input-group-text oi oi-document clickable" @onclick="@(() => CopyToClipboardAsync(account.ShowPassword,account.Password))"></span>
                                         </div>
 
                                     </div>
@@ -72,11 +76,39 @@
 
     private string searchKeyword = string.Empty;
 
+    private bool isAscending = true;
+
     protected override async Task OnInitializedAsync()
     {
         accounts = await FetchAccountsAsync();
 
         await base.OnInitializedAsync();
+    }
+
+    private ValueTask CopyToClipboardAsync(bool showPassword, string password)
+    {
+        ToastService.ShowSuccess("The selected password was copied to the clipboard.");
+
+        if (!showPassword)
+            password = StringHelper.Base64Decode(password);
+
+        return JsRuntime.InvokeVoidAsync("navigator.clipboard.writeText", password);
+    }
+
+    private ValueTask CopyUserNameToClipBoardAsync(string userName)
+    {
+        ToastService.ShowSuccess("The selected UserName was copied to the clipboard.");
+
+        return JsRuntime.InvokeVoidAsync("navigator.clipboard.writeText", userName);
+    }
+
+    private async Task OnSelectChange(ChangeEventArgs args)
+    {
+        if (args is null) return;
+
+        isAscending = Convert.ToBoolean(args.Value);
+
+        accounts = await FetchAccountsAsync();
     }
 
     private async Task SearchInputChange(ChangeEventArgs args)
@@ -99,7 +131,7 @@
 
     private Task<List<AccountDto>?> FetchAccountsAsync()
     {
-        return HttpClient.GetFromJsonAsync<List<AccountDto>>("Accounts");
+        return HttpClient.GetFromJsonAsync<List<AccountDto>>($"Accounts?isAscending={isAscending}");
     }
 
     private void GoToEditPage(Guid id)
@@ -116,7 +148,7 @@
             return;
         }
 
-        var searchedAccounts = await HttpClient.GetFromJsonAsync<List<AccountDto>>($"Accounts?searchKeyword={searchKeyword}");
+        var searchedAccounts = await HttpClient.GetFromJsonAsync<List<AccountDto>>($"Accounts?searchKeyword={searchKeyword}&isAscending={isAscending}");
 
         accounts = searchedAccounts;
     }
