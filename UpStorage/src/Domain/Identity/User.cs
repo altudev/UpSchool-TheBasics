@@ -1,7 +1,7 @@
 ﻿using Domain.Common;
 using Microsoft.AspNetCore.Identity;
 
-namespace Infrastructure.Identity
+namespace Domain.Identity
 {
     public class User:IdentityUser<string>,IEntityBase<string>,ICreatedByEntity,IModifiedByEntity
     {
