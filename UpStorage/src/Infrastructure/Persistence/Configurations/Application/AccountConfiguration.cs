@@ -24,11 +24,11 @@ namespace Infrastructure.Persistence.Configurations.Application
 
             // Password
             builder.Property(x => x.Password).IsRequired();
-            builder.Property(x => x.Password).HasMaxLength(100);
+            builder.Property(x => x.Password).HasMaxLength(1000);
 
             // Url
             builder.Property(x => x.Url).IsRequired(false);
-            builder.Property(x => x.Url).HasMaxLength(100);
+            builder.Property(x => x.Url).HasMaxLength(1000);
 
             // IsFavourite
             builder.Property(x => x.IsFavourite).IsRequired();
