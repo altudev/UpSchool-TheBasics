@@ -9,6 +9,9 @@ namespace Infrastructure.Persistence.Configurations.Application
         public void Configure(EntityTypeBuilder<AccountCategory> builder)
         {
             
+            // ID
+            builder.HasKey(x => new { x.AccountId, x.CategoryId });
+
             // Relationships
             builder.HasOne<Account>(x => x.Account)
                 .WithMany(x => x.AccountCategories)
