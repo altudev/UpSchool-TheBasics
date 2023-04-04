@@ -1,7 +1,6 @@
 ﻿using Application.Common.Interfaces;
 using Application.Common.Models.Excel;
 using Domain.Common;
-using Domain.Entities;
 using MediatR;
 
 namespace Application.Features.Excel.Commands.ReadCities
