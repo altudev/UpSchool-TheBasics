@@ -11,7 +11,6 @@ namespace WebApi.Controllers
       
         public async Task<IActionResult> AddAsync(CityAddCommand command)
         {
-
             return Ok(await Mediator.Send(command));
         }
 
