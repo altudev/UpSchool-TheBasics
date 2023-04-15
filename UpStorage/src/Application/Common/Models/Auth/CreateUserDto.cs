@@ -1,4 +1,6 @@
-﻿namespace Application.Common.Models.Auth
+﻿using Domain.Identity;
+
+namespace Application.Common.Models.Auth
 {
     public class CreateUserDto
     {
@@ -16,6 +18,20 @@
             Email = email;
 
             Password = password;
+        }
+
+        public User MapToUser()
+        {
+            return new User()
+            {
+                Id = Guid.NewGuid().ToString(),
+                Email = this.Email,
+                FirstName = this.FirstName,
+                LastName = this.LastName,
+                UserName = this.Email,
+                CreatedOn = DateTimeOffset.Now,
+                CreatedByUserId = null,
+            };
         }
     }
 }
