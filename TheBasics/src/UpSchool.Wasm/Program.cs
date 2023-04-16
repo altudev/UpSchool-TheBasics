@@ -14,6 +14,8 @@ var titanicFluteApiUrl = builder.Configuration.GetConnectionString("TitanicFlute
 
 var apiUrl = builder.Configuration.GetSection("ApiUrl").Value!;
 
+var signalRUrl = builder.Configuration.GetSection("SignalRUrl").Value!;
+
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
@@ -25,7 +27,7 @@ builder.Services.AddScoped<IToasterService, BlazoredToastService>();
 
 //builder.Services.AddSingleton(typeof(LoggerBase));
 
-//builder.Services.AddSingleton<IUrlHelperService>(new UrlHelperService(titanicFluteApiUrl));
+builder.Services.AddSingleton<IUrlHelperService>(new UrlHelperService(titanicFluteApiUrl,signalRUrl));
 
 builder.Services.AddBlazoredLocalStorage(config =>
 {
