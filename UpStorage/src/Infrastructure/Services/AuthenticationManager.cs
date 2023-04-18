@@ -11,6 +11,7 @@ namespace Infrastructure.Services
     public class AuthenticationManager:IAuthenticationService
     {
         private readonly UserManager<User> _userManager;
+        
 
         public AuthenticationManager(UserManager<User> userManager)
         {

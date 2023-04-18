@@ -2,6 +2,7 @@ using Application;
 using Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
+using Domain.Settings;
 using WebApi.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +14,8 @@ builder.Services.AddControllers(opt =>
     //opt.Filters.Add<ValidationFilter>();
     opt.Filters.Add<GlobalExceptionFilter>();
 });
+
+builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
 
 Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
