@@ -7,5 +7,6 @@ namespace Application.Common.Interfaces
         Task<string> CreateUserAsync(CreateUserDto createUserDto, CancellationToken cancellationToken);
         Task<string> GenerateEmailActivationTokenAsync(string userId, CancellationToken cancellationToken);
         Task<bool> CheckIfUserExists(string email, CancellationToken cancellationToken);
+        Task<JwtDto> LoginAsync(AuthLoginRequest authLoginRequest, CancellationToken cancellationToken);
     }
 }
