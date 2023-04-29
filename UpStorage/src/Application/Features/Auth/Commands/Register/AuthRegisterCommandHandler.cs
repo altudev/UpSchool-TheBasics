@@ -36,6 +36,12 @@ namespace Application.Features.Auth.Commands.Register
             var fullName = $"{request.FirstName} {request.LastName}";
 
             var jwtDto = _jwtService.Generate(userId, request.Email, request.FirstName, request.LastName);
+
+            var name = $"-BUTTONNAME-";
+
+            name.Replace("BUTTONNAME-", "Hesabinizi aktiflestirmek icin tiklayiniz.");
+
+            name = "ALPERTUNGA";
             
             // Send an email
             _emailService.SendEmailConfirmation(new SendEmailConfirmationDto()
