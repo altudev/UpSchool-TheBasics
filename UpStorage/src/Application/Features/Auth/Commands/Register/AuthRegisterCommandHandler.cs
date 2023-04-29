@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Application.Common.Interfaces;
 using Application.Common.Models.Auth;
+using Application.Common.Models.Email;
 using Domain.Identity;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
@@ -15,11 +16,13 @@ namespace Application.Features.Auth.Commands.Register
     {
         private readonly IAuthenticationService _authenticationService;
         private readonly IJwtService _jwtService;
+        private readonly IEmailService _emailService;
 
-        public AuthRegisterCommandHandler(IAuthenticationService authenticationService, IJwtService jwtService)
+        public AuthRegisterCommandHandler(IAuthenticationService authenticationService, IJwtService jwtService, IEmailService emailService)
         {
             _authenticationService = authenticationService;
             _jwtService = jwtService;
+            _emailService = emailService;
         }
 
         public async Task<AuthRegisterDto> Handle(AuthRegisterCommand request, CancellationToken cancellationToken)
@@ -33,6 +36,14 @@ namespace Application.Features.Auth.Commands.Register
             var fullName = $"{request.FirstName} {request.LastName}";
 
             var jwtDto = _jwtService.Generate(userId, request.Email, request.FirstName, request.LastName);
+            
+            // Send an email
+            _emailService.SendEmailConfirmation(new SendEmailConfirmationDto()
+            {
+                Email = request.Email,
+                Name = request.FirstName,
+                Token = emailToken
+            });
 
             return new AuthRegisterDto(request.Email, fullName, jwtDto.AccessToken);
         }

@@ -48,6 +48,7 @@ namespace Infrastructure
             
             // Singleton Services
             services.AddSingleton<ITwoFactorService, TwoFactorManager>();
+            services.AddSingleton<IEmailService, EmailManager>();
 
 
             return services;
