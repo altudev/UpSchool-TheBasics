@@ -4,6 +4,8 @@
 @using UpSchool.Domain.Dtos
 @using UpSchool.Domain.Utilities
 @using Microsoft.AspNetCore.SignalR.Client
+@using Microsoft.Extensions.Localization
+@using System.Net.Http.Headers
 @inject IJSRuntime JsRuntime
 @inject IToasterService ToastService
 @inject Blazored.LocalStorage.ILocalStorageService LocalStorage
@@ -12,13 +14,14 @@
 @inject IUrlHelperService UrlHelperService
 @inject IToastService ToasterService
 @implements IAsyncDisposable
+@inject IStringLocalizer<object> Localizer
 
 <div class="container">
     <div class="row ">
         <div class="col-md-12">
             <div class="p-5 mb-4 bg-light rounded-3">
                 <div class="container-fluid">
-                    <h1 class="display-5 fw-bold text-center">My Accounts</h1>
+                    <h1 class="display-5 fw-bold text-center">My Accounts @Localizer["MyAccounts"] Benim Hesaplarım</h1>
                     <hr />
                     <div class="d-flex flex-row">
                         <button class="btn btn-success" @onclick="@(() => NavigationManager.NavigateTo($"/accounts/add/{hubConnection.ConnectionId}"))">Add</button>
@@ -168,6 +171,9 @@
 
     private Task<List<AccountDto>?> FetchAccountsAsync()
     {
+        HttpClient.DefaultRequestHeaders.Add("Accept-Language","tr-TR");
+        HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "token");
+
         return HttpClient.GetFromJsonAsync<List<AccountDto>>($"Accounts?isAscending={isAscending}");
     }
 

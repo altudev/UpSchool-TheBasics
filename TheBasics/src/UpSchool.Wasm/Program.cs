@@ -2,6 +2,7 @@ using Blazored.LocalStorage;
 using Blazored.Toast;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using System.Globalization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using UpSchool.Domain.Services;
@@ -24,6 +25,11 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(apiUrl) 
 builder.Services.AddBlazoredToast();
 
 builder.Services.AddScoped<IToasterService, BlazoredToastService>();
+
+builder.Services.AddLocalization(options =>
+{
+    options.ResourcesPath = "Resources";
+});
 
 //builder.Services.AddSingleton(typeof(LoggerBase));
 

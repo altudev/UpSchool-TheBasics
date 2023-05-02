@@ -12,6 +12,7 @@ namespace Application.Features.Cities.Commands.Add
         public CityAddCommandValidator(IApplicationDbContext applicationDbContext)
         {
             _applicationDbContext = applicationDbContext;
+
             RuleFor(x => x.Name)
                 .NotEmpty()
                 .MaximumLength(150);
@@ -25,7 +26,7 @@ namespace Application.Features.Cities.Commands.Add
             RuleFor(x => x.Name)
                 .MustAsync((command,name,cancellationToken) =>
                 {
-                    return _applicationDbContext.Cities.AllAsync(x => x.Name.ToLower() == name.ToLower(),
+                    return _applicationDbContext.Cities.AllAsync(x => x.Name.ToLower() != name.ToLower(),
                         cancellationToken);
                 });
 

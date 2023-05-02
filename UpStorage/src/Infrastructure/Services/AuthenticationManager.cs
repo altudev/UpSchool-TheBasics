@@ -1,4 +1,5 @@
 ﻿using Application.Common.Interfaces;
+using Application.Common.Localizations;
 using Application.Common.Models.Auth;
 using Application.Features.Auth.Commands.Login;
 using Domain.Identity;
@@ -6,6 +7,7 @@ using FluentValidation;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 
 namespace Infrastructure.Services
 {
@@ -14,13 +16,15 @@ namespace Infrastructure.Services
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly IJwtService _jwtService;
+        private readonly IStringLocalizer<CommonLocalizations> _localizer;
 
 
-        public AuthenticationManager(UserManager<User> userManager, SignInManager<User> signInManager, IJwtService jwtService)
+        public AuthenticationManager(UserManager<User> userManager, SignInManager<User> signInManager, IJwtService jwtService, IStringLocalizer<CommonLocalizations> localizer)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _jwtService = jwtService;
+            _localizer = localizer;
         }
 
         public async Task<string> CreateUserAsync(CreateUserDto createUserDto, CancellationToken cancellationToken)
@@ -70,7 +74,7 @@ namespace Infrastructure.Services
 
         private List<ValidationFailure> CreateValidationFailure => new List<ValidationFailure>()
         {
-            new ValidationFailure("Email & Password","Your Email or Password is incorrect.")
+            new ValidationFailure("Email & Password",_localizer[CommonLocalizationKeys.Auth.EmailOrPasswordIsInCorrect])
         };
     }
 }

@@ -1,7 +1,10 @@
-﻿namespace Application.Common.Models.Auth
+﻿using System.ComponentModel;
+
+namespace Application.Common.Models.Auth
 {
     public class AuthLoginRequest
     {
+        [DisplayName("")]
         public string Email { get; set; }
         public string Password { get; set; }
 
