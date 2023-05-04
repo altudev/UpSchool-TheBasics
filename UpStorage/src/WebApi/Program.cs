@@ -3,6 +3,7 @@ using Application;
 using Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
+using Application.Common.Interfaces;
 using Domain.Settings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Localization;
@@ -10,6 +11,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using WebApi.Filters;
 using Microsoft.Extensions.Options;
+using WebApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -106,6 +108,10 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 
     options.ApplyCurrentCultureToResponseHeaders = true;
 });
+
+builder.Services.AddSignalR();
+
+builder.Services.AddScoped<IAccountHubService, AccountHubManager>();
 
 var app = builder.Build();
 
