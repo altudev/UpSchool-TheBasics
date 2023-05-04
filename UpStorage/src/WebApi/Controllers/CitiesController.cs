@@ -16,6 +16,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPost("GetAll")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAllAsync(CityGetAllQuery query)
         {
             
