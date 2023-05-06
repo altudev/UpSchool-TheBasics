@@ -1,0 +1,56 @@
+2023-05-06 21:03:11.916 +03:00 [FTL] Application terminated unexpectedly
+System.NullReferenceException: The package was null.
+   at Program.<Main>$(String[] args) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Program.cs:line 149
+2023-05-06 21:08:16.988 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-06 21:08:17.153 +03:00 [INF] Now listening on: https://localhost:7109
+2023-05-06 21:08:17.154 +03:00 [INF] Now listening on: http://localhost:5223
+2023-05-06 21:08:17.156 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-05-06 21:08:17.163 +03:00 [INF] Hosting environment: Development
+2023-05-06 21:08:17.164 +03:00 [INF] Content root path: D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi
+2023-05-06 21:08:18.880 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - -
+2023-05-06 21:08:19.177 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - - - 200 - text/html;charset=utf-8 298.3288ms
+2023-05-06 21:08:19.254 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - -
+2023-05-06 21:08:19.254 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_vs/browserLink - -
+2023-05-06 21:08:19.295 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 41.4687ms
+2023-05-06 21:08:19.323 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 69.5591ms
+2023-05-06 21:08:19.392 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
+2023-05-06 21:08:19.495 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 103.1861ms
+2023-05-06 21:08:38.491 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 39
+2023-05-06 21:08:38.502 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-05-06 21:08:38.517 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-05-06 21:08:38.579 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-05-06 21:08:39.178 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Account' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-05-06 21:08:39.180 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'City' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-05-06 21:08:39.181 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Country' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-05-06 21:08:39.519 +03:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Name`
+FROM `Countries` AS `c`
+2023-05-06 21:08:39.542 +03:00 [INF] Executed action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 958.0897ms.
+2023-05-06 21:08:39.548 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Countries.Queries.GetAll.CountriesGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-05-06 21:08:39.557 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 1036.1767ms
+2023-05-06 21:08:39.558 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-05-06 21:08:39.565 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 39 - 200 - application/json;+charset=utf-8 1074.1959ms
+2023-05-06 21:08:50.162 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 40
+2023-05-06 21:08:50.165 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-05-06 21:08:50.167 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-05-06 21:08:50.180 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-05-06 21:08:54.850 +03:00 [ERR] Value cannot be null. (Parameter 'source')
+System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   at Application.Common.Models.General.PaginatedList`1.Create(IEnumerable`1 source, Int32 pageNumber, Int32 pageSize) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Models\General\PaginatedList.cs:line 35
+   at Application.Features.Countries.Queries.GetAll.CountriesGetAllQueryHandler.Handle(CountriesGetAllQuery request, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Features\Countries\Queries\GetAll\CountriesGetAllQueryHandler.cs:line 33
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Behaviours\ValidationBehaviour.cs:line 35
+   at WebApi.Controllers.CountriesController.GetAllAsync(CountriesGetAllQuery query) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Controllers\CountriesController.cs:line 14
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2023-05-06 21:08:54.871 +03:00 [INF] Executing ObjectResult, writing value of type 'Application.Common.Models.Errors.ApiErrorDto'.
+2023-05-06 21:08:54.874 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 4705.5252ms
+2023-05-06 21:08:54.875 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-05-06 21:08:54.876 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 40 - 500 - application/json;+charset=utf-8 4714.0571ms
