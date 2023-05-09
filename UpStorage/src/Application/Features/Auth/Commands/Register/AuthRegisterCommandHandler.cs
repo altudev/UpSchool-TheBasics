@@ -42,8 +42,7 @@ namespace Application.Features.Auth.Commands.Register
             name.Replace("BUTTONNAME-", "Hesabinizi aktiflestirmek icin tiklayiniz.");
 
             name = "ALPERTUNGA";
-            
-            // Send an email
+
             _emailService.SendEmailConfirmation(new SendEmailConfirmationDto()
             {
                 Email = request.Email,
