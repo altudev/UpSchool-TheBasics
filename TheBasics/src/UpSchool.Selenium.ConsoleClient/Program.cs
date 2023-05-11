@@ -8,7 +8,9 @@ using WebDriverManager;
 using UpSchool.Domain.Utilities;
 
 
-Thread.Sleep(5000);
+Console.WriteLine("UpSchool Crawler");
+
+Console.ReadKey();
 
 new DriverManager().SetUpDriver(new FirefoxConfig());
 
@@ -23,22 +25,26 @@ await hubConnection.StartAsync();
 
 try
 {
-    //await hubConnection.InvokeAsync("SendLogNotificationAsync", CreateLog("Bot started."));
+    await hubConnection.InvokeAsync("SendLogNotificationAsync", CreateLog("Bot started."));
 
-    var httpClient = new HttpClient();
+    //var httpClient = new HttpClient();
 
-    var apiSendNotificationDto = new SendLogNotificationApiDto(CreateLog("Bot started."), hubConnection.ConnectionId);
+    //var apiSendNotificationDto = new SendLogNotificationApiDto(CreateLog("Bot started."), hubConnection.ConnectionId);
 
-    await httpClient.PostAsJsonAsync("https://localhost:7296/api/SeleniumLogs", apiSendNotificationDto);
+    //await httpClient.PostAsJsonAsync("https://localhost:7296/api/SeleniumLogs", apiSendNotificationDto);
 
     driver.Navigate().GoToUrl("https://www.google.com/");
 
+
+    await hubConnection.InvokeAsync("SendLogNotificationAsync", CreateLog("Navigated to Google.com"));
     // We are waiting for fun. 
     Thread.Sleep(1500);
 
     IWebElement searchBox = driver.FindElement(By.Name("q"));
     searchBox.SendKeys("UpSchool");
     searchBox.Submit();
+
+    await hubConnection.InvokeAsync("SendLogNotificationAsync", CreateLog("Search submitted with \"UpSchool\" parameter."));
 
     // We are waiting for the results to load.
     Thread.Sleep(3000);
@@ -49,6 +55,7 @@ try
     {
         IWebElement link = firstResult.FindElement(By.TagName("a"));
         link.Click();
+        await hubConnection.InvokeAsync("SendLogNotificationAsync", CreateLog("Mission Accomplished. The Eagle on the nest!"));
     }
     else
     {
@@ -57,6 +64,7 @@ try
 
     Console.ReadKey();
 
+    await hubConnection.InvokeAsync("SendLogNotificationAsync", CreateLog("Bot stopped."));
 
     driver.Quit();
 }
