@@ -15,7 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UpSchool.WebApi", "UpSchool
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UpSchool.Persistence", "UpSchool.Persistence\UpSchool.Persistence.csproj", "{BD901295-89C4-42B1-A9E4-2F22BF7989FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpSchool.Selenium.ConsoleClient", "src\UpSchool.Selenium.ConsoleClient\UpSchool.Selenium.ConsoleClient.csproj", "{445DA33B-1CF5-4348-84C2-86E94F2EAFA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UpSchool.Selenium.ConsoleClient", "src\UpSchool.Selenium.ConsoleClient\UpSchool.Selenium.ConsoleClient.csproj", "{445DA33B-1CF5-4348-84C2-86E94F2EAFA2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{2EDD914A-9A13-4B6D-9D4C-5020939581FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpSchool.Domain.Tests", "tests\UpSchool.Domain.Tests\UpSchool.Domain.Tests.csproj", "{B7AFAA92-BC0F-4E18-892B-A00E6FB55553}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,9 +55,16 @@ Global
 		{445DA33B-1CF5-4348-84C2-86E94F2EAFA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{445DA33B-1CF5-4348-84C2-86E94F2EAFA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{445DA33B-1CF5-4348-84C2-86E94F2EAFA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7AFAA92-BC0F-4E18-892B-A00E6FB55553}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7AFAA92-BC0F-4E18-892B-A00E6FB55553}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7AFAA92-BC0F-4E18-892B-A00E6FB55553}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7AFAA92-BC0F-4E18-892B-A00E6FB55553}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B7AFAA92-BC0F-4E18-892B-A00E6FB55553} = {2EDD914A-9A13-4B6D-9D4C-5020939581FF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2014F114-7C8A-4A2E-8141-AA6629D4F9EB}
