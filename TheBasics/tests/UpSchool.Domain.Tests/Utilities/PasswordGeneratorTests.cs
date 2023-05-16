@@ -40,7 +40,6 @@ namespace UpSchool.Domain.Tests.Utilities
 
             A.CallTo(() => ipHelper.GetCurrentIPAddress()).Returns("195.142.70.227");
 
-
             var localDbMock = A.Fake<ILocalDB>();
 
             A.CallTo(() => localDbMock.IPs).Returns(new List<string>()

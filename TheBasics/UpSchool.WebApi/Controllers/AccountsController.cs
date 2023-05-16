@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
+using UpSchool.Domain.Data;
 using UpSchool.Domain.Dtos;
 using UpSchool.Domain.Entities;
 using UpSchool.Domain.Utilities;
@@ -18,12 +19,14 @@ namespace UpSchool.WebApi.Controllers
         private readonly IMapper _mapper;
         private readonly UpStorageDbContext _dbContext;
         private readonly IHubContext<AccountsHub> _accountsHubContext;
+        private readonly IUserRepository _userRepository;
 
-        public AccountsController(IMapper mapper, UpStorageDbContext dbContext, IHubContext<AccountsHub> accountsHubContext)
+        public AccountsController(IMapper mapper, UpStorageDbContext dbContext, IHubContext<AccountsHub> accountsHubContext, IUserRepository userRepository)
         {
             _mapper = mapper;
             _dbContext = dbContext;
             _accountsHubContext = accountsHubContext;
+            _userRepository = userRepository;
         }
 
 
@@ -112,6 +115,19 @@ namespace UpSchool.WebApi.Controllers
 
             _dbContext.Accounts.Remove(account);
             _dbContext.SaveChanges();
+
+            return NoContent();
+        }
+
+        [HttpDelete("RepositoryDelete/{id:guid}")]
+        public  async Task<IActionResult> RepositoryDeleteAsync(Guid id,CancellationToken cancellationToken)
+        {
+            // x=>x.Id == id
+            // x=x.Email == "alper.tunga@dotnet.gg"
+            var user = await _userRepository.GetByIdAsync(id, cancellationToken);
+
+
+            var result = await _userRepository.DeleteAsync(x => x.Id == id, cancellationToken);
 
             return NoContent();
         }
