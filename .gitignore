@@ -347,3 +347,9 @@ healthchecksdb
 
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 MigrationBackup/
+
+# Node.js / npm ignores
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
