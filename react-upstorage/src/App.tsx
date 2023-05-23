@@ -1,13 +1,52 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import './App.css'
 import NavBar from './components/NavBar.tsx';
+import PasswordGenerator from './utils/PasswordGenerator.ts';
+import {GeneratePasswordDto} from "./types/GeneratePasswordDto.ts";
+import { ToastContainer, toast } from 'react-toastify';
 
 function App() {
+    const passwordGenerator = new PasswordGenerator();
+    const generatePasswordDto = new GeneratePasswordDto();
 
     const [password, setPassword] = useState<string>("123456");
 
+    const myStyles = {
+        iconStyles:{
+            cursor:"pointer"
+        }
+    };
+
+    useEffect(() => {
+
+        handleGenerate();
+
+    },[]);
+
+    const handleGenerate = () : void => {
+
+        const generatePasswordDto = new GeneratePasswordDto();
+
+        generatePasswordDto.Length = 15;
+        generatePasswordDto.IncludeNumbers = true;
+        generatePasswordDto.IncludeLowercaseCharacters = true;
+        generatePasswordDto.IncludeUppercaseCharacters = true;
+        generatePasswordDto.IncludeSpecialCharacters = true;
+
+        setPassword(passwordGenerator.Generate(generatePasswordDto));
+
+    }
+
+    const handleCopyToClipBoard = () => {
+
+        navigator.clipboard.writeText(password);
+        toast("The selected password copied to the clipboard.");
+
+    }
+
     return (
         <>
+            <ToastContainer/>
             <NavBar />
             <div className="container" style={{backgroundColor: "#C4DFDF"}}>
                 <div className="card-header is-justify-content-center">
@@ -21,17 +60,13 @@ function App() {
                                 <p className="is-size-3">{password}</p>
                             </div>
                             <div className="media-right">
-                                <i className="is-size-3">📋</i>
-                                <i className="is-size-3">♻️</i>
+                                <i className="is-size-3" style={myStyles.iconStyles}>📁</i>
+                                <i className="is-size-3" style={myStyles.iconStyles} onClick={handleCopyToClipBoard}>📋</i>
+                                <i className="is-size-3" style={myStyles.iconStyles} onClick={handleGenerate}>♻️</i>
                             </div>
                         </div>
 
                         <div className="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                            <a href="#">#css</a> <a href="#">#responsive</a>
-                            <br/>
-                            <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
                         </div>
                     </div>
                 </div>
