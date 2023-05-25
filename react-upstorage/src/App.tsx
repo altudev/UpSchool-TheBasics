@@ -11,6 +11,8 @@ function App() {
 
     const [password, setPassword] = useState<string>("123456");
 
+    const [savedPasswords, setSavedPasswords] = useState<string[]>([]);
+
     const myStyles = {
         iconStyles:{
             cursor:"pointer"
@@ -25,15 +27,29 @@ function App() {
 
     const handleGenerate = () : void => {
 
-        const generatePasswordDto = new GeneratePasswordDto();
-
         generatePasswordDto.Length = 15;
         generatePasswordDto.IncludeNumbers = true;
         generatePasswordDto.IncludeLowercaseCharacters = true;
         generatePasswordDto.IncludeUppercaseCharacters = true;
         generatePasswordDto.IncludeSpecialCharacters = true;
 
-        setPassword(passwordGenerator.Generate(generatePasswordDto));
+        const newPass = passwordGenerator.Generate(generatePasswordDto);
+
+        console.log(newPass);
+
+        setPassword(newPass);
+
+    }
+
+    const handleSavePassword = () => {
+
+        const samePassword = savedPasswords.find(x=>x===password);
+
+        // 1 == "1"
+        // 1 === "1"
+
+        if(!samePassword)
+            setSavedPasswords([...savedPasswords,password]);
 
     }
 
@@ -48,11 +64,11 @@ function App() {
         <>
             <ToastContainer/>
             <NavBar />
-            <div className="container" style={{backgroundColor: "#C4DFDF"}}>
+            <div className="container App">
                 <div className="card-header is-justify-content-center">
                     <h3 className="has-text-success is-size-2">Secure Password Generator</h3>
                 </div>
-                <div className="card">
+                <div className="card" style={{backgroundColor:"#ECF8F9"}}>
 
                     <div className="card-content">
                         <div className="media">
@@ -60,13 +76,21 @@ function App() {
                                 <p className="is-size-3">{password}</p>
                             </div>
                             <div className="media-right">
-                                <i className="is-size-3" style={myStyles.iconStyles}>📁</i>
-                                <i className="is-size-3" style={myStyles.iconStyles} onClick={handleCopyToClipBoard}>📋</i>
-                                <i className="is-size-3" style={myStyles.iconStyles} onClick={handleGenerate}>♻️</i>
+                                <span className="is-size-3" style={myStyles.iconStyles} onClick={handleSavePassword}>📁</span>
+                                <span className="is-size-3" style={myStyles.iconStyles} onClick={handleCopyToClipBoard}>📋</span>
+                                <span className="is-size-3" style={myStyles.iconStyles} onClick={handleGenerate}>♻️</span>
                             </div>
                         </div>
 
-                        <div className="content">
+                        <div className="content has-text-centered">
+                            <ol className="list is-hoverable">
+                                {savedPasswords.map((pass,index) => (
+                                    <li className="list-item has-text-weight-bold" key={index}>
+                                        {pass}
+                                        <span style={myStyles.iconStyles}>🗑️</span>
+                                    </li>
+                                ))}
+                            </ol>
                         </div>
                     </div>
                 </div>

@@ -1,3 +1,37 @@
-h3{
-    margin: auto;
+.app-container {
+    background-color: #C4DFDF;
+}
+
+.header-container {
+    display: flex;
+    justify-content: center;
+}
+
+.header-container h3 {
+    color: #48C774; /* Bulma success color */
+    font-size: 2rem; /* equivalent to Bulma is-size-2 */
+}
+
+.password-text {
+    font-size: 1.5rem; /* equivalent to Bulma is-size-3 */
+}
+
+.icon-style {
+    cursor: pointer;
+    font-size: 1.5rem; /* equivalent to Bulma is-size-3 */
+}
+
+
+.App {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  /* height of the viewport */
+}
+
+.card {
+    width: 50%;  /* adjust this to change the size of the card */
+    max-width: 800px;  /* maximum width of the card */
+    margin: 0 auto; /* centers the card horizontally if its width is less than the container's width */
 }
