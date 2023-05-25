@@ -13,6 +13,8 @@ function App() {
 
     const [savedPasswords, setSavedPasswords] = useState<string[]>([]);
 
+    const [passwordLength, setPasswordLength] = useState<number>(12);
+
     const myStyles = {
         iconStyles:{
             cursor:"pointer"
@@ -27,7 +29,7 @@ function App() {
 
     const handleGenerate = () : void => {
 
-        generatePasswordDto.Length = 15;
+        generatePasswordDto.Length = passwordLength + 1;
         generatePasswordDto.IncludeNumbers = true;
         generatePasswordDto.IncludeLowercaseCharacters = true;
         generatePasswordDto.IncludeUppercaseCharacters = true;
@@ -51,6 +53,21 @@ function App() {
         if(!samePassword)
             setSavedPasswords([...savedPasswords,password]);
 
+    }
+
+    const handleSavedPasswordDelete = (selectedPass:string) => {
+
+        const newSavedPasswords = savedPasswords.filter((pass) => pass !== selectedPass);
+
+        setSavedPasswords(newSavedPasswords);
+
+    }
+
+    const handleChange = (value:string) => {
+
+        setPasswordLength(Number(value));
+
+        handleGenerate();
     }
 
     const handleCopyToClipBoard = () => {
@@ -83,11 +100,18 @@ function App() {
                         </div>
 
                         <div className="content has-text-centered">
+                            <div className="field">
+                                <input id="passwordLengthSelector" type="range"  step={1} min={6} max={40}
+                                       value={passwordLength} onChange={(event) => handleChange(event.currentTarget.value)}/>
+                                    <label htmlFor="passwordLengthSelector" style={{ fontSize: '24px', fontWeight:"bold" }}>{passwordLength}</label>
+
+                            </div>
+
                             <ol className="list is-hoverable">
                                 {savedPasswords.map((pass,index) => (
                                     <li className="list-item has-text-weight-bold" key={index}>
                                         {pass}
-                                        <span style={myStyles.iconStyles}>🗑️</span>
+                                        <span style={myStyles.iconStyles} onClick={() => handleSavedPasswordDelete(pass)}>🗑️</span>
                                     </li>
                                 ))}
                             </ol>

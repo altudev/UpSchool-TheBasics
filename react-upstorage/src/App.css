@@ -31,7 +31,7 @@
 }
 
 .card {
-    width: 50%;  /* adjust this to change the size of the card */
+    width: 75%;  /* adjust this to change the size of the card */
     max-width: 800px;  /* maximum width of the card */
     margin: 0 auto; /* centers the card horizontally if its width is less than the container's width */
 }
