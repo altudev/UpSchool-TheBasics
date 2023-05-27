@@ -15,6 +15,11 @@ function App() {
 
     const [passwordLength, setPasswordLength] = useState<number>(12);
 
+    const [includeNumbers, setIncludeNumbers] = useState<boolean>(true);
+    const [includeLowercase, setIncludeLowercase] = useState<boolean>(true);
+    const [includeUppercase, setIncludeUppercase] = useState<boolean>(false);
+    const [includeSpecialChars, setIncludeSpecialChars] = useState<boolean>(false);
+
     const myStyles = {
         iconStyles:{
             cursor:"pointer"
@@ -25,15 +30,15 @@ function App() {
 
         handleGenerate();
 
-    },[]);
+    },[passwordLength,includeNumbers,includeLowercase,includeUppercase,includeSpecialChars]);
 
     const handleGenerate = () : void => {
 
-        generatePasswordDto.Length = passwordLength + 1;
-        generatePasswordDto.IncludeNumbers = true;
-        generatePasswordDto.IncludeLowercaseCharacters = true;
-        generatePasswordDto.IncludeUppercaseCharacters = true;
-        generatePasswordDto.IncludeSpecialCharacters = true;
+        generatePasswordDto.Length = passwordLength;
+        generatePasswordDto.IncludeNumbers = includeNumbers;
+        generatePasswordDto.IncludeLowercaseCharacters = includeLowercase;
+        generatePasswordDto.IncludeUppercaseCharacters = includeUppercase;
+        generatePasswordDto.IncludeSpecialCharacters = includeSpecialChars;
 
         const newPass = passwordGenerator.Generate(generatePasswordDto);
 
@@ -67,7 +72,7 @@ function App() {
 
         setPasswordLength(Number(value));
 
-        handleGenerate();
+        //handleGenerate();
     }
 
     const handleCopyToClipBoard = () => {
@@ -90,7 +95,7 @@ function App() {
                     <div className="card-content">
                         <div className="media">
                             <div className="media-content">
-                                <p className="is-size-3">{password}</p>
+                                <p className="is-size-4">{password}</p>
                             </div>
                             <div className="media-right">
                                 <span className="is-size-3" style={myStyles.iconStyles} onClick={handleSavePassword}>📁</span>
@@ -99,12 +104,37 @@ function App() {
                             </div>
                         </div>
 
-                        <div className="content has-text-centered">
+                        <div className="content">
                             <div className="field">
-                                <input id="passwordLengthSelector" type="range"  step={1} min={6} max={40}
+                                <input id="passwordLengthSelector" type="range"  step={1} min={6} max={35} className="input mr-3"
                                        value={passwordLength} onChange={(event) => handleChange(event.currentTarget.value)}/>
                                     <label htmlFor="passwordLengthSelector" style={{ fontSize: '24px', fontWeight:"bold" }}>{passwordLength}</label>
 
+                            </div>
+                            <div className="field">
+                            <label className="checkbox mr-2">
+                                <input type="checkbox" className="mr-1" checked={includeNumbers}
+                                onChange={(event) => setIncludeNumbers(event.currentTarget.checked)}
+                                />
+                                    Numbers
+                            </label>
+                                <label className="checkbox mr-2">
+                                    <input type="checkbox" className="mr-1" checked={includeLowercase}
+                                           onChange={(event) => setIncludeLowercase(event.currentTarget.checked)}/>
+                                    Lowercase
+                                </label>
+                                <label className="checkbox mr-2">
+                                    <input type="checkbox" className="mr-1"
+                                           checked={includeUppercase}
+                                           onChange={(event) => setIncludeUppercase(event.currentTarget.checked)}/>
+                                    Uppercase
+                                </label>
+                                <label className="checkbox mr-2">
+                                    <input type="checkbox" className="mr-1"
+                                           checked={includeSpecialChars}
+                                           onChange={(event) => setIncludeSpecialChars(event.currentTarget.checked)}/>
+                                    Special Chars
+                                </label>
                             </div>
 
                             <ol className="list is-hoverable">
@@ -116,6 +146,8 @@ function App() {
                                 ))}
                             </ol>
                         </div>
+
+
                     </div>
                 </div>
             </div>

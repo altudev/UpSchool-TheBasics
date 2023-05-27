@@ -10,5 +10,7 @@ export class GeneratePasswordDto{
         this.IncludeNumbers = true;
         this.IncludeLowercaseCharacters = true;
         this.Length = 6;
+        this.IncludeUppercaseCharacters=false;
+        this.IncludeSpecialCharacters = false;
     }
 }

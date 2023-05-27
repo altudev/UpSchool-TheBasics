@@ -1,0 +1,11 @@
+{
+  "name": "Upstorage Password Generator",
+  "description": "Your BFF of Password Generators",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Open the popup",
+    "default_icon": "my_icon.png"
+  }
+}
