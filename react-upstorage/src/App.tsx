@@ -4,6 +4,7 @@ import NavBar from './components/NavBar.tsx';
 import PasswordGenerator from './utils/PasswordGenerator.ts';
 import {GeneratePasswordDto} from "./types/GeneratePasswordDto.ts";
 import { ToastContainer, toast } from 'react-toastify';
+import {Button, Card, Checkbox, Container, Form, Grid, Header, Icon, Input, Segment} from "semantic-ui-react";
 
 function App() {
     const passwordGenerator = new PasswordGenerator();
@@ -19,12 +20,6 @@ function App() {
     const [includeLowercase, setIncludeLowercase] = useState<boolean>(true);
     const [includeUppercase, setIncludeUppercase] = useState<boolean>(false);
     const [includeSpecialChars, setIncludeSpecialChars] = useState<boolean>(false);
-
-    const myStyles = {
-        iconStyles:{
-            cursor:"pointer"
-        }
-    };
 
     useEffect(() => {
 
@@ -85,74 +80,84 @@ function App() {
     return (
         <>
             <ToastContainer/>
-            <NavBar />
-            <div className="container App">
-                <div className="card-header is-justify-content-center">
-                    <h3 className="has-text-success is-size-2">Secure Password Generator</h3>
-                </div>
-                <div className="card" style={{backgroundColor:"#ECF8F9"}}>
+            <NavBar/>
+            <Container className="App">
+                <Header as='h2' textAlign='center' color='green' style={{ fontSize: '36px', fontWeight: 'bold' }}>Secure Password Generator</Header>
+                <Segment raised style={{backgroundColor: '#A2BEB9', boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2)', transition: '0.3s', color: '#173A3A'}}>
 
-                    <div className="card-content">
-                        <div className="media">
-                            <div className="media-content">
-                                <p className="is-size-4">{password}</p>
-                            </div>
-                            <div className="media-right">
-                                <span className="is-size-3" style={myStyles.iconStyles} onClick={handleSavePassword}>📁</span>
-                                <span className="is-size-3" style={myStyles.iconStyles} onClick={handleCopyToClipBoard}>📋</span>
-                                <span className="is-size-3" style={myStyles.iconStyles} onClick={handleGenerate}>♻️</span>
-                            </div>
-                        </div>
+                    <Grid>
+                        <Grid.Row columns={2}>
+                            <Grid.Column textAlign='center'>
+                                <Header as='h4'>{password}</Header>
+                                <Button icon onClick={handleSavePassword}><Icon name='save' /></Button>
+                                <Button icon onClick={handleCopyToClipBoard}><Icon name='copy' /></Button>
+                                <Button icon onClick={handleGenerate}><Icon name='refresh' /></Button>
+                            </Grid.Column>
+                            <Grid.Column>
+                                <Form>
+                                    <Form.Field>
+                                        <label>Password Length</label>
+                                        <Input
+                                            id="passwordLengthSelector"
+                                            type="number"
+                                            value={passwordLength}
+                                            min={6}
+                                            max={35}
+                                            onChange={(_, data) => handleChange(data.value)}
+                                        />
+                                    </Form.Field>
+                                    <Form.Field>
+                                        <Checkbox
+                                            label="Include Numbers"
+                                            checked={includeNumbers}
+                                            onChange={(_, data) => setIncludeNumbers(data.checked || true)}
+                                        />
+                                    </Form.Field>
+                                    <Form.Field>
+                                        <Checkbox
+                                            label="Include Lowercase Characters"
+                                            checked={includeLowercase}
+                                            onChange={(_, data) => setIncludeLowercase(data.checked || true)}
+                                        />
+                                    </Form.Field>
+                                    <Form.Field>
+                                        <Checkbox
+                                            label="Include Uppercase Characters"
+                                            checked={includeUppercase}
+                                            onChange={(_, data) => setIncludeUppercase(data.checked || true)}
+                                        />
+                                    </Form.Field>
+                                    <Form.Field>
+                                        <Checkbox
+                                            label="Include Special Characters"
+                                            checked={includeSpecialChars}
+                                            onChange={(_, data) => setIncludeSpecialChars(data.checked || true)}
+                                        />
+                                    </Form.Field>
+                                </Form>
+                            </Grid.Column>
+                        </Grid.Row>
+                    </Grid>
 
-                        <div className="content">
-                            <div className="field">
-                                <input id="passwordLengthSelector" type="range"  step={1} min={6} max={35} className="input mr-3"
-                                       value={passwordLength} onChange={(event) => handleChange(event.currentTarget.value)}/>
-                                    <label htmlFor="passwordLengthSelector" style={{ fontSize: '24px', fontWeight:"bold" }}>{passwordLength}</label>
+                    <Header as='h4' style={{paddingBottom:"15px"}}>Saved Passwords:</Header>
+                    <Card.Group itemsPerRow={4} stackable>
+                        {savedPasswords.map((pass,index) => (
+                            <Card key={index}>
+                                <Card.Content>
+                                    <Card.Header>{pass}</Card.Header>
+                                    <Card.Description>
+                                        <Button icon onClick={() => handleSavedPasswordDelete(pass)}><Icon name='trash' /></Button>
+                                    </Card.Description>
+                                </Card.Content>
+                            </Card>
+                        ))}
+                    </Card.Group>
 
-                            </div>
-                            <div className="field">
-                            <label className="checkbox mr-2">
-                                <input type="checkbox" className="mr-1" checked={includeNumbers}
-                                onChange={(event) => setIncludeNumbers(event.currentTarget.checked)}
-                                />
-                                    Numbers
-                            </label>
-                                <label className="checkbox mr-2">
-                                    <input type="checkbox" className="mr-1" checked={includeLowercase}
-                                           onChange={(event) => setIncludeLowercase(event.currentTarget.checked)}/>
-                                    Lowercase
-                                </label>
-                                <label className="checkbox mr-2">
-                                    <input type="checkbox" className="mr-1"
-                                           checked={includeUppercase}
-                                           onChange={(event) => setIncludeUppercase(event.currentTarget.checked)}/>
-                                    Uppercase
-                                </label>
-                                <label className="checkbox mr-2">
-                                    <input type="checkbox" className="mr-1"
-                                           checked={includeSpecialChars}
-                                           onChange={(event) => setIncludeSpecialChars(event.currentTarget.checked)}/>
-                                    Special Chars
-                                </label>
-                            </div>
-
-                            <ol className="list is-hoverable">
-                                {savedPasswords.map((pass,index) => (
-                                    <li className="list-item has-text-weight-bold" key={index}>
-                                        {pass}
-                                        <span style={myStyles.iconStyles} onClick={() => handleSavedPasswordDelete(pass)}>🗑️</span>
-                                    </li>
-                                ))}
-                            </ol>
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
+                </Segment>
+            </Container>
         </>
     )
+
 }
 
 export default App

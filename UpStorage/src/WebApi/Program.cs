@@ -25,6 +25,8 @@ try
 
     builder.Host.UseSerilog();
 
+    builder.Services.AddScoped<ICurrentUserService, CurrentUserManager>();
+
     // Add services to the container.
 
     builder.Services.AddControllers(opt =>

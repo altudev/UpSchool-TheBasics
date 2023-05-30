@@ -1,44 +1,34 @@
+import {Container, Dropdown, Menu,Image} from "semantic-ui-react";
+
 const NavBar = () => {
     return (
-        <nav className="navbar" role="navigation" aria-label="main navigation">
-            <div className="navbar-brand">
-                <a className="navbar-item" href="https://bulma.io">
-                    <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" />
-                </a>
+        <Menu fixed='top' inverted>
+            <Container>
+                <Menu.Item as='a' header>
+                    <Image size='mini' src='/vite.svg' style={{ marginRight: '1.5em' }} />
+                    UpStorage
+                </Menu.Item>
+                <Menu.Item as='a'>Home</Menu.Item>
 
-                <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false"
-                   data-target="navbarBasicExample">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </a>
-            </div>
-
-            <div id="navbarBasicExample" className="navbar-menu">
-                <div className="navbar-start">
-                    <a className="navbar-item">
-                        Home
-                    </a>
-
-                    <a className="navbar-item">
-                        Documentation
-                    </a>
-                </div>
-
-                <div className="navbar-end">
-                    <div className="navbar-item">
-                        <div className="buttons">
-                            <a className="button is-primary">
-                                <strong>Sign up</strong>
-                            </a>
-                            <a className="button is-light">
-                                Log in
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
+                <Dropdown item simple text='Dropdown'>
+                    <Dropdown.Menu>
+                        <Dropdown.Item>List Item</Dropdown.Item>
+                        <Dropdown.Item>List Item</Dropdown.Item>
+                        <Dropdown.Divider />
+                        <Dropdown.Header>Header Item</Dropdown.Header>
+                        <Dropdown.Item>
+                            <i className='dropdown icon' />
+                            <span className='text'>Submenu</span>
+                            <Dropdown.Menu>
+                                <Dropdown.Item>List Item</Dropdown.Item>
+                                <Dropdown.Item>List Item</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown.Item>
+                        <Dropdown.Item>List Item</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+            </Container>
+        </Menu>
     );
 }
 
