@@ -28,10 +28,6 @@ namespace Application.Features.Accounts.Queries.GetAll
                 .Take(request.PageSize)
                 .ToListAsync(cancellationToken);
 
-            var categories = await _applicationDbContext.Categories
-                .Where(x => x.AccountCategories.Any(x => accounts.Select(y=>y.Id).Contains(x.AccountId)))
-                .ToListAsync(cancellationToken);
-
             var totalCount = await countQuery.CountAsync(cancellationToken);
 
             var mappedAccounts = AccountGetAllDtoMapper(accounts);
@@ -76,7 +72,9 @@ namespace Application.Features.Accounts.Queries.GetAll
         private IQueryable<Account> GetAccountsQuery()
         {
             return _applicationDbContext.Accounts.AsNoTracking()
-                .Where(x => x.UserId == _currentUserService.UserId);
+                .Where(x => x.UserId == _currentUserService.UserId)
+                .Include(x=>x.AccountCategories)
+                .ThenInclude(x=>x.Category);
         }
 
         private IQueryable<Account> GetCountQuery()
