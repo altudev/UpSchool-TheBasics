@@ -1,0 +1,32 @@
+.main-segment {
+    background-color: #A2CECE;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.19), 0px 6px 6px rgba(0,0,0,0.23);
+}
+
+.main-header {
+    /*text-shadow: 2px 2px 4px #000000;*/
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-weight: 600;
+    background-image: linear-gradient(to right, #41644A 45%, #A0D8B3) !important;
+    color: transparent !important;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+
+.ui.divider.section {
+    border-top: 3px solid #C4DFDF;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.d-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ml-2 {
+    margin-left: 1rem;
+}
