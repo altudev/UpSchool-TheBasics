@@ -43,12 +43,12 @@ namespace Application.Features.Auth.Commands.Register
 
             name = "ALPERTUNGA";
 
-            _emailService.SendEmailConfirmation(new SendEmailConfirmationDto()
-            {
-                Email = request.Email,
-                Name = request.FirstName,
-                Token = emailToken
-            });
+            //_emailService.SendEmailConfirmation(new SendEmailConfirmationDto()
+            //{
+            //    Email = request.Email,
+            //    Name = request.FirstName,
+            //    Token = emailToken
+            //});
 
             return new AuthRegisterDto(request.Email, fullName, jwtDto.AccessToken);
         }

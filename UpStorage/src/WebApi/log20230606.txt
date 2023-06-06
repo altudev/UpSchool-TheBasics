@@ -1,0 +1,218 @@
+2023-06-06 20:47:03.039 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-06 20:47:03.196 +03:00 [INF] Now listening on: https://localhost:7109
+2023-06-06 20:47:03.198 +03:00 [INF] Now listening on: http://localhost:5223
+2023-06-06 20:47:03.199 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-06 20:47:03.200 +03:00 [INF] Hosting environment: Development
+2023-06-06 20:47:03.207 +03:00 [INF] Content root path: D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi
+2023-06-06 20:47:05.168 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - -
+2023-06-06 20:47:05.361 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - - - 200 - text/html;charset=utf-8 193.8270ms
+2023-06-06 20:47:05.459 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_vs/browserLink - -
+2023-06-06 20:47:05.459 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - -
+2023-06-06 20:47:05.482 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 22.8267ms
+2023-06-06 20:47:05.510 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 51.2141ms
+2023-06-06 20:47:05.564 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
+2023-06-06 20:47:05.649 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 85.1897ms
+2023-06-06 20:47:20.830 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Authentication/Login application/json 81
+2023-06-06 20:47:20.840 +03:00 [INF] CORS policy execution successful.
+2023-06-06 20:47:21.003 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.LoginAsync (WebApi)'
+2023-06-06 20:47:21.017 +03:00 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginAsync(Application.Features.Auth.Commands.Login.AuthLoginCommand) on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-06-06 20:47:21.078 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.LoginAsync (WebApi) - Validation state: "Valid"
+2023-06-06 20:47:22.674 +03:00 [INF] Executed DbCommand (57ms) [Parameters=[@__email_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `AspNetUsers` AS `a`
+    WHERE `a`.`Email` = @__email_0)
+2023-06-06 20:47:22.740 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`FirstName`, `a`.`LastName`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedEmail` = @__normalizedEmail_0
+LIMIT 2
+2023-06-06 20:47:22.921 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[@__user_Id_0='?' (Size = 191)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`ClaimType`, `a`.`ClaimValue`, `a`.`UserId`
+FROM `AspNetUserClaims` AS `a`
+WHERE `a`.`UserId` = @__user_Id_0
+2023-06-06 20:47:22.956 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__userId_0='?' (Size = 191)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+2023-06-06 20:47:22.966 +03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2023-06-06 20:47:23.305 +03:00 [ERR] IDX10634: Unable to create the SignatureProvider.
+Algorithm: 'http://www.w3.org/2001/04/xmlenc#aes256-cbc', SecurityKey: '[PII of type 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'
+ is not supported. The list of supported algorithms is available here: https://aka.ms/IdentityModel/supported-algorithms
+System.NotSupportedException: IDX10634: Unable to create the SignatureProvider.
+Algorithm: 'http://www.w3.org/2001/04/xmlenc#aes256-cbc', SecurityKey: '[PII of type 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'
+ is not supported. The list of supported algorithms is available here: https://aka.ms/IdentityModel/supported-algorithms
+   at Microsoft.IdentityModel.Tokens.CryptoProviderFactory.CreateSignatureProvider(SecurityKey key, String algorithm, Boolean willCreateSignatures, Boolean cacheProvider)
+   at Microsoft.IdentityModel.Tokens.CryptoProviderFactory.CreateForSigning(SecurityKey key, String algorithm, Boolean cacheProvider)
+   at Microsoft.IdentityModel.Tokens.CryptoProviderFactory.CreateForSigning(SecurityKey key, String algorithm)
+   at Microsoft.IdentityModel.JsonWebTokens.JwtTokenUtilities.CreateEncodedSignature(String input, SigningCredentials signingCredentials)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.WriteToken(SecurityToken token)
+   at Infrastructure.Services.JwtManager.Generate(String userId, String email, String firstName, String lastName, List`1 roles) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Infrastructure\Services\JwtManager.cs:line 51
+   at Infrastructure.Services.AuthenticationManager.LoginAsync(AuthLoginRequest authLoginRequest, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Infrastructure\Services\AuthenticationManager.cs:line 72
+   at Application.Features.Auth.Commands.Login.AuthLoginCommandHandler.Handle(AuthLoginCommand request, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Features\Auth\Commands\Login\AuthLoginCommandHandler.cs:line 19
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Behaviours\ValidationBehaviour.cs:line 35
+   at WebApi.Controllers.AuthenticationController.LoginAsync(AuthLoginCommand command) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Controllers\AuthenticationController.cs:line 21
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2023-06-06 20:47:23.334 +03:00 [INF] Executing ObjectResult, writing value of type 'Application.Common.Models.Errors.ApiErrorDto'.
+2023-06-06 20:47:23.342 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.LoginAsync (WebApi) in 2321.3913ms
+2023-06-06 20:47:23.344 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.LoginAsync (WebApi)'
+2023-06-06 20:47:23.351 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Authentication/Login application/json 81 - 500 - application/json;+charset=utf-8 2521.0502ms
+2023-06-06 20:47:55.103 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Authentication/Login application/json 81
+2023-06-06 20:47:55.107 +03:00 [INF] CORS policy execution successful.
+2023-06-06 20:47:55.109 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.LoginAsync (WebApi)'
+2023-06-06 20:47:55.110 +03:00 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginAsync(Application.Features.Auth.Commands.Login.AuthLoginCommand) on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-06-06 20:47:55.124 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.LoginAsync (WebApi) - Validation state: "Valid"
+2023-06-06 20:47:55.185 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__email_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `AspNetUsers` AS `a`
+    WHERE `a`.`Email` = @__email_0)
+2023-06-06 20:47:55.208 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`FirstName`, `a`.`LastName`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedEmail` = @__normalizedEmail_0
+LIMIT 2
+2023-06-06 20:47:55.279 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__user_Id_0='?' (Size = 191)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`ClaimType`, `a`.`ClaimValue`, `a`.`UserId`
+FROM `AspNetUserClaims` AS `a`
+WHERE `a`.`UserId` = @__user_Id_0
+2023-06-06 20:47:55.302 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@__userId_0='?' (Size = 191)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+2023-06-06 20:47:55.306 +03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2023-06-06 20:50:04.551 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-06 20:50:04.717 +03:00 [INF] Now listening on: https://localhost:7109
+2023-06-06 20:50:04.718 +03:00 [INF] Now listening on: http://localhost:5223
+2023-06-06 20:50:04.720 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-06 20:50:04.720 +03:00 [INF] Hosting environment: Development
+2023-06-06 20:50:04.721 +03:00 [INF] Content root path: D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi
+2023-06-06 20:50:06.531 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - -
+2023-06-06 20:50:06.722 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - - - 200 - text/html;charset=utf-8 192.3484ms
+2023-06-06 20:50:06.819 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_vs/browserLink - -
+2023-06-06 20:50:06.819 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - -
+2023-06-06 20:50:06.845 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 26.3372ms
+2023-06-06 20:50:06.884 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 64.9753ms
+2023-06-06 20:50:06.960 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
+2023-06-06 20:50:07.058 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 97.9543ms
+2023-06-06 20:50:18.832 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Authentication/Login application/json 81
+2023-06-06 20:50:18.839 +03:00 [INF] CORS policy execution successful.
+2023-06-06 20:50:18.890 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.LoginAsync (WebApi)'
+2023-06-06 20:50:18.903 +03:00 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginAsync(Application.Features.Auth.Commands.Login.AuthLoginCommand) on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-06-06 20:50:18.964 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.LoginAsync (WebApi) - Validation state: "Valid"
+2023-06-06 20:50:19.911 +03:00 [INF] Executed DbCommand (60ms) [Parameters=[@__email_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `AspNetUsers` AS `a`
+    WHERE `a`.`Email` = @__email_0)
+2023-06-06 20:50:20.021 +03:00 [INF] Executed DbCommand (53ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`FirstName`, `a`.`LastName`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedEmail` = @__normalizedEmail_0
+LIMIT 2
+2023-06-06 20:50:20.192 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__user_Id_0='?' (Size = 191)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`ClaimType`, `a`.`ClaimValue`, `a`.`UserId`
+FROM `AspNetUserClaims` AS `a`
+WHERE `a`.`UserId` = @__user_Id_0
+2023-06-06 20:50:20.228 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@__userId_0='?' (Size = 191)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+2023-06-06 20:50:20.239 +03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2023-06-06 20:51:24.126 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-06 20:51:24.278 +03:00 [INF] Now listening on: https://localhost:7109
+2023-06-06 20:51:24.279 +03:00 [INF] Now listening on: http://localhost:5223
+2023-06-06 20:51:24.281 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-06 20:51:24.282 +03:00 [INF] Hosting environment: Development
+2023-06-06 20:51:24.283 +03:00 [INF] Content root path: D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi
+2023-06-06 20:51:26.030 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - -
+2023-06-06 20:51:26.191 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - - - 200 - text/html;charset=utf-8 162.1452ms
+2023-06-06 20:51:26.273 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_vs/browserLink - -
+2023-06-06 20:51:26.273 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - -
+2023-06-06 20:51:26.283 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 9.8838ms
+2023-06-06 20:51:26.313 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 39.6011ms
+2023-06-06 20:51:26.367 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
+2023-06-06 20:51:26.444 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 76.7285ms
+2023-06-06 20:51:39.914 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Authentication/Login application/json 81
+2023-06-06 20:51:39.922 +03:00 [INF] CORS policy execution successful.
+2023-06-06 20:51:39.969 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.LoginAsync (WebApi)'
+2023-06-06 20:51:39.983 +03:00 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginAsync(Application.Features.Auth.Commands.Login.AuthLoginCommand) on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-06-06 20:51:40.037 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.LoginAsync (WebApi) - Validation state: "Valid"
+2023-06-06 20:51:40.861 +03:00 [INF] Executed DbCommand (37ms) [Parameters=[@__email_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `AspNetUsers` AS `a`
+    WHERE `a`.`Email` = @__email_0)
+2023-06-06 20:51:40.922 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`FirstName`, `a`.`LastName`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedEmail` = @__normalizedEmail_0
+LIMIT 2
+2023-06-06 20:51:41.086 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[@__user_Id_0='?' (Size = 191)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`ClaimType`, `a`.`ClaimValue`, `a`.`UserId`
+FROM `AspNetUserClaims` AS `a`
+WHERE `a`.`UserId` = @__user_Id_0
+2023-06-06 20:51:41.121 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__userId_0='?' (Size = 191)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+2023-06-06 20:51:41.134 +03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2023-06-06 20:51:41.214 +03:00 [INF] Executed action method WebApi.Controllers.AuthenticationController.LoginAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1172.8436ms.
+2023-06-06 20:51:41.220 +03:00 [INF] Executing OkObjectResult, writing value of type 'Domain.Common.Response`1[[Application.Features.Auth.Commands.Login.AuthLoginDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-06-06 20:51:41.230 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.LoginAsync (WebApi) in 1243.8927ms
+2023-06-06 20:51:41.232 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.LoginAsync (WebApi)'
+2023-06-06 20:51:41.237 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Authentication/Login application/json 81 - 200 - application/json;+charset=utf-8 1323.4206ms
+2023-06-06 20:56:42.460 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-06 20:56:42.605 +03:00 [INF] Now listening on: https://localhost:7109
+2023-06-06 20:56:42.606 +03:00 [INF] Now listening on: http://localhost:5223
+2023-06-06 20:56:42.608 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-06 20:56:42.608 +03:00 [INF] Hosting environment: Development
+2023-06-06 20:56:42.609 +03:00 [INF] Content root path: D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi
+2023-06-06 20:56:44.155 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - -
+2023-06-06 20:56:44.312 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - - - 200 - text/html;charset=utf-8 158.0781ms
+2023-06-06 20:56:44.396 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - -
+2023-06-06 20:56:44.396 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_vs/browserLink - -
+2023-06-06 20:56:44.409 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 12.5964ms
+2023-06-06 20:56:44.437 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 41.1061ms
+2023-06-06 20:56:44.490 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
+2023-06-06 20:56:44.576 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 85.8150ms
+2023-06-06 20:57:10.857 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Authentication/Login application/json 81
+2023-06-06 20:57:10.872 +03:00 [INF] CORS policy execution successful.
+2023-06-06 20:57:10.921 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.LoginAsync (WebApi)'
+2023-06-06 20:57:10.935 +03:00 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginAsync(Application.Features.Auth.Commands.Login.AuthLoginCommand) on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-06-06 20:57:10.989 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.LoginAsync (WebApi) - Validation state: "Valid"
+2023-06-06 20:57:11.807 +03:00 [INF] Executed DbCommand (42ms) [Parameters=[@__email_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `AspNetUsers` AS `a`
+    WHERE `a`.`Email` = @__email_0)
+2023-06-06 20:57:11.899 +03:00 [INF] Executed DbCommand (41ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`FirstName`, `a`.`LastName`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedEmail` = @__normalizedEmail_0
+LIMIT 2
+2023-06-06 20:57:12.081 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__user_Id_0='?' (Size = 191)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`ClaimType`, `a`.`ClaimValue`, `a`.`UserId`
+FROM `AspNetUserClaims` AS `a`
+WHERE `a`.`UserId` = @__user_Id_0
+2023-06-06 20:57:12.113 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__userId_0='?' (Size = 191)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+2023-06-06 20:57:12.123 +03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2023-06-06 20:57:12.202 +03:00 [INF] Executed action method WebApi.Controllers.AuthenticationController.LoginAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1208.2841ms.
+2023-06-06 20:57:12.208 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Features.Auth.Commands.Login.AuthLoginDto'.
+2023-06-06 20:57:12.216 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.LoginAsync (WebApi) in 1278.5085ms
+2023-06-06 20:57:12.218 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.LoginAsync (WebApi)'
+2023-06-06 20:57:12.223 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Authentication/Login application/json 81 - 200 - application/json;+charset=utf-8 1365.8559ms

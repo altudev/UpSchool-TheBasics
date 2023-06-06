@@ -27,8 +27,6 @@ namespace Infrastructure.Services
                 new Claim(JwtRegisteredClaimNames.Sub,userId),
                 new Claim(JwtRegisteredClaimNames.GivenName,firstName),
                 new Claim(JwtRegisteredClaimNames.FamilyName,lastName),
-                new Claim("ucretsizReklam","UpSchoolIsTheBest"),
-                new Claim("bizimReklamaIhtiyacimizYok","UpSchoolFSD"),
                 new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString()),
             };
 
@@ -37,7 +35,7 @@ namespace Infrastructure.Services
             // Neslihan bizleri uyardı arkadaşlar. Lütfen bu konuyu öğrendikten sonra geriye dönüp buradaki algoritmamızı AES ile güncelleyelim.
             // <3 Teşekkürler Neslihan.
 
-            var signingCredentials = new SigningCredentials(symmetricKey, SecurityAlgorithms.HmacSha256);
+            var signingCredentials = new SigningCredentials(symmetricKey, SecurityAlgorithms.HmacSha256Signature);
 
             var expiry = DateTime.Now.AddMinutes(_jwtSettings.ExpiryInMinutes);
 

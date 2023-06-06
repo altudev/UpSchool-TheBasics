@@ -127,6 +127,16 @@ try
 
     builder.Services.AddMemoryCache();
 
+    builder.Services.AddCors(options =>
+    {
+        options.AddPolicy("AllowAll",
+            builder => builder
+                .AllowAnyMethod()
+                .AllowCredentials()
+                .SetIsOriginAllowed((host) => true)
+                .AllowAnyHeader());
+    });
+
     var app = builder.Build();
 
     // Configure the HTTP request pipeline.
@@ -143,6 +153,10 @@ try
     if (requestLocalizationOptions is not null) app.UseRequestLocalization(requestLocalizationOptions.Value);
 
     app.UseHttpsRedirection();
+
+    app.UseCors("AllowAll");
+
+    app.UseAuthentication();
 
     app.UseAuthorization();
 

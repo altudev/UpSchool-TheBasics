@@ -8,6 +8,7 @@ import AccountsPage from "./pages/AccountsPage.tsx";
 import NotFoundPage from "./pages/NotFoundPage.tsx";
 import {useState} from "react";
 import {AccountGetAllDto} from "./types/AccountTypes.ts";
+import {LocalUser} from "./types/AuthTypes.ts";
 
 const dummyAccounts:AccountGetAllDto[] = [
     {
@@ -38,6 +39,7 @@ function App() {
 
     const [accounts,setAccounts] = useState<AccountGetAllDto[]>(dummyAccounts);
 
+    const [appUser, setAppUser] = useState<LocalUser | undefined>(undefined);
 
     return (
         <>
