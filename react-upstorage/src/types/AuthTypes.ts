@@ -7,3 +7,8 @@ export type LocalUser = {
     accessToken:string,
     expires:string,
 };
+
+export type AuthLoginCommand = {
+    email:string,
+    password:string
+}

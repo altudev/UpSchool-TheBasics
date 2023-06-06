@@ -9,6 +9,7 @@ import NotFoundPage from "./pages/NotFoundPage.tsx";
 import {useState} from "react";
 import {AccountGetAllDto} from "./types/AccountTypes.ts";
 import {LocalUser} from "./types/AuthTypes.ts";
+import LoginPage from "./pages/LoginPage.tsx";
 
 const dummyAccounts:AccountGetAllDto[] = [
     {
@@ -44,11 +45,12 @@ function App() {
     return (
         <>
             <ToastContainer/>
-            <NavBar accounts={accounts}/>
+            <NavBar accounts={accounts} appUser={appUser}/>
             <Container className="App">
             <Routes>
                 <Route path="/" element={<PasswordGeneratorPage />} />
                 <Route path="/accounts" element={<AccountsPage accounts={accounts} setAccounts={setAccounts} />} />
+                <Route path="/login" element={<LoginPage setAppUser={setAppUser} />} />
                 <Route path="*" element={<NotFoundPage />} />
             </Routes>
             </Container>
