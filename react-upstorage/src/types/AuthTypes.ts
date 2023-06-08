@@ -12,3 +12,8 @@ export type AuthLoginCommand = {
     email:string,
     password:string
 }
+
+export type LocalJwt = {
+    accessToken:string,
+    expires:string,
+}
