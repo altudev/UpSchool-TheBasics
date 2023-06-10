@@ -1,18 +1,24 @@
-import {AuthLoginCommand, LocalJwt, LocalUser} from "../types/AuthTypes.ts";
-import React, {useState} from "react";
+import {AuthLoginCommand, LocalJwt} from "../types/AuthTypes.ts";
+import React, {useContext, useState} from "react";
 import {Button, Form, Grid, Header, Icon, Image, Segment} from "semantic-ui-react";
 import axios from 'axios';
 import {getClaimsFromJwt} from "../utils/jwtHelper.ts";
 import {toast} from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import logo from '/upstorage_logo_730_608.png'; // import your image
+import logo from '/upstorage_logo_730_608.png';
+import {AppUserContext} from "../context/StateContext.tsx"; // import your image
 
-const LOGIN_URL = "https://localhost:7109/api/Authentication/Login"; // move to constants
+const BASE_URL = import.meta.env.VITE_API_URL;
 
-export type LoginPageProps = {
-    setAppUser:(appUser:LocalUser) => void
-}
-function LoginPage( { setAppUser } : LoginPageProps ) {
+const LOGIN_URL = `${BASE_URL}/Authentication/Login`; // move to constants
+
+/*export type LoginPageProps = {
+
+}*/
+
+function LoginPage() {
+
+    const { setAppUser } = useContext(AppUserContext);
 
     const navigate = useNavigate();
 
