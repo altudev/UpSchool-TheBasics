@@ -65,3 +65,605 @@ WHERE `a`.`UserId` = @__userId_0
 2023-06-13 20:33:04.318 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.LoginAsync (WebApi) in 3249.9342ms
 2023-06-13 20:33:04.319 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.LoginAsync (WebApi)'
 2023-06-13 20:33:04.325 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Authentication/Login application/json 72 - 200 - application/json;+charset=utf-8 3444.8542ms
+2023-06-13 21:29:47.703 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Accounts - -
+2023-06-13 21:29:47.709 +03:00 [INF] CORS policy execution successful.
+2023-06-13 21:29:47.710 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Accounts - - - 204 - - 7.7837ms
+2023-06-13 21:29:47.713 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Accounts - -
+2023-06-13 21:29:47.714 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Accounts - -
+2023-06-13 21:29:47.714 +03:00 [INF] CORS policy execution successful.
+2023-06-13 21:29:47.715 +03:00 [INF] CORS policy execution successful.
+2023-06-13 21:29:47.715 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Accounts - - - 204 - - 1.6499ms
+2023-06-13 21:29:47.749 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-13 21:29:47.753 +03:00 [INF] Route matched with {action = "GetAll", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Int32, Int32) on controller WebApi.Controllers.AccountsController (WebApi).
+2023-06-13 21:29:47.767 +03:00 [INF] Executing action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-06-13 21:29:47.856 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Account' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-13 21:29:47.857 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'City' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-13 21:29:47.858 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Country' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-13 21:29:47.901 +03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2023-06-13 21:29:47.902 +03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2023-06-13 21:29:47.993 +03:00 [ERR] Failed executing DbCommand (14ms) [Parameters=[@___currentUserService_UserId_0='?' (Size = 4000), @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`CreatedByUserId`, `t`.`CreatedOn`, `t`.`DeletedByUserId`, `t`.`DeletedOn`, `t`.`IsDeleted`, `t`.`IsFavourite`, `t`.`ModifiedByUserId`, `t`.`ModifiedOn`, `t`.`Password`, `t`.`Title`, `t`.`Url`, `t`.`UserId`, `t`.`UserName`, `t0`.`AccountId`, `t0`.`CategoryId`, `t0`.`Id`, `t0`.`CreatedByUserId`, `t0`.`CreatedOn`, `t0`.`DeletedByUserId`, `t0`.`DeletedOn`, `t0`.`IsDeleted`, `t0`.`ModifiedByUserId`, `t0`.`ModifiedOn`, `t0`.`Name`, `t0`.`UserId`
+FROM (
+    SELECT `a`.`Id`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`DeletedByUserId`, `a`.`DeletedOn`, `a`.`IsDeleted`, `a`.`IsFavourite`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`Password`, `a`.`Title`, `a`.`Url`, `a`.`UserId`, `a`.`UserName`
+    FROM `Accounts` AS `a`
+    WHERE `a`.`UserId` = @___currentUserService_UserId_0
+    LIMIT @__p_2 OFFSET @__p_1
+) AS `t`
+LEFT JOIN (
+    SELECT `a0`.`AccountId`, `a0`.`CategoryId`, `c`.`Id`, `c`.`CreatedByUserId`, `c`.`CreatedOn`, `c`.`DeletedByUserId`, `c`.`DeletedOn`, `c`.`IsDeleted`, `c`.`ModifiedByUserId`, `c`.`ModifiedOn`, `c`.`Name`, `c`.`UserId`
+    FROM `AccountCategories` AS `a0`
+    INNER JOIN `Categories` AS `c` ON `a0`.`CategoryId` = `c`.`Id`
+) AS `t0` ON `t`.`Id` = `t0`.`AccountId`
+ORDER BY `t`.`Id`, `t0`.`AccountId`, `t0`.`CategoryId`
+2023-06-13 21:29:48.039 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Infrastructure.Persistence.Contexts.ApplicationDbContext'.
+MySqlConnector.MySqlException (0x80004005): Table 'alper_tunga_upstorage.accountcategories' doesn't exist
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsyncAwaited(ValueTask`1 task) in /_/src/MySqlConnector/Core/ServerSession.cs:line 962
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 43
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 468
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList`1 commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 344
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 337
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+MySqlConnector.MySqlException (0x80004005): Table 'alper_tunga_upstorage.accountcategories' doesn't exist
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsyncAwaited(ValueTask`1 task) in /_/src/MySqlConnector/Core/ServerSession.cs:line 962
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 43
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 468
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList`1 commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 344
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 337
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2023-06-13 21:34:24.988 +03:00 [FTL] Application terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Program.cs:line 140
+2023-06-13 21:34:30.285 +03:00 [FTL] Application terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Program.cs:line 140
+2023-06-13 21:38:06.782 +03:00 [FTL] Application terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Program.cs:line 140
+2023-06-13 21:40:52.260 +03:00 [FTL] Application terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Program.cs:line 140
+2023-06-13 21:40:58.584 +03:00 [FTL] Application terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Program.cs:line 140
+2023-06-13 21:43:42.881 +03:00 [FTL] Application terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Program.cs:line 140
+2023-06-13 21:43:47.836 +03:00 [FTL] Application terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Program.cs:line 140
+2023-06-13 21:44:59.774 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-13 21:44:59.915 +03:00 [INF] Now listening on: https://localhost:7109
+2023-06-13 21:44:59.916 +03:00 [INF] Now listening on: http://localhost:5223
+2023-06-13 21:44:59.918 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-13 21:44:59.918 +03:00 [INF] Hosting environment: Development
+2023-06-13 21:44:59.919 +03:00 [INF] Content root path: D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi
+2023-06-13 21:45:01.072 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - -
+2023-06-13 21:45:01.308 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - - - 200 - text/html;charset=utf-8 237.2847ms
+2023-06-13 21:45:01.415 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_vs/browserLink - -
+2023-06-13 21:45:01.415 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - -
+2023-06-13 21:45:01.444 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 29.6350ms
+2023-06-13 21:45:01.477 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 62.3213ms
+2023-06-13 21:45:01.611 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
+2023-06-13 21:45:01.714 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 103.1835ms
+2023-06-13 21:45:52.340 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Accounts - -
+2023-06-13 21:45:52.340 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Accounts - -
+2023-06-13 21:45:52.358 +03:00 [INF] CORS policy execution successful.
+2023-06-13 21:45:52.358 +03:00 [INF] CORS policy execution successful.
+2023-06-13 21:45:52.360 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Accounts - - - 204 - - 19.5839ms
+2023-06-13 21:45:52.360 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Accounts - - - 204 - - 19.5826ms
+2023-06-13 21:45:52.362 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Accounts - -
+2023-06-13 21:45:52.363 +03:00 [INF] CORS policy execution successful.
+2023-06-13 21:45:52.516 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 18:33:04', Current time: '13/06/2023 18:45:52'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-06-13 21:45:52.538 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 18:33:04', Current time: '13/06/2023 18:45:52'.
+2023-06-13 21:45:52.541 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-13 21:45:52.556 +03:00 [INF] Route matched with {action = "GetAll", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Int32, Int32) on controller WebApi.Controllers.AccountsController (WebApi).
+2023-06-13 21:45:52.611 +03:00 [INF] Executing action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-06-13 21:45:53.184 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Account' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-13 21:45:53.185 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'City' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-13 21:45:53.186 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Country' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-13 21:45:53.392 +03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2023-06-13 21:45:53.393 +03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2023-06-13 21:45:53.702 +03:00 [INF] Executed DbCommand (119ms) [Parameters=[@__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`CreatedByUserId`, `t`.`CreatedOn`, `t`.`DeletedByUserId`, `t`.`DeletedOn`, `t`.`IsDeleted`, `t`.`IsFavourite`, `t`.`ModifiedByUserId`, `t`.`ModifiedOn`, `t`.`Password`, `t`.`Title`, `t`.`Url`, `t`.`UserId`, `t`.`UserName`, `t0`.`AccountId`, `t0`.`CategoryId`, `t0`.`Id`, `t0`.`CreatedByUserId`, `t0`.`CreatedOn`, `t0`.`DeletedByUserId`, `t0`.`DeletedOn`, `t0`.`IsDeleted`, `t0`.`ModifiedByUserId`, `t0`.`ModifiedOn`, `t0`.`Name`, `t0`.`UserId`
+FROM (
+    SELECT `a`.`Id`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`DeletedByUserId`, `a`.`DeletedOn`, `a`.`IsDeleted`, `a`.`IsFavourite`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`Password`, `a`.`Title`, `a`.`Url`, `a`.`UserId`, `a`.`UserName`
+    FROM `Accounts` AS `a`
+    WHERE FALSE
+    LIMIT @__p_2 OFFSET @__p_1
+) AS `t`
+LEFT JOIN (
+    SELECT `a0`.`AccountId`, `a0`.`CategoryId`, `c`.`Id`, `c`.`CreatedByUserId`, `c`.`CreatedOn`, `c`.`DeletedByUserId`, `c`.`DeletedOn`, `c`.`IsDeleted`, `c`.`ModifiedByUserId`, `c`.`ModifiedOn`, `c`.`Name`, `c`.`UserId`
+    FROM `AccountCategories` AS `a0`
+    INNER JOIN `Categories` AS `c` ON `a0`.`CategoryId` = `c`.`Id`
+) AS `t0` ON `t`.`Id` = `t0`.`AccountId`
+ORDER BY `t`.`Id`, `t0`.`AccountId`, `t0`.`CategoryId`
+2023-06-13 21:45:53.769 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Accounts` AS `a`
+WHERE FALSE
+2023-06-13 21:45:53.778 +03:00 [INF] Executed action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1161.58ms.
+2023-06-13 21:45:53.784 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Accounts.Queries.GetAll.AccountGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-06-13 21:45:53.796 +03:00 [INF] Executed action WebApi.Controllers.AccountsController.GetAllAsync (WebApi) in 1235.9178ms
+2023-06-13 21:45:53.798 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-13 21:45:53.804 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Accounts - - - 200 - application/json;+charset=utf-8 1442.4519ms
+2023-06-13 21:45:53.806 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Accounts - -
+2023-06-13 21:45:53.807 +03:00 [INF] CORS policy execution successful.
+2023-06-13 21:45:53.809 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 18:33:04', Current time: '13/06/2023 18:45:53'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-06-13 21:45:53.813 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 18:33:04', Current time: '13/06/2023 18:45:53'.
+2023-06-13 21:45:53.814 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-13 21:45:53.815 +03:00 [INF] Route matched with {action = "GetAll", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Int32, Int32) on controller WebApi.Controllers.AccountsController (WebApi).
+2023-06-13 21:45:53.838 +03:00 [INF] Executing action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-06-13 21:45:53.929 +03:00 [INF] Executed DbCommand (57ms) [Parameters=[@__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`CreatedByUserId`, `t`.`CreatedOn`, `t`.`DeletedByUserId`, `t`.`DeletedOn`, `t`.`IsDeleted`, `t`.`IsFavourite`, `t`.`ModifiedByUserId`, `t`.`ModifiedOn`, `t`.`Password`, `t`.`Title`, `t`.`Url`, `t`.`UserId`, `t`.`UserName`, `t0`.`AccountId`, `t0`.`CategoryId`, `t0`.`Id`, `t0`.`CreatedByUserId`, `t0`.`CreatedOn`, `t0`.`DeletedByUserId`, `t0`.`DeletedOn`, `t0`.`IsDeleted`, `t0`.`ModifiedByUserId`, `t0`.`ModifiedOn`, `t0`.`Name`, `t0`.`UserId`
+FROM (
+    SELECT `a`.`Id`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`DeletedByUserId`, `a`.`DeletedOn`, `a`.`IsDeleted`, `a`.`IsFavourite`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`Password`, `a`.`Title`, `a`.`Url`, `a`.`UserId`, `a`.`UserName`
+    FROM `Accounts` AS `a`
+    WHERE FALSE
+    LIMIT @__p_2 OFFSET @__p_1
+) AS `t`
+LEFT JOIN (
+    SELECT `a0`.`AccountId`, `a0`.`CategoryId`, `c`.`Id`, `c`.`CreatedByUserId`, `c`.`CreatedOn`, `c`.`DeletedByUserId`, `c`.`DeletedOn`, `c`.`IsDeleted`, `c`.`ModifiedByUserId`, `c`.`ModifiedOn`, `c`.`Name`, `c`.`UserId`
+    FROM `AccountCategories` AS `a0`
+    INNER JOIN `Categories` AS `c` ON `a0`.`CategoryId` = `c`.`Id`
+) AS `t0` ON `t`.`Id` = `t0`.`AccountId`
+ORDER BY `t`.`Id`, `t0`.`AccountId`, `t0`.`CategoryId`
+2023-06-13 21:45:53.950 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Accounts` AS `a`
+WHERE FALSE
+2023-06-13 21:45:53.952 +03:00 [INF] Executed action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 112.9063ms.
+2023-06-13 21:45:53.953 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Accounts.Queries.GetAll.AccountGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-06-13 21:45:53.955 +03:00 [INF] Executed action WebApi.Controllers.AccountsController.GetAllAsync (WebApi) in 137.6387ms
+2023-06-13 21:45:53.956 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-13 21:45:53.957 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Accounts - - - 200 - application/json;+charset=utf-8 150.8134ms
+2023-06-13 21:49:19.174 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Authentication/Login - -
+2023-06-13 21:49:19.181 +03:00 [INF] CORS policy execution successful.
+2023-06-13 21:49:19.182 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Authentication/Login - - - 204 - - 7.7190ms
+2023-06-13 21:49:19.188 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Authentication/Login application/json 72
+2023-06-13 21:49:19.190 +03:00 [INF] CORS policy execution successful.
+2023-06-13 21:49:19.193 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 18:33:04', Current time: '13/06/2023 18:49:19'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-06-13 21:49:19.195 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 18:33:04', Current time: '13/06/2023 18:49:19'.
+2023-06-13 21:49:19.196 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.LoginAsync (WebApi)'
+2023-06-13 21:49:19.199 +03:00 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginAsync(Application.Features.Auth.Commands.Login.AuthLoginCommand) on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-06-13 21:49:19.220 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.LoginAsync (WebApi) - Validation state: "Valid"
+2023-06-13 21:49:19.364 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__email_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `AspNetUsers` AS `a`
+    WHERE `a`.`Email` = @__email_0)
+2023-06-13 21:49:19.482 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Application.Common.Models.Errors.ApiErrorDto'.
+2023-06-13 21:49:19.485 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.LoginAsync (WebApi) in 284.1457ms
+2023-06-13 21:49:19.486 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.LoginAsync (WebApi)'
+2023-06-13 21:49:19.487 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Authentication/Login application/json 72 - 400 - application/json;+charset=utf-8 298.5901ms
+2023-06-13 21:49:44.513 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Accounts - -
+2023-06-13 21:49:44.517 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Accounts - -
+2023-06-13 21:49:44.518 +03:00 [INF] CORS policy execution successful.
+2023-06-13 21:49:44.519 +03:00 [INF] CORS policy execution successful.
+2023-06-13 21:49:44.520 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Accounts - - - 204 - - 7.2181ms
+2023-06-13 21:49:44.521 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Accounts - - - 204 - - 4.0965ms
+2023-06-13 21:49:44.523 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Accounts - -
+2023-06-13 21:49:44.529 +03:00 [INF] CORS policy execution successful.
+2023-06-13 21:49:44.530 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 18:33:04', Current time: '13/06/2023 18:49:44'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-06-13 21:49:44.532 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 18:33:04', Current time: '13/06/2023 18:49:44'.
+2023-06-13 21:49:44.533 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-13 21:49:44.534 +03:00 [INF] Route matched with {action = "GetAll", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Int32, Int32) on controller WebApi.Controllers.AccountsController (WebApi).
+2023-06-13 21:49:44.544 +03:00 [INF] Executing action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-06-13 21:49:44.585 +03:00 [INF] Executed DbCommand (18ms) [Parameters=[@__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`CreatedByUserId`, `t`.`CreatedOn`, `t`.`DeletedByUserId`, `t`.`DeletedOn`, `t`.`IsDeleted`, `t`.`IsFavourite`, `t`.`ModifiedByUserId`, `t`.`ModifiedOn`, `t`.`Password`, `t`.`Title`, `t`.`Url`, `t`.`UserId`, `t`.`UserName`, `t0`.`AccountId`, `t0`.`CategoryId`, `t0`.`Id`, `t0`.`CreatedByUserId`, `t0`.`CreatedOn`, `t0`.`DeletedByUserId`, `t0`.`DeletedOn`, `t0`.`IsDeleted`, `t0`.`ModifiedByUserId`, `t0`.`ModifiedOn`, `t0`.`Name`, `t0`.`UserId`
+FROM (
+    SELECT `a`.`Id`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`DeletedByUserId`, `a`.`DeletedOn`, `a`.`IsDeleted`, `a`.`IsFavourite`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`Password`, `a`.`Title`, `a`.`Url`, `a`.`UserId`, `a`.`UserName`
+    FROM `Accounts` AS `a`
+    WHERE FALSE
+    LIMIT @__p_2 OFFSET @__p_1
+) AS `t`
+LEFT JOIN (
+    SELECT `a0`.`AccountId`, `a0`.`CategoryId`, `c`.`Id`, `c`.`CreatedByUserId`, `c`.`CreatedOn`, `c`.`DeletedByUserId`, `c`.`DeletedOn`, `c`.`IsDeleted`, `c`.`ModifiedByUserId`, `c`.`ModifiedOn`, `c`.`Name`, `c`.`UserId`
+    FROM `AccountCategories` AS `a0`
+    INNER JOIN `Categories` AS `c` ON `a0`.`CategoryId` = `c`.`Id`
+) AS `t0` ON `t`.`Id` = `t0`.`AccountId`
+ORDER BY `t`.`Id`, `t0`.`AccountId`, `t0`.`CategoryId`
+2023-06-13 21:49:44.606 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Accounts` AS `a`
+WHERE FALSE
+2023-06-13 21:49:44.608 +03:00 [INF] Executed action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 62.4831ms.
+2023-06-13 21:49:44.609 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Accounts.Queries.GetAll.AccountGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-06-13 21:49:44.611 +03:00 [INF] Executed action WebApi.Controllers.AccountsController.GetAllAsync (WebApi) in 74.9009ms
+2023-06-13 21:49:44.612 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-13 21:49:44.613 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Accounts - - - 200 - application/json;+charset=utf-8 90.4068ms
+2023-06-13 21:49:44.616 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Accounts - -
+2023-06-13 21:49:44.617 +03:00 [INF] CORS policy execution successful.
+2023-06-13 21:49:44.618 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 18:33:04', Current time: '13/06/2023 18:49:44'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-06-13 21:49:44.621 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 18:33:04', Current time: '13/06/2023 18:49:44'.
+2023-06-13 21:49:44.622 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-13 21:49:44.622 +03:00 [INF] Route matched with {action = "GetAll", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Int32, Int32) on controller WebApi.Controllers.AccountsController (WebApi).
+2023-06-13 21:49:44.632 +03:00 [INF] Executing action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-06-13 21:49:44.709 +03:00 [INF] Executed DbCommand (55ms) [Parameters=[@__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`CreatedByUserId`, `t`.`CreatedOn`, `t`.`DeletedByUserId`, `t`.`DeletedOn`, `t`.`IsDeleted`, `t`.`IsFavourite`, `t`.`ModifiedByUserId`, `t`.`ModifiedOn`, `t`.`Password`, `t`.`Title`, `t`.`Url`, `t`.`UserId`, `t`.`UserName`, `t0`.`AccountId`, `t0`.`CategoryId`, `t0`.`Id`, `t0`.`CreatedByUserId`, `t0`.`CreatedOn`, `t0`.`DeletedByUserId`, `t0`.`DeletedOn`, `t0`.`IsDeleted`, `t0`.`ModifiedByUserId`, `t0`.`ModifiedOn`, `t0`.`Name`, `t0`.`UserId`
+FROM (
+    SELECT `a`.`Id`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`DeletedByUserId`, `a`.`DeletedOn`, `a`.`IsDeleted`, `a`.`IsFavourite`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`Password`, `a`.`Title`, `a`.`Url`, `a`.`UserId`, `a`.`UserName`
+    FROM `Accounts` AS `a`
+    WHERE FALSE
+    LIMIT @__p_2 OFFSET @__p_1
+) AS `t`
+LEFT JOIN (
+    SELECT `a0`.`AccountId`, `a0`.`CategoryId`, `c`.`Id`, `c`.`CreatedByUserId`, `c`.`CreatedOn`, `c`.`DeletedByUserId`, `c`.`DeletedOn`, `c`.`IsDeleted`, `c`.`ModifiedByUserId`, `c`.`ModifiedOn`, `c`.`Name`, `c`.`UserId`
+    FROM `AccountCategories` AS `a0`
+    INNER JOIN `Categories` AS `c` ON `a0`.`CategoryId` = `c`.`Id`
+) AS `t0` ON `t`.`Id` = `t0`.`AccountId`
+ORDER BY `t`.`Id`, `t0`.`AccountId`, `t0`.`CategoryId`
+2023-06-13 21:49:44.731 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Accounts` AS `a`
+WHERE FALSE
+2023-06-13 21:49:44.733 +03:00 [INF] Executed action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 99.3921ms.
+2023-06-13 21:49:44.734 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Accounts.Queries.GetAll.AccountGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-06-13 21:49:44.735 +03:00 [INF] Executed action WebApi.Controllers.AccountsController.GetAllAsync (WebApi) in 111.3893ms
+2023-06-13 21:49:44.736 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-13 21:49:44.737 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Accounts - - - 200 - application/json;+charset=utf-8 120.9346ms
+2023-06-13 21:49:59.855 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Accounts - -
+2023-06-13 21:49:59.856 +03:00 [INF] CORS policy execution successful.
+2023-06-13 21:49:59.857 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Accounts - -
+2023-06-13 21:49:59.857 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Accounts - - - 204 - - 2.0130ms
+2023-06-13 21:49:59.858 +03:00 [INF] CORS policy execution successful.
+2023-06-13 21:49:59.859 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Accounts - - - 204 - - 2.6528ms
+2023-06-13 21:49:59.860 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Accounts - -
+2023-06-13 21:49:59.862 +03:00 [INF] CORS policy execution successful.
+2023-06-13 21:49:59.863 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 18:33:04', Current time: '13/06/2023 18:49:59'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-06-13 21:49:59.865 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 18:33:04', Current time: '13/06/2023 18:49:59'.
+2023-06-13 21:49:59.866 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-13 21:49:59.867 +03:00 [INF] Route matched with {action = "GetAll", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Int32, Int32) on controller WebApi.Controllers.AccountsController (WebApi).
+2023-06-13 21:49:59.878 +03:00 [INF] Executing action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-06-13 21:49:59.959 +03:00 [INF] Executed DbCommand (60ms) [Parameters=[@__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`CreatedByUserId`, `t`.`CreatedOn`, `t`.`DeletedByUserId`, `t`.`DeletedOn`, `t`.`IsDeleted`, `t`.`IsFavourite`, `t`.`ModifiedByUserId`, `t`.`ModifiedOn`, `t`.`Password`, `t`.`Title`, `t`.`Url`, `t`.`UserId`, `t`.`UserName`, `t0`.`AccountId`, `t0`.`CategoryId`, `t0`.`Id`, `t0`.`CreatedByUserId`, `t0`.`CreatedOn`, `t0`.`DeletedByUserId`, `t0`.`DeletedOn`, `t0`.`IsDeleted`, `t0`.`ModifiedByUserId`, `t0`.`ModifiedOn`, `t0`.`Name`, `t0`.`UserId`
+FROM (
+    SELECT `a`.`Id`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`DeletedByUserId`, `a`.`DeletedOn`, `a`.`IsDeleted`, `a`.`IsFavourite`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`Password`, `a`.`Title`, `a`.`Url`, `a`.`UserId`, `a`.`UserName`
+    FROM `Accounts` AS `a`
+    WHERE FALSE
+    LIMIT @__p_2 OFFSET @__p_1
+) AS `t`
+LEFT JOIN (
+    SELECT `a0`.`AccountId`, `a0`.`CategoryId`, `c`.`Id`, `c`.`CreatedByUserId`, `c`.`CreatedOn`, `c`.`DeletedByUserId`, `c`.`DeletedOn`, `c`.`IsDeleted`, `c`.`ModifiedByUserId`, `c`.`ModifiedOn`, `c`.`Name`, `c`.`UserId`
+    FROM `AccountCategories` AS `a0`
+    INNER JOIN `Categories` AS `c` ON `a0`.`CategoryId` = `c`.`Id`
+) AS `t0` ON `t`.`Id` = `t0`.`AccountId`
+ORDER BY `t`.`Id`, `t0`.`AccountId`, `t0`.`CategoryId`
+2023-06-13 21:49:59.979 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Accounts` AS `a`
+WHERE FALSE
+2023-06-13 21:49:59.980 +03:00 [INF] Executed action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 101.6622ms.
+2023-06-13 21:49:59.982 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Accounts.Queries.GetAll.AccountGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-06-13 21:49:59.983 +03:00 [INF] Executed action WebApi.Controllers.AccountsController.GetAllAsync (WebApi) in 114.7539ms
+2023-06-13 21:49:59.984 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-13 21:49:59.985 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Accounts - - - 200 - application/json;+charset=utf-8 124.7759ms
+2023-06-13 21:49:59.987 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Accounts - -
+2023-06-13 21:49:59.987 +03:00 [INF] CORS policy execution successful.
+2023-06-13 21:49:59.989 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 18:33:04', Current time: '13/06/2023 18:49:59'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-06-13 21:49:59.991 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 18:33:04', Current time: '13/06/2023 18:49:59'.
+2023-06-13 21:49:59.992 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-13 21:49:59.993 +03:00 [INF] Route matched with {action = "GetAll", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Int32, Int32) on controller WebApi.Controllers.AccountsController (WebApi).
+2023-06-13 21:50:00.002 +03:00 [INF] Executing action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-06-13 21:50:00.080 +03:00 [INF] Executed DbCommand (56ms) [Parameters=[@__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`CreatedByUserId`, `t`.`CreatedOn`, `t`.`DeletedByUserId`, `t`.`DeletedOn`, `t`.`IsDeleted`, `t`.`IsFavourite`, `t`.`ModifiedByUserId`, `t`.`ModifiedOn`, `t`.`Password`, `t`.`Title`, `t`.`Url`, `t`.`UserId`, `t`.`UserName`, `t0`.`AccountId`, `t0`.`CategoryId`, `t0`.`Id`, `t0`.`CreatedByUserId`, `t0`.`CreatedOn`, `t0`.`DeletedByUserId`, `t0`.`DeletedOn`, `t0`.`IsDeleted`, `t0`.`ModifiedByUserId`, `t0`.`ModifiedOn`, `t0`.`Name`, `t0`.`UserId`
+FROM (
+    SELECT `a`.`Id`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`DeletedByUserId`, `a`.`DeletedOn`, `a`.`IsDeleted`, `a`.`IsFavourite`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`Password`, `a`.`Title`, `a`.`Url`, `a`.`UserId`, `a`.`UserName`
+    FROM `Accounts` AS `a`
+    WHERE FALSE
+    LIMIT @__p_2 OFFSET @__p_1
+) AS `t`
+LEFT JOIN (
+    SELECT `a0`.`AccountId`, `a0`.`CategoryId`, `c`.`Id`, `c`.`CreatedByUserId`, `c`.`CreatedOn`, `c`.`DeletedByUserId`, `c`.`DeletedOn`, `c`.`IsDeleted`, `c`.`ModifiedByUserId`, `c`.`ModifiedOn`, `c`.`Name`, `c`.`UserId`
+    FROM `AccountCategories` AS `a0`
+    INNER JOIN `Categories` AS `c` ON `a0`.`CategoryId` = `c`.`Id`
+) AS `t0` ON `t`.`Id` = `t0`.`AccountId`
+ORDER BY `t`.`Id`, `t0`.`AccountId`, `t0`.`CategoryId`
+2023-06-13 21:50:00.101 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Accounts` AS `a`
+WHERE FALSE
+2023-06-13 21:50:00.103 +03:00 [INF] Executed action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 99.6694ms.
+2023-06-13 21:50:00.104 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Accounts.Queries.GetAll.AccountGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-06-13 21:50:00.105 +03:00 [INF] Executed action WebApi.Controllers.AccountsController.GetAllAsync (WebApi) in 111.4038ms
+2023-06-13 21:50:00.106 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-13 21:50:00.107 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Accounts - - - 200 - application/json;+charset=utf-8 119.9673ms
+2023-06-13 21:51:59.587 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Accounts - -
+2023-06-13 21:51:59.591 +03:00 [INF] CORS policy execution successful.
+2023-06-13 21:51:59.592 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Accounts - - - 204 - - 5.7798ms
+2023-06-13 21:51:59.594 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Accounts - -
+2023-06-13 21:51:59.595 +03:00 [INF] CORS policy execution successful.
+2023-06-13 21:51:59.597 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 18:33:04', Current time: '13/06/2023 18:51:59'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-06-13 21:51:59.599 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 18:33:04', Current time: '13/06/2023 18:51:59'.
+2023-06-13 21:51:59.600 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-13 21:51:59.601 +03:00 [INF] Route matched with {action = "GetAll", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Int32, Int32) on controller WebApi.Controllers.AccountsController (WebApi).
+2023-06-13 21:51:59.612 +03:00 [INF] Executing action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-06-13 21:51:59.696 +03:00 [INF] Executed DbCommand (61ms) [Parameters=[@__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`CreatedByUserId`, `t`.`CreatedOn`, `t`.`DeletedByUserId`, `t`.`DeletedOn`, `t`.`IsDeleted`, `t`.`IsFavourite`, `t`.`ModifiedByUserId`, `t`.`ModifiedOn`, `t`.`Password`, `t`.`Title`, `t`.`Url`, `t`.`UserId`, `t`.`UserName`, `t0`.`AccountId`, `t0`.`CategoryId`, `t0`.`Id`, `t0`.`CreatedByUserId`, `t0`.`CreatedOn`, `t0`.`DeletedByUserId`, `t0`.`DeletedOn`, `t0`.`IsDeleted`, `t0`.`ModifiedByUserId`, `t0`.`ModifiedOn`, `t0`.`Name`, `t0`.`UserId`
+FROM (
+    SELECT `a`.`Id`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`DeletedByUserId`, `a`.`DeletedOn`, `a`.`IsDeleted`, `a`.`IsFavourite`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`Password`, `a`.`Title`, `a`.`Url`, `a`.`UserId`, `a`.`UserName`
+    FROM `Accounts` AS `a`
+    WHERE FALSE
+    LIMIT @__p_2 OFFSET @__p_1
+) AS `t`
+LEFT JOIN (
+    SELECT `a0`.`AccountId`, `a0`.`CategoryId`, `c`.`Id`, `c`.`CreatedByUserId`, `c`.`CreatedOn`, `c`.`DeletedByUserId`, `c`.`DeletedOn`, `c`.`IsDeleted`, `c`.`ModifiedByUserId`, `c`.`ModifiedOn`, `c`.`Name`, `c`.`UserId`
+    FROM `AccountCategories` AS `a0`
+    INNER JOIN `Categories` AS `c` ON `a0`.`CategoryId` = `c`.`Id`
+) AS `t0` ON `t`.`Id` = `t0`.`AccountId`
+ORDER BY `t`.`Id`, `t0`.`AccountId`, `t0`.`CategoryId`
+2023-06-13 21:51:59.720 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Accounts` AS `a`
+WHERE FALSE
+2023-06-13 21:51:59.722 +03:00 [INF] Executed action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 108.6731ms.
+2023-06-13 21:51:59.723 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Accounts.Queries.GetAll.AccountGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-06-13 21:51:59.724 +03:00 [INF] Executed action WebApi.Controllers.AccountsController.GetAllAsync (WebApi) in 121.9113ms
+2023-06-13 21:51:59.726 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-13 21:51:59.727 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Accounts - - - 200 - application/json;+charset=utf-8 132.1130ms
+2023-06-13 21:56:47.178 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Authentication/Login - -
+2023-06-13 21:56:47.184 +03:00 [INF] CORS policy execution successful.
+2023-06-13 21:56:47.184 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Authentication/Login - - - 204 - - 5.9808ms
+2023-06-13 21:56:47.190 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Authentication/Login application/json 72
+2023-06-13 21:56:47.191 +03:00 [INF] CORS policy execution successful.
+2023-06-13 21:56:47.191 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.LoginAsync (WebApi)'
+2023-06-13 21:56:47.192 +03:00 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginAsync(Application.Features.Auth.Commands.Login.AuthLoginCommand) on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-06-13 21:56:47.202 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.LoginAsync (WebApi) - Validation state: "Valid"
+2023-06-13 21:56:47.294 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@__email_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `AspNetUsers` AS `a`
+    WHERE `a`.`Email` = @__email_0)
+2023-06-13 21:56:47.378 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Application.Common.Models.Errors.ApiErrorDto'.
+2023-06-13 21:56:47.379 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.LoginAsync (WebApi) in 185.5112ms
+2023-06-13 21:56:47.380 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.LoginAsync (WebApi)'
+2023-06-13 21:56:47.381 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Authentication/Login application/json 72 - 400 - application/json;+charset=utf-8 191.3229ms
+2023-06-13 21:57:06.190 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Authentication/Register application/json 128
+2023-06-13 21:57:06.191 +03:00 [INF] CORS policy execution successful.
+2023-06-13 21:57:06.192 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.RegisterAsync (WebApi)'
+2023-06-13 21:57:06.195 +03:00 [INF] Route matched with {action = "Register", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterAsync(Application.Features.Auth.Commands.Register.AuthRegisterCommand) on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-06-13 21:57:06.207 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.RegisterAsync (WebApi) - Validation state: "Valid"
+2023-06-13 21:57:06.248 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[@__email_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `AspNetUsers` AS `a`
+    WHERE `a`.`Email` = @__email_0)
+2023-06-13 21:57:06.384 +03:00 [INF] Executed DbCommand (54ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`FirstName`, `a`.`LastName`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+2023-06-13 21:57:06.412 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`FirstName`, `a`.`LastName`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedEmail` = @__normalizedEmail_0
+LIMIT 2
+2023-06-13 21:57:06.569 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[@p0='?' (Size = 191), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = DateTimeOffset), @p5='?' (Size = 256), @p6='?' (DbType = Boolean), @p7='?' (Size = 50), @p8='?' (Size = 50), @p9='?' (DbType = Boolean), @p10='?' (DbType = DateTimeOffset), @p11='?' (Size = 4000), @p12='?' (DbType = DateTimeOffset), @p13='?' (Size = 256), @p14='?' (Size = 256), @p15='?' (Size = 4000), @p16='?' (Size = 20), @p17='?' (DbType = Boolean), @p18='?' (Size = 4000), @p19='?' (DbType = Boolean), @p20='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+INSERT INTO `AspNetUsers` (`Id`, `AccessFailedCount`, `ConcurrencyStamp`, `CreatedByUserId`, `CreatedOn`, `Email`, `EmailConfirmed`, `FirstName`, `LastName`, `LockoutEnabled`, `LockoutEnd`, `ModifiedByUserId`, `ModifiedOn`, `NormalizedEmail`, `NormalizedUserName`, `PasswordHash`, `PhoneNumber`, `PhoneNumberConfirmed`, `SecurityStamp`, `TwoFactorEnabled`, `UserName`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20);
+2023-06-13 21:57:06.602 +03:00 [INF] Executed action method WebApi.Controllers.AuthenticationController.RegisterAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 394.3414ms.
+2023-06-13 21:57:06.604 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Features.Auth.Commands.Register.AuthRegisterDto'.
+2023-06-13 21:57:06.606 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.RegisterAsync (WebApi) in 409.9362ms
+2023-06-13 21:57:06.607 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.RegisterAsync (WebApi)'
+2023-06-13 21:57:06.608 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Authentication/Register application/json 128 - 200 - application/json;+charset=utf-8 418.4157ms
+2023-06-13 21:57:10.544 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Authentication/Login - -
+2023-06-13 21:57:10.545 +03:00 [INF] CORS policy execution successful.
+2023-06-13 21:57:10.545 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Authentication/Login - - - 204 - - 1.5471ms
+2023-06-13 21:57:10.550 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Authentication/Login application/json 72
+2023-06-13 21:57:10.551 +03:00 [INF] CORS policy execution successful.
+2023-06-13 21:57:10.551 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.LoginAsync (WebApi)'
+2023-06-13 21:57:10.552 +03:00 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginAsync(Application.Features.Auth.Commands.Login.AuthLoginCommand) on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-06-13 21:57:10.568 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.LoginAsync (WebApi) - Validation state: "Valid"
+2023-06-13 21:57:10.606 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__email_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `AspNetUsers` AS `a`
+    WHERE `a`.`Email` = @__email_0)
+2023-06-13 21:57:10.630 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`FirstName`, `a`.`LastName`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedEmail` = @__normalizedEmail_0
+LIMIT 2
+2023-06-13 21:57:10.719 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@__user_Id_0='?' (Size = 191)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`ClaimType`, `a`.`ClaimValue`, `a`.`UserId`
+FROM `AspNetUserClaims` AS `a`
+WHERE `a`.`UserId` = @__user_Id_0
+2023-06-13 21:57:10.747 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__userId_0='?' (Size = 191)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+2023-06-13 21:57:10.758 +03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2023-06-13 21:57:10.761 +03:00 [INF] Executed action method WebApi.Controllers.AuthenticationController.LoginAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 192.0146ms.
+2023-06-13 21:57:10.763 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Features.Auth.Commands.Login.AuthLoginDto'.
+2023-06-13 21:57:10.769 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.LoginAsync (WebApi) in 214.7808ms
+2023-06-13 21:57:10.771 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.LoginAsync (WebApi)'
+2023-06-13 21:57:10.772 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Authentication/Login application/json 72 - 200 - application/json;+charset=utf-8 222.4436ms
+2023-06-13 21:58:23.843 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Accounts - -
+2023-06-13 21:58:23.848 +03:00 [INF] CORS policy execution successful.
+2023-06-13 21:58:23.848 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Accounts - -
+2023-06-13 21:58:23.851 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Accounts - - - 204 - - 7.4158ms
+2023-06-13 21:58:23.851 +03:00 [INF] CORS policy execution successful.
+2023-06-13 21:58:23.856 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Accounts - -
+2023-06-13 21:58:23.858 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Accounts - - - 204 - - 9.9231ms
+2023-06-13 21:58:23.859 +03:00 [INF] CORS policy execution successful.
+2023-06-13 21:58:23.866 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-13 21:58:23.867 +03:00 [INF] Route matched with {action = "GetAll", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Int32, Int32) on controller WebApi.Controllers.AccountsController (WebApi).
+2023-06-13 21:58:23.877 +03:00 [INF] Executing action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-06-13 21:58:23.962 +03:00 [INF] Executed DbCommand (64ms) [Parameters=[@___currentUserService_UserId_0='?' (Size = 4000), @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`CreatedByUserId`, `t`.`CreatedOn`, `t`.`DeletedByUserId`, `t`.`DeletedOn`, `t`.`IsDeleted`, `t`.`IsFavourite`, `t`.`ModifiedByUserId`, `t`.`ModifiedOn`, `t`.`Password`, `t`.`Title`, `t`.`Url`, `t`.`UserId`, `t`.`UserName`, `t0`.`AccountId`, `t0`.`CategoryId`, `t0`.`Id`, `t0`.`CreatedByUserId`, `t0`.`CreatedOn`, `t0`.`DeletedByUserId`, `t0`.`DeletedOn`, `t0`.`IsDeleted`, `t0`.`ModifiedByUserId`, `t0`.`ModifiedOn`, `t0`.`Name`, `t0`.`UserId`
+FROM (
+    SELECT `a`.`Id`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`DeletedByUserId`, `a`.`DeletedOn`, `a`.`IsDeleted`, `a`.`IsFavourite`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`Password`, `a`.`Title`, `a`.`Url`, `a`.`UserId`, `a`.`UserName`
+    FROM `Accounts` AS `a`
+    WHERE `a`.`UserId` = @___currentUserService_UserId_0
+    LIMIT @__p_2 OFFSET @__p_1
+) AS `t`
+LEFT JOIN (
+    SELECT `a0`.`AccountId`, `a0`.`CategoryId`, `c`.`Id`, `c`.`CreatedByUserId`, `c`.`CreatedOn`, `c`.`DeletedByUserId`, `c`.`DeletedOn`, `c`.`IsDeleted`, `c`.`ModifiedByUserId`, `c`.`ModifiedOn`, `c`.`Name`, `c`.`UserId`
+    FROM `AccountCategories` AS `a0`
+    INNER JOIN `Categories` AS `c` ON `a0`.`CategoryId` = `c`.`Id`
+) AS `t0` ON `t`.`Id` = `t0`.`AccountId`
+ORDER BY `t`.`Id`, `t0`.`AccountId`, `t0`.`CategoryId`
+2023-06-13 21:58:23.984 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@___currentUserService_UserId_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Accounts` AS `a`
+WHERE `a`.`UserId` = @___currentUserService_UserId_0
+2023-06-13 21:58:23.986 +03:00 [INF] Executed action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 108.0971ms.
+2023-06-13 21:58:23.988 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Accounts.Queries.GetAll.AccountGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-06-13 21:58:23.989 +03:00 [INF] Executed action WebApi.Controllers.AccountsController.GetAllAsync (WebApi) in 119.8466ms
+2023-06-13 21:58:23.990 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-13 21:58:23.990 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Accounts - - - 200 - application/json;+charset=utf-8 134.2604ms
+2023-06-13 21:58:23.997 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Accounts - -
+2023-06-13 21:58:23.998 +03:00 [INF] CORS policy execution successful.
+2023-06-13 21:58:23.999 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-13 21:58:24.000 +03:00 [INF] Route matched with {action = "GetAll", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Int32, Int32) on controller WebApi.Controllers.AccountsController (WebApi).
+2023-06-13 21:58:24.009 +03:00 [INF] Executing action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-06-13 21:58:24.111 +03:00 [INF] Executed DbCommand (78ms) [Parameters=[@___currentUserService_UserId_0='?' (Size = 4000), @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`CreatedByUserId`, `t`.`CreatedOn`, `t`.`DeletedByUserId`, `t`.`DeletedOn`, `t`.`IsDeleted`, `t`.`IsFavourite`, `t`.`ModifiedByUserId`, `t`.`ModifiedOn`, `t`.`Password`, `t`.`Title`, `t`.`Url`, `t`.`UserId`, `t`.`UserName`, `t0`.`AccountId`, `t0`.`CategoryId`, `t0`.`Id`, `t0`.`CreatedByUserId`, `t0`.`CreatedOn`, `t0`.`DeletedByUserId`, `t0`.`DeletedOn`, `t0`.`IsDeleted`, `t0`.`ModifiedByUserId`, `t0`.`ModifiedOn`, `t0`.`Name`, `t0`.`UserId`
+FROM (
+    SELECT `a`.`Id`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`DeletedByUserId`, `a`.`DeletedOn`, `a`.`IsDeleted`, `a`.`IsFavourite`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`Password`, `a`.`Title`, `a`.`Url`, `a`.`UserId`, `a`.`UserName`
+    FROM `Accounts` AS `a`
+    WHERE `a`.`UserId` = @___currentUserService_UserId_0
+    LIMIT @__p_2 OFFSET @__p_1
+) AS `t`
+LEFT JOIN (
+    SELECT `a0`.`AccountId`, `a0`.`CategoryId`, `c`.`Id`, `c`.`CreatedByUserId`, `c`.`CreatedOn`, `c`.`DeletedByUserId`, `c`.`DeletedOn`, `c`.`IsDeleted`, `c`.`ModifiedByUserId`, `c`.`ModifiedOn`, `c`.`Name`, `c`.`UserId`
+    FROM `AccountCategories` AS `a0`
+    INNER JOIN `Categories` AS `c` ON `a0`.`CategoryId` = `c`.`Id`
+) AS `t0` ON `t`.`Id` = `t0`.`AccountId`
+ORDER BY `t`.`Id`, `t0`.`AccountId`, `t0`.`CategoryId`
+2023-06-13 21:58:24.150 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[@___currentUserService_UserId_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Accounts` AS `a`
+WHERE `a`.`UserId` = @___currentUserService_UserId_0
+2023-06-13 21:58:24.152 +03:00 [INF] Executed action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 141.2688ms.
+2023-06-13 21:58:24.153 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Accounts.Queries.GetAll.AccountGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-06-13 21:58:24.155 +03:00 [INF] Executed action WebApi.Controllers.AccountsController.GetAllAsync (WebApi) in 154.0072ms
+2023-06-13 21:58:24.156 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-13 21:58:24.157 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Accounts - - - 200 - application/json;+charset=utf-8 160.3313ms

@@ -98,7 +98,7 @@ namespace Infrastructure.Persistence.Migrations.Application
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("AccountCategory");
+                    b.ToTable("AccountCategories");
                 });
 
             modelBuilder.Entity("Domain.Entities.Address", b =>
@@ -206,7 +206,7 @@ namespace Infrastructure.Persistence.Migrations.Application
 
                     b.HasKey("Id");
 
-                    b.ToTable("Category");
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("Domain.Entities.City", b =>

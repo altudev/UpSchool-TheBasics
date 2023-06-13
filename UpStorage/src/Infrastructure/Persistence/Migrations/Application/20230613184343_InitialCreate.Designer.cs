@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Persistence.Migrations.Application
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230406190826_InitialCreate")]
+    [Migration("20230613184343_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -101,7 +101,7 @@ namespace Infrastructure.Persistence.Migrations.Application
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("AccountCategory");
+                    b.ToTable("AccountCategories");
                 });
 
             modelBuilder.Entity("Domain.Entities.Address", b =>
@@ -209,7 +209,7 @@ namespace Infrastructure.Persistence.Migrations.Application
 
                     b.HasKey("Id");
 
-                    b.ToTable("Category");
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("Domain.Entities.City", b =>

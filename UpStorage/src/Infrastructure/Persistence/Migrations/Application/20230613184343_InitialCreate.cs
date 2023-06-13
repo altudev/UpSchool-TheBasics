@@ -49,7 +49,7 @@ namespace Infrastructure.Persistence.Migrations.Application
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Category",
+                name: "Categories",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
@@ -70,7 +70,7 @@ namespace Infrastructure.Persistence.Migrations.Application
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Category", x => x.Id);
+                    table.PrimaryKey("PK_Categories", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -122,7 +122,7 @@ namespace Infrastructure.Persistence.Migrations.Application
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "AccountCategory",
+                name: "AccountCategories",
                 columns: table => new
                 {
                     AccountId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
@@ -130,17 +130,17 @@ namespace Infrastructure.Persistence.Migrations.Application
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AccountCategory", x => new { x.AccountId, x.CategoryId });
+                    table.PrimaryKey("PK_AccountCategories", x => new { x.AccountId, x.CategoryId });
                     table.ForeignKey(
-                        name: "FK_AccountCategory_Accounts_AccountId",
+                        name: "FK_AccountCategories_Accounts_AccountId",
                         column: x => x.AccountId,
                         principalTable: "Accounts",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_AccountCategory_Category_CategoryId",
+                        name: "FK_AccountCategories_Categories_CategoryId",
                         column: x => x.CategoryId,
-                        principalTable: "Category",
+                        principalTable: "Categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
@@ -230,8 +230,8 @@ namespace Infrastructure.Persistence.Migrations.Application
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AccountCategory_CategoryId",
-                table: "AccountCategory",
+                name: "IX_AccountCategories_CategoryId",
+                table: "AccountCategories",
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
@@ -264,7 +264,7 @@ namespace Infrastructure.Persistence.Migrations.Application
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "AccountCategory");
+                name: "AccountCategories");
 
             migrationBuilder.DropTable(
                 name: "Address");
@@ -273,7 +273,7 @@ namespace Infrastructure.Persistence.Migrations.Application
                 name: "Accounts");
 
             migrationBuilder.DropTable(
-                name: "Category");
+                name: "Categories");
 
             migrationBuilder.DropTable(
                 name: "Cities");
