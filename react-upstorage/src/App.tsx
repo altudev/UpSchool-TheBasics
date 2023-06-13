@@ -14,6 +14,7 @@ import {getClaimsFromJwt} from "./utils/jwtHelper.ts";
 import {useNavigate} from "react-router-dom";
 import {AppUserContext, AccountsContext} from "./context/StateContext.tsx";
 import {dummyAccounts} from "./utils/dummyData.ts";
+import ProtectedRoute from "./components/ProtectedRoute.tsx";
 
 function App() {
 
@@ -58,9 +59,16 @@ function App() {
                     <NavBar />
                     <Container className="App">
                         <Routes>
-                            <Route path="/" element={<PasswordGeneratorPage/>}/>
-                            <Route path="/accounts"
-                                   element={<AccountsPage />}/>
+                            <Route path="/" element={
+                                <ProtectedRoute>
+                                    <PasswordGeneratorPage/>
+                                </ProtectedRoute>
+                            }/>
+                            <Route path="/accounts" element={
+                                <ProtectedRoute>
+                                    <AccountsPage />
+                                </ProtectedRoute>
+                            }/>
                             <Route path="/login" element={<LoginPage/>}/>
                             <Route path="*" element={<NotFoundPage/>}/>
                         </Routes>
@@ -71,5 +79,6 @@ function App() {
     )
 
 }
+
 
 export default App

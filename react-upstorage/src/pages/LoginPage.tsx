@@ -1,16 +1,12 @@
 import {AuthLoginCommand, LocalJwt} from "../types/AuthTypes.ts";
 import React, {useContext, useState} from "react";
 import {Button, Form, Grid, Header, Icon, Image, Segment} from "semantic-ui-react";
-import axios from 'axios';
+import api from "../utils/axiosInstance.ts";
 import {getClaimsFromJwt} from "../utils/jwtHelper.ts";
 import {toast} from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import logo from '/upstorage_logo_730_608.png';
 import {AppUserContext} from "../context/StateContext.tsx"; // import your image
-
-const BASE_URL = import.meta.env.VITE_API_URL;
-
-const LOGIN_URL = `${BASE_URL}/Authentication/Login`; // move to constants
 
 /*export type LoginPageProps = {
 
@@ -29,7 +25,7 @@ function LoginPage() {
         event.preventDefault();
 
         try {
-            const response = await axios.post(LOGIN_URL, authLoginCommand);
+            const response = await api.post("/Authentication/Login", authLoginCommand);
 
             if(response.status === 200){
                 const accessToken = response.data.accessToken;
