@@ -1,10 +1,12 @@
 ﻿using Application.Features.Accounts.Commands.Add;
 using Application.Features.Accounts.Queries.GetAll;
 using Application.Features.Accounts.Queries.GetById;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
 {
+    [Authorize]
     public class AccountsController : ApiControllerBase
     {
         [HttpPost]
