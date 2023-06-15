@@ -4,6 +4,9 @@ import "./AccountsPage.css";
 import AccountCard from "../components/AccountCard.tsx";
 import {AccountsContext} from "../context/StateContext.tsx";
 import api from "../utils/axiosInstance.ts";
+import { PaginatedList} from "../types/GenericTypes.ts";
+import {AccountGetAllDto} from "../types/AccountTypes.ts";
+import {useNavigate} from "react-router-dom";
 
 
 const options = [
@@ -17,13 +20,14 @@ const options = [
 
 function AccountsPage( ) {
 
+    const navigate = useNavigate();
+
     const { accounts, setAccounts } = useContext(AccountsContext);
 
     useEffect(() => {
-
         const fetchAccounts = async () => {
 
-            const response = await api.get("/Accounts");
+            const response = await api.get<PaginatedList<AccountGetAllDto>>("/Accounts");
 
             setAccounts(response.data.items);
         }
@@ -33,6 +37,7 @@ function AccountsPage( ) {
         return;
 
     },[]);
+
 
 
     const onPasswordVisibilityToggle = (id:string) => {
@@ -54,7 +59,7 @@ function AccountsPage( ) {
 
 
     const onAddButtonClick = () => {
-        console.log('Add button clicked');
+        navigate("/accounts/add");
     }
 
     const onSearchInputChange = () => {

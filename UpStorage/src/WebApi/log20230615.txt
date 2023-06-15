@@ -1,0 +1,697 @@
+2023-06-15 20:49:36.153 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-15 20:49:36.405 +03:00 [INF] Now listening on: https://localhost:7109
+2023-06-15 20:49:36.407 +03:00 [INF] Now listening on: http://localhost:5223
+2023-06-15 20:49:36.409 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-15 20:49:36.410 +03:00 [INF] Hosting environment: Development
+2023-06-15 20:49:36.423 +03:00 [INF] Content root path: D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi
+2023-06-15 20:49:38.801 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - -
+2023-06-15 20:49:39.103 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - - - 200 - text/html;charset=utf-8 303.4225ms
+2023-06-15 20:49:39.196 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - -
+2023-06-15 20:49:39.196 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_vs/browserLink - -
+2023-06-15 20:49:39.212 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 15.6448ms
+2023-06-15 20:49:39.272 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 75.5140ms
+2023-06-15 20:49:39.420 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
+2023-06-15 20:49:39.520 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 99.9556ms
+2023-06-15 20:49:40.881 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Accounts - -
+2023-06-15 20:49:40.881 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Accounts - -
+2023-06-15 20:49:40.896 +03:00 [INF] CORS policy execution successful.
+2023-06-15 20:49:40.896 +03:00 [INF] CORS policy execution successful.
+2023-06-15 20:49:40.899 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Accounts - - - 204 - - 17.7747ms
+2023-06-15 20:49:40.899 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Accounts - - - 204 - - 17.8712ms
+2023-06-15 20:49:40.903 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Accounts - -
+2023-06-15 20:49:40.906 +03:00 [INF] CORS policy execution successful.
+2023-06-15 20:49:41.216 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 19:57:10', Current time: '15/06/2023 17:49:41'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-06-15 20:49:41.256 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 19:57:10', Current time: '15/06/2023 17:49:41'.
+2023-06-15 20:49:41.261 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-15 20:49:41.282 +03:00 [INF] Route matched with {action = "GetAll", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Int32, Int32) on controller WebApi.Controllers.AccountsController (WebApi).
+2023-06-15 20:49:41.377 +03:00 [INF] Executing action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-06-15 20:49:42.249 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Account' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-15 20:49:42.250 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'City' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-15 20:49:42.251 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Country' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-15 20:49:42.522 +03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2023-06-15 20:49:42.524 +03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2023-06-15 20:49:42.861 +03:00 [INF] Executed DbCommand (114ms) [Parameters=[@__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`CreatedByUserId`, `t`.`CreatedOn`, `t`.`DeletedByUserId`, `t`.`DeletedOn`, `t`.`IsDeleted`, `t`.`IsFavourite`, `t`.`ModifiedByUserId`, `t`.`ModifiedOn`, `t`.`Password`, `t`.`Title`, `t`.`Url`, `t`.`UserId`, `t`.`UserName`, `t0`.`AccountId`, `t0`.`CategoryId`, `t0`.`Id`, `t0`.`CreatedByUserId`, `t0`.`CreatedOn`, `t0`.`DeletedByUserId`, `t0`.`DeletedOn`, `t0`.`IsDeleted`, `t0`.`ModifiedByUserId`, `t0`.`ModifiedOn`, `t0`.`Name`, `t0`.`UserId`
+FROM (
+    SELECT `a`.`Id`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`DeletedByUserId`, `a`.`DeletedOn`, `a`.`IsDeleted`, `a`.`IsFavourite`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`Password`, `a`.`Title`, `a`.`Url`, `a`.`UserId`, `a`.`UserName`
+    FROM `Accounts` AS `a`
+    WHERE FALSE
+    LIMIT @__p_2 OFFSET @__p_1
+) AS `t`
+LEFT JOIN (
+    SELECT `a0`.`AccountId`, `a0`.`CategoryId`, `c`.`Id`, `c`.`CreatedByUserId`, `c`.`CreatedOn`, `c`.`DeletedByUserId`, `c`.`DeletedOn`, `c`.`IsDeleted`, `c`.`ModifiedByUserId`, `c`.`ModifiedOn`, `c`.`Name`, `c`.`UserId`
+    FROM `AccountCategories` AS `a0`
+    INNER JOIN `Categories` AS `c` ON `a0`.`CategoryId` = `c`.`Id`
+) AS `t0` ON `t`.`Id` = `t0`.`AccountId`
+ORDER BY `t`.`Id`, `t0`.`AccountId`, `t0`.`CategoryId`
+2023-06-15 20:49:42.923 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Accounts` AS `a`
+WHERE FALSE
+2023-06-15 20:49:42.931 +03:00 [INF] Executed action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1548.8055ms.
+2023-06-15 20:49:42.937 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Accounts.Queries.GetAll.AccountGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-06-15 20:49:42.950 +03:00 [INF] Executed action WebApi.Controllers.AccountsController.GetAllAsync (WebApi) in 1663.025ms
+2023-06-15 20:49:42.952 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-15 20:49:42.959 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Accounts - - - 200 - application/json;+charset=utf-8 2055.8335ms
+2023-06-15 20:49:42.962 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Accounts - -
+2023-06-15 20:49:42.963 +03:00 [INF] CORS policy execution successful.
+2023-06-15 20:49:42.965 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 19:57:10', Current time: '15/06/2023 17:49:42'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-06-15 20:49:42.967 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 19:57:10', Current time: '15/06/2023 17:49:42'.
+2023-06-15 20:49:42.968 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-15 20:49:42.969 +03:00 [INF] Route matched with {action = "GetAll", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Int32, Int32) on controller WebApi.Controllers.AccountsController (WebApi).
+2023-06-15 20:49:42.981 +03:00 [INF] Executing action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-06-15 20:49:43.069 +03:00 [INF] Executed DbCommand (56ms) [Parameters=[@__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`CreatedByUserId`, `t`.`CreatedOn`, `t`.`DeletedByUserId`, `t`.`DeletedOn`, `t`.`IsDeleted`, `t`.`IsFavourite`, `t`.`ModifiedByUserId`, `t`.`ModifiedOn`, `t`.`Password`, `t`.`Title`, `t`.`Url`, `t`.`UserId`, `t`.`UserName`, `t0`.`AccountId`, `t0`.`CategoryId`, `t0`.`Id`, `t0`.`CreatedByUserId`, `t0`.`CreatedOn`, `t0`.`DeletedByUserId`, `t0`.`DeletedOn`, `t0`.`IsDeleted`, `t0`.`ModifiedByUserId`, `t0`.`ModifiedOn`, `t0`.`Name`, `t0`.`UserId`
+FROM (
+    SELECT `a`.`Id`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`DeletedByUserId`, `a`.`DeletedOn`, `a`.`IsDeleted`, `a`.`IsFavourite`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`Password`, `a`.`Title`, `a`.`Url`, `a`.`UserId`, `a`.`UserName`
+    FROM `Accounts` AS `a`
+    WHERE FALSE
+    LIMIT @__p_2 OFFSET @__p_1
+) AS `t`
+LEFT JOIN (
+    SELECT `a0`.`AccountId`, `a0`.`CategoryId`, `c`.`Id`, `c`.`CreatedByUserId`, `c`.`CreatedOn`, `c`.`DeletedByUserId`, `c`.`DeletedOn`, `c`.`IsDeleted`, `c`.`ModifiedByUserId`, `c`.`ModifiedOn`, `c`.`Name`, `c`.`UserId`
+    FROM `AccountCategories` AS `a0`
+    INNER JOIN `Categories` AS `c` ON `a0`.`CategoryId` = `c`.`Id`
+) AS `t0` ON `t`.`Id` = `t0`.`AccountId`
+ORDER BY `t`.`Id`, `t0`.`AccountId`, `t0`.`CategoryId`
+2023-06-15 20:49:43.088 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Accounts` AS `a`
+WHERE FALSE
+2023-06-15 20:49:43.090 +03:00 [INF] Executed action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 107.9659ms.
+2023-06-15 20:49:43.091 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Accounts.Queries.GetAll.AccountGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-06-15 20:49:43.092 +03:00 [INF] Executed action WebApi.Controllers.AccountsController.GetAllAsync (WebApi) in 122.0893ms
+2023-06-15 20:49:43.093 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-15 20:49:43.094 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Accounts - - - 200 - application/json;+charset=utf-8 131.6519ms
+2023-06-15 20:50:06.380 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Accounts - -
+2023-06-15 20:50:06.385 +03:00 [INF] CORS policy execution successful.
+2023-06-15 20:50:06.387 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Accounts - - - 204 - - 7.8393ms
+2023-06-15 20:50:06.390 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Accounts - -
+2023-06-15 20:50:06.391 +03:00 [INF] CORS policy execution successful.
+2023-06-15 20:50:06.394 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 19:57:10', Current time: '15/06/2023 17:50:06'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-06-15 20:50:06.395 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 19:57:10', Current time: '15/06/2023 17:50:06'.
+2023-06-15 20:50:06.396 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-15 20:50:06.397 +03:00 [INF] Route matched with {action = "GetAll", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Int32, Int32) on controller WebApi.Controllers.AccountsController (WebApi).
+2023-06-15 20:50:06.406 +03:00 [INF] Executing action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-06-15 20:50:06.535 +03:00 [INF] Executed DbCommand (63ms) [Parameters=[@__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`CreatedByUserId`, `t`.`CreatedOn`, `t`.`DeletedByUserId`, `t`.`DeletedOn`, `t`.`IsDeleted`, `t`.`IsFavourite`, `t`.`ModifiedByUserId`, `t`.`ModifiedOn`, `t`.`Password`, `t`.`Title`, `t`.`Url`, `t`.`UserId`, `t`.`UserName`, `t0`.`AccountId`, `t0`.`CategoryId`, `t0`.`Id`, `t0`.`CreatedByUserId`, `t0`.`CreatedOn`, `t0`.`DeletedByUserId`, `t0`.`DeletedOn`, `t0`.`IsDeleted`, `t0`.`ModifiedByUserId`, `t0`.`ModifiedOn`, `t0`.`Name`, `t0`.`UserId`
+FROM (
+    SELECT `a`.`Id`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`DeletedByUserId`, `a`.`DeletedOn`, `a`.`IsDeleted`, `a`.`IsFavourite`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`Password`, `a`.`Title`, `a`.`Url`, `a`.`UserId`, `a`.`UserName`
+    FROM `Accounts` AS `a`
+    WHERE FALSE
+    LIMIT @__p_2 OFFSET @__p_1
+) AS `t`
+LEFT JOIN (
+    SELECT `a0`.`AccountId`, `a0`.`CategoryId`, `c`.`Id`, `c`.`CreatedByUserId`, `c`.`CreatedOn`, `c`.`DeletedByUserId`, `c`.`DeletedOn`, `c`.`IsDeleted`, `c`.`ModifiedByUserId`, `c`.`ModifiedOn`, `c`.`Name`, `c`.`UserId`
+    FROM `AccountCategories` AS `a0`
+    INNER JOIN `Categories` AS `c` ON `a0`.`CategoryId` = `c`.`Id`
+) AS `t0` ON `t`.`Id` = `t0`.`AccountId`
+ORDER BY `t`.`Id`, `t0`.`AccountId`, `t0`.`CategoryId`
+2023-06-15 20:50:06.556 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Accounts` AS `a`
+WHERE FALSE
+2023-06-15 20:50:06.559 +03:00 [INF] Executed action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 151.8592ms.
+2023-06-15 20:50:06.560 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Accounts.Queries.GetAll.AccountGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-06-15 20:50:06.562 +03:00 [INF] Executed action WebApi.Controllers.AccountsController.GetAllAsync (WebApi) in 163.671ms
+2023-06-15 20:50:06.563 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-15 20:50:06.564 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Accounts - - - 200 - application/json;+charset=utf-8 173.7811ms
+2023-06-15 20:50:20.385 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Accounts - -
+2023-06-15 20:50:20.387 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Accounts - -
+2023-06-15 20:50:20.387 +03:00 [INF] CORS policy execution successful.
+2023-06-15 20:50:20.394 +03:00 [INF] CORS policy execution successful.
+2023-06-15 20:50:20.395 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Accounts - - - 204 - - 10.0475ms
+2023-06-15 20:50:20.395 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Accounts - - - 204 - - 9.2370ms
+2023-06-15 20:50:20.397 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Accounts - -
+2023-06-15 20:50:20.398 +03:00 [INF] CORS policy execution successful.
+2023-06-15 20:50:20.399 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 19:57:10', Current time: '15/06/2023 17:50:20'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-06-15 20:50:20.400 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 19:57:10', Current time: '15/06/2023 17:50:20'.
+2023-06-15 20:50:20.401 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-15 20:50:20.402 +03:00 [INF] Route matched with {action = "GetAll", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Int32, Int32) on controller WebApi.Controllers.AccountsController (WebApi).
+2023-06-15 20:50:20.411 +03:00 [INF] Executing action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-06-15 20:50:20.507 +03:00 [INF] Executed DbCommand (70ms) [Parameters=[@__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`CreatedByUserId`, `t`.`CreatedOn`, `t`.`DeletedByUserId`, `t`.`DeletedOn`, `t`.`IsDeleted`, `t`.`IsFavourite`, `t`.`ModifiedByUserId`, `t`.`ModifiedOn`, `t`.`Password`, `t`.`Title`, `t`.`Url`, `t`.`UserId`, `t`.`UserName`, `t0`.`AccountId`, `t0`.`CategoryId`, `t0`.`Id`, `t0`.`CreatedByUserId`, `t0`.`CreatedOn`, `t0`.`DeletedByUserId`, `t0`.`DeletedOn`, `t0`.`IsDeleted`, `t0`.`ModifiedByUserId`, `t0`.`ModifiedOn`, `t0`.`Name`, `t0`.`UserId`
+FROM (
+    SELECT `a`.`Id`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`DeletedByUserId`, `a`.`DeletedOn`, `a`.`IsDeleted`, `a`.`IsFavourite`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`Password`, `a`.`Title`, `a`.`Url`, `a`.`UserId`, `a`.`UserName`
+    FROM `Accounts` AS `a`
+    WHERE FALSE
+    LIMIT @__p_2 OFFSET @__p_1
+) AS `t`
+LEFT JOIN (
+    SELECT `a0`.`AccountId`, `a0`.`CategoryId`, `c`.`Id`, `c`.`CreatedByUserId`, `c`.`CreatedOn`, `c`.`DeletedByUserId`, `c`.`DeletedOn`, `c`.`IsDeleted`, `c`.`ModifiedByUserId`, `c`.`ModifiedOn`, `c`.`Name`, `c`.`UserId`
+    FROM `AccountCategories` AS `a0`
+    INNER JOIN `Categories` AS `c` ON `a0`.`CategoryId` = `c`.`Id`
+) AS `t0` ON `t`.`Id` = `t0`.`AccountId`
+ORDER BY `t`.`Id`, `t0`.`AccountId`, `t0`.`CategoryId`
+2023-06-15 20:50:20.536 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Accounts` AS `a`
+WHERE FALSE
+2023-06-15 20:50:20.538 +03:00 [INF] Executed action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 126.3783ms.
+2023-06-15 20:50:20.539 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Accounts.Queries.GetAll.AccountGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-06-15 20:50:20.540 +03:00 [INF] Executed action WebApi.Controllers.AccountsController.GetAllAsync (WebApi) in 137.493ms
+2023-06-15 20:50:20.541 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-15 20:50:20.542 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Accounts - - - 200 - application/json;+charset=utf-8 145.0369ms
+2023-06-15 20:50:20.544 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Accounts - -
+2023-06-15 20:50:20.545 +03:00 [INF] CORS policy execution successful.
+2023-06-15 20:50:20.546 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 19:57:10', Current time: '15/06/2023 17:50:20'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-06-15 20:50:20.548 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 19:57:10', Current time: '15/06/2023 17:50:20'.
+2023-06-15 20:50:20.550 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-15 20:50:20.550 +03:00 [INF] Route matched with {action = "GetAll", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Int32, Int32) on controller WebApi.Controllers.AccountsController (WebApi).
+2023-06-15 20:50:20.561 +03:00 [INF] Executing action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-06-15 20:50:20.645 +03:00 [INF] Executed DbCommand (63ms) [Parameters=[@__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`CreatedByUserId`, `t`.`CreatedOn`, `t`.`DeletedByUserId`, `t`.`DeletedOn`, `t`.`IsDeleted`, `t`.`IsFavourite`, `t`.`ModifiedByUserId`, `t`.`ModifiedOn`, `t`.`Password`, `t`.`Title`, `t`.`Url`, `t`.`UserId`, `t`.`UserName`, `t0`.`AccountId`, `t0`.`CategoryId`, `t0`.`Id`, `t0`.`CreatedByUserId`, `t0`.`CreatedOn`, `t0`.`DeletedByUserId`, `t0`.`DeletedOn`, `t0`.`IsDeleted`, `t0`.`ModifiedByUserId`, `t0`.`ModifiedOn`, `t0`.`Name`, `t0`.`UserId`
+FROM (
+    SELECT `a`.`Id`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`DeletedByUserId`, `a`.`DeletedOn`, `a`.`IsDeleted`, `a`.`IsFavourite`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`Password`, `a`.`Title`, `a`.`Url`, `a`.`UserId`, `a`.`UserName`
+    FROM `Accounts` AS `a`
+    WHERE FALSE
+    LIMIT @__p_2 OFFSET @__p_1
+) AS `t`
+LEFT JOIN (
+    SELECT `a0`.`AccountId`, `a0`.`CategoryId`, `c`.`Id`, `c`.`CreatedByUserId`, `c`.`CreatedOn`, `c`.`DeletedByUserId`, `c`.`DeletedOn`, `c`.`IsDeleted`, `c`.`ModifiedByUserId`, `c`.`ModifiedOn`, `c`.`Name`, `c`.`UserId`
+    FROM `AccountCategories` AS `a0`
+    INNER JOIN `Categories` AS `c` ON `a0`.`CategoryId` = `c`.`Id`
+) AS `t0` ON `t`.`Id` = `t0`.`AccountId`
+ORDER BY `t`.`Id`, `t0`.`AccountId`, `t0`.`CategoryId`
+2023-06-15 20:50:20.665 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Accounts` AS `a`
+WHERE FALSE
+2023-06-15 20:50:20.667 +03:00 [INF] Executed action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 105.0252ms.
+2023-06-15 20:50:20.668 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Accounts.Queries.GetAll.AccountGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-06-15 20:50:20.669 +03:00 [INF] Executed action WebApi.Controllers.AccountsController.GetAllAsync (WebApi) in 116.9644ms
+2023-06-15 20:50:20.670 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-15 20:50:20.671 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Accounts - - - 200 - application/json;+charset=utf-8 126.5645ms
+2023-06-15 20:50:47.380 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Accounts - -
+2023-06-15 20:50:47.381 +03:00 [INF] CORS policy execution successful.
+2023-06-15 20:50:47.388 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Accounts - - - 204 - - 7.9876ms
+2023-06-15 20:50:47.391 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Accounts - -
+2023-06-15 20:50:47.391 +03:00 [INF] CORS policy execution successful.
+2023-06-15 20:50:47.393 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 19:57:10', Current time: '15/06/2023 17:50:47'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-06-15 20:50:47.395 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 19:57:10', Current time: '15/06/2023 17:50:47'.
+2023-06-15 20:50:47.396 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-15 20:50:47.397 +03:00 [INF] Route matched with {action = "GetAll", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Int32, Int32) on controller WebApi.Controllers.AccountsController (WebApi).
+2023-06-15 20:50:47.406 +03:00 [INF] Executing action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-06-15 20:50:47.484 +03:00 [INF] Executed DbCommand (54ms) [Parameters=[@__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`CreatedByUserId`, `t`.`CreatedOn`, `t`.`DeletedByUserId`, `t`.`DeletedOn`, `t`.`IsDeleted`, `t`.`IsFavourite`, `t`.`ModifiedByUserId`, `t`.`ModifiedOn`, `t`.`Password`, `t`.`Title`, `t`.`Url`, `t`.`UserId`, `t`.`UserName`, `t0`.`AccountId`, `t0`.`CategoryId`, `t0`.`Id`, `t0`.`CreatedByUserId`, `t0`.`CreatedOn`, `t0`.`DeletedByUserId`, `t0`.`DeletedOn`, `t0`.`IsDeleted`, `t0`.`ModifiedByUserId`, `t0`.`ModifiedOn`, `t0`.`Name`, `t0`.`UserId`
+FROM (
+    SELECT `a`.`Id`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`DeletedByUserId`, `a`.`DeletedOn`, `a`.`IsDeleted`, `a`.`IsFavourite`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`Password`, `a`.`Title`, `a`.`Url`, `a`.`UserId`, `a`.`UserName`
+    FROM `Accounts` AS `a`
+    WHERE FALSE
+    LIMIT @__p_2 OFFSET @__p_1
+) AS `t`
+LEFT JOIN (
+    SELECT `a0`.`AccountId`, `a0`.`CategoryId`, `c`.`Id`, `c`.`CreatedByUserId`, `c`.`CreatedOn`, `c`.`DeletedByUserId`, `c`.`DeletedOn`, `c`.`IsDeleted`, `c`.`ModifiedByUserId`, `c`.`ModifiedOn`, `c`.`Name`, `c`.`UserId`
+    FROM `AccountCategories` AS `a0`
+    INNER JOIN `Categories` AS `c` ON `a0`.`CategoryId` = `c`.`Id`
+) AS `t0` ON `t`.`Id` = `t0`.`AccountId`
+ORDER BY `t`.`Id`, `t0`.`AccountId`, `t0`.`CategoryId`
+2023-06-15 20:50:47.504 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Accounts` AS `a`
+WHERE FALSE
+2023-06-15 20:50:47.506 +03:00 [INF] Executed action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 98.496ms.
+2023-06-15 20:50:47.507 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Accounts.Queries.GetAll.AccountGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-06-15 20:50:47.508 +03:00 [INF] Executed action WebApi.Controllers.AccountsController.GetAllAsync (WebApi) in 109.8799ms
+2023-06-15 20:50:47.509 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-06-15 20:50:47.510 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Accounts - - - 200 - application/json;+charset=utf-8 119.2977ms
+2023-06-15 20:51:32.336 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Accounts - -
+2023-06-15 20:51:32.341 +03:00 [INF] CORS policy execution successful.
+2023-06-15 20:51:32.342 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Accounts - - - 204 - - 6.0198ms
+2023-06-15 20:51:32.352 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Accounts application/json 191
+2023-06-15 20:51:32.352 +03:00 [INF] CORS policy execution successful.
+2023-06-15 20:51:32.353 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 19:57:10', Current time: '15/06/2023 17:51:32'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-06-15 20:51:32.355 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 19:57:10', Current time: '15/06/2023 17:51:32'.
+2023-06-15 20:51:32.355 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AccountsController.AddAsync (WebApi)'
+2023-06-15 20:51:32.359 +03:00 [INF] Route matched with {action = "Add", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddAsync(Application.Features.Accounts.Commands.Add.AccountAddCommand) on controller WebApi.Controllers.AccountsController (WebApi).
+2023-06-15 20:51:32.383 +03:00 [INF] Executing action method WebApi.Controllers.AccountsController.AddAsync (WebApi) - Validation state: "Invalid"
+2023-06-15 20:51:32.419 +03:00 [ERR] Value cannot be null. (Parameter 'request')
+System.ArgumentNullException: Value cannot be null. (Parameter 'request')
+   at MediatR.Mediator.Send[TResponse](IRequest`1 request, CancellationToken cancellationToken)
+   at WebApi.Controllers.AccountsController.AddAsync(AccountAddCommand command) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Controllers\AccountsController.cs:line 13
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2023-06-15 20:51:32.427 +03:00 [INF] Executing ObjectResult, writing value of type 'Application.Common.Models.Errors.ApiErrorDto'.
+2023-06-15 20:51:32.430 +03:00 [INF] Executed action WebApi.Controllers.AccountsController.AddAsync (WebApi) in 69.6098ms
+2023-06-15 20:51:32.431 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AccountsController.AddAsync (WebApi)'
+2023-06-15 20:51:32.432 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Accounts application/json 191 - 500 - application/json;+charset=utf-8 80.2989ms
+2023-06-15 20:52:19.718 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Accounts - -
+2023-06-15 20:52:19.752 +03:00 [INF] CORS policy execution successful.
+2023-06-15 20:52:19.753 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Accounts - - - 204 - - 34.9670ms
+2023-06-15 20:52:19.761 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Accounts application/json 191
+2023-06-15 20:52:19.762 +03:00 [INF] CORS policy execution successful.
+2023-06-15 20:52:19.763 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 19:57:10', Current time: '15/06/2023 17:52:19'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-06-15 20:52:19.764 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 19:57:10', Current time: '15/06/2023 17:52:19'.
+2023-06-15 20:52:19.765 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AccountsController.AddAsync (WebApi)'
+2023-06-15 20:52:19.766 +03:00 [INF] Route matched with {action = "Add", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddAsync(Application.Features.Accounts.Commands.Add.AccountAddCommand) on controller WebApi.Controllers.AccountsController (WebApi).
+2023-06-15 20:52:19.776 +03:00 [INF] Executing action method WebApi.Controllers.AccountsController.AddAsync (WebApi) - Validation state: "Invalid"
+2023-06-15 20:52:48.153 +03:00 [ERR] Value cannot be null. (Parameter 'request')
+System.ArgumentNullException: Value cannot be null. (Parameter 'request')
+   at MediatR.Mediator.Send[TResponse](IRequest`1 request, CancellationToken cancellationToken)
+   at WebApi.Controllers.AccountsController.AddAsync(AccountAddCommand command) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Controllers\AccountsController.cs:line 13
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2023-06-15 20:52:48.166 +03:00 [INF] Executing ObjectResult, writing value of type 'Application.Common.Models.Errors.ApiErrorDto'.
+2023-06-15 20:52:48.167 +03:00 [INF] Executed action WebApi.Controllers.AccountsController.AddAsync (WebApi) in 28399.7375ms
+2023-06-15 20:52:48.168 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AccountsController.AddAsync (WebApi)'
+2023-06-15 20:52:48.174 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Accounts application/json 191 - 500 - application/json;+charset=utf-8 28413.0944ms
+2023-06-15 20:52:52.240 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Accounts - -
+2023-06-15 20:52:52.241 +03:00 [INF] CORS policy execution successful.
+2023-06-15 20:52:52.242 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Accounts - - - 204 - - 1.4930ms
+2023-06-15 20:52:52.249 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Accounts application/json 191
+2023-06-15 20:52:52.250 +03:00 [INF] CORS policy execution successful.
+2023-06-15 20:52:52.251 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 19:57:10', Current time: '15/06/2023 17:52:52'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-06-15 20:52:52.253 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 19:57:10', Current time: '15/06/2023 17:52:52'.
+2023-06-15 20:52:52.254 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AccountsController.AddAsync (WebApi)'
+2023-06-15 20:52:52.255 +03:00 [INF] Route matched with {action = "Add", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddAsync(Application.Features.Accounts.Commands.Add.AccountAddCommand) on controller WebApi.Controllers.AccountsController (WebApi).
+2023-06-15 20:52:52.268 +03:00 [INF] Executing action method WebApi.Controllers.AccountsController.AddAsync (WebApi) - Validation state: "Invalid"
+2023-06-15 20:57:14.293 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-15 20:57:14.495 +03:00 [INF] Now listening on: https://localhost:7109
+2023-06-15 20:57:14.497 +03:00 [INF] Now listening on: http://localhost:5223
+2023-06-15 20:57:14.499 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-15 20:57:14.499 +03:00 [INF] Hosting environment: Development
+2023-06-15 20:57:14.500 +03:00 [INF] Content root path: D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi
+2023-06-15 20:57:15.965 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - -
+2023-06-15 20:57:16.139 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - - - 200 - text/html;charset=utf-8 174.6585ms
+2023-06-15 20:57:16.212 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - -
+2023-06-15 20:57:16.212 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_vs/browserLink - -
+2023-06-15 20:57:16.236 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 23.4952ms
+2023-06-15 20:57:16.261 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 49.0184ms
+2023-06-15 20:57:16.310 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
+2023-06-15 20:57:16.400 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 89.9003ms
+2023-06-15 20:57:52.618 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Accounts - -
+2023-06-15 20:57:52.627 +03:00 [INF] CORS policy execution successful.
+2023-06-15 20:57:52.628 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Accounts - - - 204 - - 13.0357ms
+2023-06-15 20:57:52.636 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Accounts application/json 180
+2023-06-15 20:57:52.639 +03:00 [INF] CORS policy execution successful.
+2023-06-15 20:57:52.775 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 19:57:10', Current time: '15/06/2023 17:57:52'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-06-15 20:57:52.796 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 19:57:10', Current time: '15/06/2023 17:57:52'.
+2023-06-15 20:57:52.799 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AccountsController.AddAsync (WebApi)'
+2023-06-15 20:57:52.813 +03:00 [INF] Route matched with {action = "Add", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddAsync(Application.Features.Accounts.Commands.Add.AccountAddCommand) on controller WebApi.Controllers.AccountsController (WebApi).
+2023-06-15 20:57:52.876 +03:00 [INF] Executing action method WebApi.Controllers.AccountsController.AddAsync (WebApi) - Validation state: "Valid"
+2023-06-15 20:58:08.878 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Account' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-15 20:58:08.880 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'City' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-15 20:58:08.881 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Country' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-15 20:58:09.215 +03:00 [INF] Executed DbCommand (39ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 100), @p2='?' (DbType = DateTimeOffset), @p3='?' (Size = 100), @p4='?' (DbType = DateTimeOffset), @p5='?' (DbType = Boolean), @p6='?' (Size = 100), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 1000), @p9='?' (Size = 150), @p10='?' (Size = 1000), @p11='?' (Size = 4000), @p12='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+INSERT INTO `Accounts` (`Id`, `CreatedByUserId`, `CreatedOn`, `DeletedByUserId`, `DeletedOn`, `IsFavourite`, `ModifiedByUserId`, `ModifiedOn`, `Password`, `Title`, `Url`, `UserId`, `UserName`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12)
+RETURNING `IsDeleted`;
+2023-06-15 20:58:09.250 +03:00 [ERR] An exception occurred in the database while saving changes for context type 'Infrastructure.Persistence.Contexts.ApplicationDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Column 'UserId' cannot be null
+   at MySqlConnector.Core.ResultSet.<ScanRowAsync>g__ScanRowAsyncAwaited|9_0(ResultSet resultSet, Task`1 payloadTask, Row row, CancellationToken token) in /_/src/MySqlConnector/Core/ResultSet.cs:line 244
+   at MySqlConnector.Core.ResultSet.ReadAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ResultSet.cs:line 199
+   at MySqlConnector.MySqlDataReader.ReadAsync(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 38
+   at Pomelo.EntityFrameworkCore.MySql.Update.Internal.MySqlModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Column 'UserId' cannot be null
+   at MySqlConnector.Core.ResultSet.<ScanRowAsync>g__ScanRowAsyncAwaited|9_0(ResultSet resultSet, Task`1 payloadTask, Row row, CancellationToken token) in /_/src/MySqlConnector/Core/ResultSet.cs:line 244
+   at MySqlConnector.Core.ResultSet.ReadAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ResultSet.cs:line 199
+   at MySqlConnector.MySqlDataReader.ReadAsync(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 38
+   at Pomelo.EntityFrameworkCore.MySql.Update.Internal.MySqlModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2023-06-15 20:58:56.748 +03:00 [ERR] An error occurred while saving the entity changes. See the inner exception for details.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Column 'UserId' cannot be null
+   at MySqlConnector.Core.ResultSet.<ScanRowAsync>g__ScanRowAsyncAwaited|9_0(ResultSet resultSet, Task`1 payloadTask, Row row, CancellationToken token) in /_/src/MySqlConnector/Core/ResultSet.cs:line 244
+   at MySqlConnector.Core.ResultSet.ReadAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ResultSet.cs:line 199
+   at MySqlConnector.MySqlDataReader.ReadAsync(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 38
+   at Pomelo.EntityFrameworkCore.MySql.Update.Internal.MySqlModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Application.Features.Accounts.Commands.Add.AccountAddCommandHandler.Handle(AccountAddCommand request, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Features\Accounts\Commands\Add\AccountAddCommandHandler.cs:line 29
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Behaviours\ValidationBehaviour.cs:line 35
+   at WebApi.Controllers.AccountsController.AddAsync(AccountAddCommand command) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Controllers\AccountsController.cs:line 13
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2023-06-15 20:58:56.800 +03:00 [INF] Executing ObjectResult, writing value of type 'Application.Common.Models.Errors.ApiErrorDto'.
+2023-06-15 20:58:56.807 +03:00 [INF] Executed action WebApi.Controllers.AccountsController.AddAsync (WebApi) in 63989.4483ms
+2023-06-15 20:58:56.808 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AccountsController.AddAsync (WebApi)'
+2023-06-15 20:58:56.814 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Accounts application/json 180 - 500 - application/json;+charset=utf-8 64178.3959ms
+2023-06-15 20:58:59.699 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Accounts - -
+2023-06-15 20:58:59.700 +03:00 [INF] CORS policy execution successful.
+2023-06-15 20:58:59.701 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Accounts - - - 204 - - 1.9412ms
+2023-06-15 20:58:59.710 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Accounts application/json 180
+2023-06-15 20:58:59.711 +03:00 [INF] CORS policy execution successful.
+2023-06-15 20:58:59.714 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 19:57:10', Current time: '15/06/2023 17:58:59'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-06-15 20:58:59.716 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 19:57:10', Current time: '15/06/2023 17:58:59'.
+2023-06-15 20:58:59.717 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AccountsController.AddAsync (WebApi)'
+2023-06-15 20:58:59.718 +03:00 [INF] Route matched with {action = "Add", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddAsync(Application.Features.Accounts.Commands.Add.AccountAddCommand) on controller WebApi.Controllers.AccountsController (WebApi).
+2023-06-15 20:58:59.731 +03:00 [INF] Executing action method WebApi.Controllers.AccountsController.AddAsync (WebApi) - Validation state: "Valid"
+2023-06-15 20:58:59.798 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 100), @p2='?' (DbType = DateTimeOffset), @p3='?' (Size = 100), @p4='?' (DbType = DateTimeOffset), @p5='?' (DbType = Boolean), @p6='?' (Size = 100), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 1000), @p9='?' (Size = 150), @p10='?' (Size = 1000), @p11='?' (Size = 4000), @p12='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+INSERT INTO `Accounts` (`Id`, `CreatedByUserId`, `CreatedOn`, `DeletedByUserId`, `DeletedOn`, `IsFavourite`, `ModifiedByUserId`, `ModifiedOn`, `Password`, `Title`, `Url`, `UserId`, `UserName`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12)
+RETURNING `IsDeleted`;
+2023-06-15 20:58:59.803 +03:00 [ERR] An exception occurred in the database while saving changes for context type 'Infrastructure.Persistence.Contexts.ApplicationDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Column 'UserId' cannot be null
+   at MySqlConnector.Core.ResultSet.<ScanRowAsync>g__ScanRowAsyncAwaited|9_0(ResultSet resultSet, Task`1 payloadTask, Row row, CancellationToken token) in /_/src/MySqlConnector/Core/ResultSet.cs:line 244
+   at MySqlConnector.Core.ResultSet.ReadAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ResultSet.cs:line 199
+   at MySqlConnector.MySqlDataReader.ReadAsync(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 38
+   at Pomelo.EntityFrameworkCore.MySql.Update.Internal.MySqlModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Column 'UserId' cannot be null
+   at MySqlConnector.Core.ResultSet.<ScanRowAsync>g__ScanRowAsyncAwaited|9_0(ResultSet resultSet, Task`1 payloadTask, Row row, CancellationToken token) in /_/src/MySqlConnector/Core/ResultSet.cs:line 244
+   at MySqlConnector.Core.ResultSet.ReadAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ResultSet.cs:line 199
+   at MySqlConnector.MySqlDataReader.ReadAsync(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 38
+   at Pomelo.EntityFrameworkCore.MySql.Update.Internal.MySqlModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2023-06-15 20:59:58.082 +03:00 [ERR] An error occurred while saving the entity changes. See the inner exception for details.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Column 'UserId' cannot be null
+   at MySqlConnector.Core.ResultSet.<ScanRowAsync>g__ScanRowAsyncAwaited|9_0(ResultSet resultSet, Task`1 payloadTask, Row row, CancellationToken token) in /_/src/MySqlConnector/Core/ResultSet.cs:line 244
+   at MySqlConnector.Core.ResultSet.ReadAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ResultSet.cs:line 199
+   at MySqlConnector.MySqlDataReader.ReadAsync(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 38
+   at Pomelo.EntityFrameworkCore.MySql.Update.Internal.MySqlModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Application.Features.Accounts.Commands.Add.AccountAddCommandHandler.Handle(AccountAddCommand request, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Features\Accounts\Commands\Add\AccountAddCommandHandler.cs:line 29
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Behaviours\ValidationBehaviour.cs:line 35
+   at WebApi.Controllers.AccountsController.AddAsync(AccountAddCommand command) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Controllers\AccountsController.cs:line 13
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2023-06-15 20:59:58.131 +03:00 [INF] Executing ObjectResult, writing value of type 'Application.Common.Models.Errors.ApiErrorDto'.
+2023-06-15 20:59:58.132 +03:00 [INF] Executed action WebApi.Controllers.AccountsController.AddAsync (WebApi) in 58412.091ms
+2023-06-15 20:59:58.133 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AccountsController.AddAsync (WebApi)'
+2023-06-15 20:59:58.134 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Accounts application/json 180 - 500 - application/json;+charset=utf-8 58424.3358ms
+2023-06-15 21:00:00.148 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Accounts - -
+2023-06-15 21:00:00.149 +03:00 [INF] CORS policy execution successful.
+2023-06-15 21:00:00.149 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Accounts - - - 204 - - 1.7153ms
+2023-06-15 21:00:00.158 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Accounts application/json 180
+2023-06-15 21:00:00.159 +03:00 [INF] CORS policy execution successful.
+2023-06-15 21:00:00.161 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 19:57:10', Current time: '15/06/2023 18:00:00'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-06-15 21:00:00.164 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 19:57:10', Current time: '15/06/2023 18:00:00'.
+2023-06-15 21:00:00.164 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AccountsController.AddAsync (WebApi)'
+2023-06-15 21:00:00.165 +03:00 [INF] Route matched with {action = "Add", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddAsync(Application.Features.Accounts.Commands.Add.AccountAddCommand) on controller WebApi.Controllers.AccountsController (WebApi).
+2023-06-15 21:00:00.174 +03:00 [INF] Executing action method WebApi.Controllers.AccountsController.AddAsync (WebApi) - Validation state: "Valid"
+2023-06-15 21:01:12.045 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-15 21:01:12.194 +03:00 [INF] Now listening on: https://localhost:7109
+2023-06-15 21:01:12.196 +03:00 [INF] Now listening on: http://localhost:5223
+2023-06-15 21:01:12.198 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-15 21:01:12.199 +03:00 [INF] Hosting environment: Development
+2023-06-15 21:01:12.200 +03:00 [INF] Content root path: D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi
+2023-06-15 21:01:13.926 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - -
+2023-06-15 21:01:14.109 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - - - 200 - text/html;charset=utf-8 184.4259ms
+2023-06-15 21:01:14.217 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - -
+2023-06-15 21:01:14.217 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_vs/browserLink - -
+2023-06-15 21:01:14.246 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 29.4425ms
+2023-06-15 21:01:14.274 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 57.3127ms
+2023-06-15 21:01:14.344 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
+2023-06-15 21:01:14.446 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 102.7829ms
+2023-06-15 21:01:30.448 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Accounts - -
+2023-06-15 21:01:30.455 +03:00 [INF] CORS policy execution successful.
+2023-06-15 21:01:30.457 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Accounts - - - 204 - - 9.2142ms
+2023-06-15 21:01:30.466 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Accounts application/json 180
+2023-06-15 21:01:30.468 +03:00 [INF] CORS policy execution successful.
+2023-06-15 21:01:30.624 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 19:57:10', Current time: '15/06/2023 18:01:30'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-06-15 21:01:30.648 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 19:57:10', Current time: '15/06/2023 18:01:30'.
+2023-06-15 21:01:30.651 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AccountsController.AddAsync (WebApi)'
+2023-06-15 21:01:30.667 +03:00 [INF] Route matched with {action = "Add", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddAsync(Application.Features.Accounts.Commands.Add.AccountAddCommand) on controller WebApi.Controllers.AccountsController (WebApi).
+2023-06-15 21:01:30.742 +03:00 [INF] Executing action method WebApi.Controllers.AccountsController.AddAsync (WebApi) - Validation state: "Valid"
+2023-06-15 21:07:11.347 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-15 21:07:11.497 +03:00 [INF] Now listening on: https://localhost:7109
+2023-06-15 21:07:11.498 +03:00 [INF] Now listening on: http://localhost:5223
+2023-06-15 21:07:11.499 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-15 21:07:11.500 +03:00 [INF] Hosting environment: Development
+2023-06-15 21:07:11.501 +03:00 [INF] Content root path: D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi
+2023-06-15 21:07:13.008 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - -
+2023-06-15 21:07:13.199 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - - - 200 - text/html;charset=utf-8 192.1147ms
+2023-06-15 21:07:13.295 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - -
+2023-06-15 21:07:13.295 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_vs/browserLink - -
+2023-06-15 21:07:13.321 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 26.6808ms
+2023-06-15 21:07:13.353 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 58.6342ms
+2023-06-15 21:07:13.430 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
+2023-06-15 21:07:13.538 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 107.7805ms
+2023-06-15 21:07:44.834 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Accounts - -
+2023-06-15 21:07:44.845 +03:00 [INF] CORS policy execution successful.
+2023-06-15 21:07:44.846 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Accounts - - - 204 - - 17.5783ms
+2023-06-15 21:07:44.855 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Accounts application/json 180
+2023-06-15 21:07:44.857 +03:00 [INF] CORS policy execution successful.
+2023-06-15 21:07:45.007 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 19:57:10', Current time: '15/06/2023 18:07:45'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-06-15 21:07:45.031 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/06/2023 19:57:10', Current time: '15/06/2023 18:07:45'.
+2023-06-15 21:07:45.035 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AccountsController.AddAsync (WebApi)'
+2023-06-15 21:07:45.050 +03:00 [INF] Route matched with {action = "Add", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddAsync(Application.Features.Accounts.Commands.Add.AccountAddCommand) on controller WebApi.Controllers.AccountsController (WebApi).
+2023-06-15 21:07:45.125 +03:00 [INF] Executing action method WebApi.Controllers.AccountsController.AddAsync (WebApi) - Validation state: "Valid"
+2023-06-15 21:09:45.934 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Account' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-15 21:09:45.936 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'City' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-15 21:09:45.937 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Country' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-15 21:09:46.272 +03:00 [INF] Executed DbCommand (40ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 100), @p2='?' (DbType = DateTimeOffset), @p3='?' (Size = 100), @p4='?' (DbType = DateTimeOffset), @p5='?' (DbType = Boolean), @p6='?' (Size = 100), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 1000), @p9='?' (Size = 150), @p10='?' (Size = 1000), @p11='?' (Size = 4000), @p12='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+INSERT INTO `Accounts` (`Id`, `CreatedByUserId`, `CreatedOn`, `DeletedByUserId`, `DeletedOn`, `IsFavourite`, `ModifiedByUserId`, `ModifiedOn`, `Password`, `Title`, `Url`, `UserId`, `UserName`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12)
+RETURNING `IsDeleted`;
+2023-06-15 21:09:46.308 +03:00 [ERR] An exception occurred in the database while saving changes for context type 'Infrastructure.Persistence.Contexts.ApplicationDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Column 'UserId' cannot be null
+   at MySqlConnector.Core.ResultSet.<ScanRowAsync>g__ScanRowAsyncAwaited|9_0(ResultSet resultSet, Task`1 payloadTask, Row row, CancellationToken token) in /_/src/MySqlConnector/Core/ResultSet.cs:line 244
+   at MySqlConnector.Core.ResultSet.ReadAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ResultSet.cs:line 199
+   at MySqlConnector.MySqlDataReader.ReadAsync(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 38
+   at Pomelo.EntityFrameworkCore.MySql.Update.Internal.MySqlModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Column 'UserId' cannot be null
+   at MySqlConnector.Core.ResultSet.<ScanRowAsync>g__ScanRowAsyncAwaited|9_0(ResultSet resultSet, Task`1 payloadTask, Row row, CancellationToken token) in /_/src/MySqlConnector/Core/ResultSet.cs:line 244
+   at MySqlConnector.Core.ResultSet.ReadAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ResultSet.cs:line 199
+   at MySqlConnector.MySqlDataReader.ReadAsync(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 38
+   at Pomelo.EntityFrameworkCore.MySql.Update.Internal.MySqlModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)

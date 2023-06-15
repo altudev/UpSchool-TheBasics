@@ -5,7 +5,6 @@ namespace Application.Features.Accounts.Commands.Add
 {
     public class AccountAddCommand:IRequest<Response<Guid>>
     {
-        public Guid Id { get; set; }
         public string Title { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }

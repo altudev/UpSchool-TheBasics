@@ -5,7 +5,7 @@ using Infrastructure.Common.Excel.ExcelMapper;
 
 namespace Infrastructure.Services
 {
-    public class ExcelManager:IExcelService
+    public class ExcelManager : IExcelService
     {
         public List<ExcelCityDto> ReadCities(ExcelBase64Dto excelDto)
         {
