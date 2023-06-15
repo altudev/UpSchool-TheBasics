@@ -123,6 +123,9 @@
   <data name="EmailOrPasswordIsInCorrect" xml:space="preserve">
     <value>E-Posta adresiniz veya şifreniz yanlıştır.</value>
   </data>
+  <data name="HandlerAdd" xml:space="preserve">
+    <value>Başarıyla eklenmiştir.</value>
+  </data>
   <data name="HandlerDelete" xml:space="preserve">
     <value>Başarıyla silinmiştir.</value>
   </data>

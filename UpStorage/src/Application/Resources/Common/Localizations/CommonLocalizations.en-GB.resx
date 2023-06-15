@@ -123,6 +123,9 @@
   <data name="EmailOrPasswordIsInCorrect" xml:space="preserve">
     <value>Your Email or Password is incorrect.</value>
   </data>
+  <data name="HandlerAdd" xml:space="preserve">
+    <value>Added successfully.</value>
+  </data>
   <data name="HandlerDelete" xml:space="preserve">
     <value>Deleted successfully.</value>
   </data>
