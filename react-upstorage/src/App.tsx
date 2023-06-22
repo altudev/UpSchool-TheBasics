@@ -16,6 +16,7 @@ import {AppUserContext, AccountsContext} from "./context/StateContext.tsx";
 import {dummyAccounts} from "./utils/dummyData.ts";
 import ProtectedRoute from "./components/ProtectedRoute.tsx";
 import AccountsAddPage from "./pages/AccountsAddPage.tsx";
+import SocialLogin from "./pages/SocialLogin.tsx";
 
 function App() {
 
@@ -76,6 +77,7 @@ function App() {
                                 </ProtectedRoute>
                             }/>
                             <Route path="/login" element={<LoginPage/>}/>
+                            <Route path="/social-login" element={<SocialLogin/>}/>
                             <Route path="*" element={<NotFoundPage/>}/>
                         </Routes>
                     </Container>

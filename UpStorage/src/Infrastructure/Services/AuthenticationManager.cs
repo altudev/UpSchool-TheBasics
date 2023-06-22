@@ -11,7 +11,7 @@ using Microsoft.Extensions.Localization;
 
 namespace Infrastructure.Services
 {
-    public class AuthenticationManager:IAuthenticationService
+    public class AuthenticationManager : IAuthenticationService
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
@@ -47,15 +47,15 @@ namespace Infrastructure.Services
 
         public async Task<string> GenerateEmailActivationTokenAsync(string userId, CancellationToken cancellationToken)
         {
-           var user = await _userManager.FindByIdAsync(userId);
+            var user = await _userManager.FindByIdAsync(userId);
 
-           return await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            return await _userManager.GenerateEmailConfirmationTokenAsync(user);
 
         }
 
         public Task<bool> CheckIfUserExists(string email, CancellationToken cancellationToken)
         {
-            return _userManager.Users.AnyAsync(x => x.Email == email,cancellationToken);
+            return _userManager.Users.AnyAsync(x => x.Email == email, cancellationToken);
         }
 
         public async Task<JwtDto> LoginAsync(AuthLoginRequest authLoginRequest, CancellationToken cancellationToken)
@@ -68,6 +68,40 @@ namespace Infrastructure.Services
             {
                 throw new ValidationException(CreateValidationFailure);
             }
+
+            return _jwtService.Generate(user.Id, user.Email, user.FirstName, user.LastName);
+        }
+
+        public async Task<JwtDto> SocialLoginAsync(string email, string firstName, string lastName, CancellationToken cancellationToken)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+
+            if (user is not null)
+                return _jwtService.Generate(user.Id, user.Email, user.FirstName, user.LastName);
+
+            var userId = Guid.NewGuid().ToString();
+
+            user = new User()
+            {
+                Id = userId,
+                UserName = email,
+                Email = email,
+                EmailConfirmed = true,
+                FirstName = firstName,
+                LastName = lastName,
+                CreatedOn = DateTimeOffset.Now,
+                CreatedByUserId = userId,
+            };
+
+           var identityResult =  await _userManager.CreateAsync(user);
+
+           if (!identityResult.Succeeded)
+           {
+               var failures = identityResult.Errors
+                   .Select(x => new ValidationFailure(x.Code, x.Description));
+
+               throw new ValidationException(failures);
+           }
 
             return _jwtService.Generate(user.Id, user.Email, user.FirstName, user.LastName);
         }

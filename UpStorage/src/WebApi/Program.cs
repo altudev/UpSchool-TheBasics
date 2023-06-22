@@ -39,6 +39,8 @@ try
 
     builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
 
+    builder.Services.Configure<GoogleSettings>(builder.Configuration.GetSection("GoogleSettings"));
+
     Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
     builder.Services.Configure<ApiBehaviorOptions>(options =>

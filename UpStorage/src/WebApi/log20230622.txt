@@ -1,0 +1,342 @@
+2023-06-22 21:00:58.618 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-22 21:00:58.813 +03:00 [INF] Now listening on: https://localhost:7109
+2023-06-22 21:00:58.815 +03:00 [INF] Now listening on: http://localhost:5223
+2023-06-22 21:00:58.817 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-22 21:00:58.818 +03:00 [INF] Hosting environment: Development
+2023-06-22 21:00:58.819 +03:00 [INF] Content root path: D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi
+2023-06-22 21:01:01.305 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - -
+2023-06-22 21:01:01.711 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - - - 200 - text/html;charset=utf-8 409.6113ms
+2023-06-22 21:01:01.767 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_vs/browserLink - -
+2023-06-22 21:01:01.767 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - -
+2023-06-22 21:01:01.789 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 21.6468ms
+2023-06-22 21:01:01.833 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 65.7793ms
+2023-06-22 21:01:01.947 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
+2023-06-22 21:01:02.046 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 99.4726ms
+2023-06-22 21:01:17.025 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Authentication/GoogleSignIn - 0
+2023-06-22 21:01:17.035 +03:00 [INF] CORS policy execution successful.
+2023-06-22 21:01:17.113 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi)'
+2023-06-22 21:01:17.126 +03:00 [INF] Route matched with {action = "GoogleSignIn", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GoogleSignInAsync() on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-06-22 21:01:17.167 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi) - Validation state: "Valid"
+2023-06-22 21:01:17.173 +03:00 [INF] Executed action method WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkResult in 0.7348ms.
+2023-06-22 21:01:17.178 +03:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2023-06-22 21:01:17.182 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi) in 52.9573ms
+2023-06-22 21:01:17.183 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi)'
+2023-06-22 21:01:17.184 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Authentication/GoogleSignIn - 0 - 200 0 - 159.0891ms
+2023-06-22 21:31:08.665 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-22 21:31:08.809 +03:00 [INF] Now listening on: https://localhost:7109
+2023-06-22 21:31:08.810 +03:00 [INF] Now listening on: http://localhost:5223
+2023-06-22 21:31:08.812 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-22 21:31:08.813 +03:00 [INF] Hosting environment: Development
+2023-06-22 21:31:08.814 +03:00 [INF] Content root path: D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi
+2023-06-22 21:31:10.110 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - -
+2023-06-22 21:31:10.331 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - - - 200 - text/html;charset=utf-8 221.5677ms
+2023-06-22 21:31:10.463 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - -
+2023-06-22 21:31:10.463 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_vs/browserLink - -
+2023-06-22 21:31:10.487 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 24.3094ms
+2023-06-22 21:31:10.521 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 58.2591ms
+2023-06-22 21:31:10.636 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
+2023-06-22 21:31:10.748 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 112.0097ms
+2023-06-22 21:31:17.856 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignInStart - -
+2023-06-22 21:31:17.910 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi)'
+2023-06-22 21:31:17.918 +03:00 [INF] Route matched with {action = "GoogleSignInStart", controller = "Authentication"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GoogleSignInStartAsync() on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-06-22 21:31:17.958 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi) - Validation state: "Valid"
+2023-06-22 21:31:17.964 +03:00 [INF] Executed action method WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 0.3173ms.
+2023-06-22 21:31:17.967 +03:00 [INF] Executing RedirectResult, redirecting to https://accounts.google.com/o/oauth2/v2/auth?client_id=1058050308657-ljc4t62gfie2q0jg7tucr4b6v6q2agb4.apps.googleusercontent.com&response_type=code&scope=openid%20email%20profile&access_type=offline&redirect_uri=https://localhost:7109/api/Authentication/GoogleSignIn.
+2023-06-22 21:31:17.971 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi) in 49.5849ms
+2023-06-22 21:31:17.973 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi)'
+2023-06-22 21:31:17.973 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignInStart - - - 302 0 - 117.3563ms
+2023-06-22 21:31:37.160 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignInStart - -
+2023-06-22 21:31:37.167 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi)'
+2023-06-22 21:31:37.168 +03:00 [INF] Route matched with {action = "GoogleSignInStart", controller = "Authentication"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GoogleSignInStartAsync() on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-06-22 21:31:37.189 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi) - Validation state: "Valid"
+2023-06-22 21:31:37.191 +03:00 [INF] Executed action method WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 0.0416ms.
+2023-06-22 21:31:37.193 +03:00 [INF] Executing RedirectResult, redirecting to https://accounts.google.com/o/oauth2/v2/auth?client_id=1058050308657-ljc4t62gfie2q0jg7tucr4b6v6q2agb4.apps.googleusercontent.com&response_type=code&scope=openid%20email%20profile&access_type=offline&redirect_uri=https://localhost:7109/api/Authentication/GoogleSignIn.
+2023-06-22 21:31:37.194 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi) in 23.6179ms
+2023-06-22 21:31:37.195 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi)'
+2023-06-22 21:31:37.196 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignInStart - - - 302 0 - 36.0531ms
+2023-06-22 21:31:43.985 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignIn?code=4%2F0AbUR2VPMiMzXgjWGbOKeFUzCUnFZdqojDtpkOGkkSFvpn3JBSH5OwTLUbYGvdJ6BRaNcoA&scope=email+profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&authuser=0&prompt=consent - -
+2023-06-22 21:31:43.995 +03:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2023-06-22 21:31:43.996 +03:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2023-06-22 21:31:43.997 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignIn?code=4%2F0AbUR2VPMiMzXgjWGbOKeFUzCUnFZdqojDtpkOGkkSFvpn3JBSH5OwTLUbYGvdJ6BRaNcoA&scope=email+profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&authuser=0&prompt=consent - - - 405 0 - 12.4940ms
+2023-06-22 21:33:01.872 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-22 21:33:02.004 +03:00 [INF] Now listening on: https://localhost:7109
+2023-06-22 21:33:02.005 +03:00 [INF] Now listening on: http://localhost:5223
+2023-06-22 21:33:02.007 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-22 21:33:02.008 +03:00 [INF] Hosting environment: Development
+2023-06-22 21:33:02.008 +03:00 [INF] Content root path: D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi
+2023-06-22 21:33:02.865 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - -
+2023-06-22 21:33:03.025 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - - - 200 - text/html;charset=utf-8 161.8693ms
+2023-06-22 21:33:03.098 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_vs/browserLink - -
+2023-06-22 21:33:03.098 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - -
+2023-06-22 21:33:03.146 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 47.6220ms
+2023-06-22 21:33:03.189 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 91.1338ms
+2023-06-22 21:33:03.244 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
+2023-06-22 21:33:03.354 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 110.4085ms
+2023-06-22 21:33:07.557 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignInStart - -
+2023-06-22 21:33:07.613 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi)'
+2023-06-22 21:33:07.623 +03:00 [INF] Route matched with {action = "GoogleSignInStart", controller = "Authentication"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GoogleSignInStartAsync() on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-06-22 21:33:07.664 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi) - Validation state: "Valid"
+2023-06-22 21:33:07.668 +03:00 [INF] Executed action method WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 0.2957ms.
+2023-06-22 21:33:07.672 +03:00 [INF] Executing RedirectResult, redirecting to https://accounts.google.com/o/oauth2/v2/auth?client_id=1058050308657-ljc4t62gfie2q0jg7tucr4b6v6q2agb4.apps.googleusercontent.com&response_type=code&scope=openid%20email%20profile&access_type=offline&redirect_uri=https://localhost:7109/api/Authentication/GoogleSignIn.
+2023-06-22 21:33:07.676 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi) in 49.6456ms
+2023-06-22 21:33:07.677 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi)'
+2023-06-22 21:33:07.678 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignInStart - - - 302 0 - 120.3856ms
+2023-06-22 21:33:15.340 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignInStart - -
+2023-06-22 21:33:15.345 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi)'
+2023-06-22 21:33:15.347 +03:00 [INF] Route matched with {action = "GoogleSignInStart", controller = "Authentication"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GoogleSignInStartAsync() on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-06-22 21:33:15.367 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi) - Validation state: "Valid"
+2023-06-22 21:33:15.368 +03:00 [INF] Executed action method WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 0.0282ms.
+2023-06-22 21:33:15.370 +03:00 [INF] Executing RedirectResult, redirecting to https://accounts.google.com/o/oauth2/v2/auth?client_id=1058050308657-ljc4t62gfie2q0jg7tucr4b6v6q2agb4.apps.googleusercontent.com&response_type=code&scope=openid%20email%20profile&access_type=offline&redirect_uri=https://localhost:7109/api/Authentication/GoogleSignIn.
+2023-06-22 21:33:15.371 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi) in 22.7816ms
+2023-06-22 21:33:15.373 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi)'
+2023-06-22 21:33:15.374 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignInStart - - - 302 0 - 33.9485ms
+2023-06-22 21:33:18.776 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignIn?code=4%2F0AbUR2VMUPpJug15-NXhwG-3B7Y0L2uiXxZGFYQGFyuHzWLqwNAVcch_y14b7ejSQC7CMmQ&scope=email+profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&authuser=0&prompt=consent - -
+2023-06-22 21:33:18.787 +03:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2023-06-22 21:33:18.788 +03:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2023-06-22 21:33:18.789 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignIn?code=4%2F0AbUR2VMUPpJug15-NXhwG-3B7Y0L2uiXxZGFYQGFyuHzWLqwNAVcch_y14b7ejSQC7CMmQ&scope=email+profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&authuser=0&prompt=consent - - - 405 0 - 12.2145ms
+2023-06-22 21:33:28.407 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-22 21:33:28.570 +03:00 [INF] Now listening on: https://localhost:7109
+2023-06-22 21:33:28.571 +03:00 [INF] Now listening on: http://localhost:5223
+2023-06-22 21:33:28.573 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-22 21:33:28.574 +03:00 [INF] Hosting environment: Development
+2023-06-22 21:33:28.574 +03:00 [INF] Content root path: D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi
+2023-06-22 21:33:29.559 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - -
+2023-06-22 21:33:29.773 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - - - 200 - text/html;charset=utf-8 215.1276ms
+2023-06-22 21:33:29.849 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - -
+2023-06-22 21:33:29.850 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_vs/browserLink - -
+2023-06-22 21:33:29.861 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 11.3691ms
+2023-06-22 21:33:29.892 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 42.5462ms
+2023-06-22 21:33:29.947 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
+2023-06-22 21:33:30.042 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 94.6592ms
+2023-06-22 21:33:34.498 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignInStart - -
+2023-06-22 21:33:34.553 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi)'
+2023-06-22 21:33:34.561 +03:00 [INF] Route matched with {action = "GoogleSignInStart", controller = "Authentication"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GoogleSignInStartAsync() on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-06-22 21:33:34.607 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi) - Validation state: "Valid"
+2023-06-22 21:33:34.611 +03:00 [INF] Executed action method WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 0.2927ms.
+2023-06-22 21:33:34.614 +03:00 [INF] Executing RedirectResult, redirecting to https://accounts.google.com/o/oauth2/v2/auth?client_id=1058050308657-ljc4t62gfie2q0jg7tucr4b6v6q2agb4.apps.googleusercontent.com&response_type=code&scope=openid%20email%20profile&access_type=offline&redirect_uri=https://localhost:7109/api/Authentication/GoogleSignIn.
+2023-06-22 21:33:34.617 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi) in 52.4124ms
+2023-06-22 21:33:34.618 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi)'
+2023-06-22 21:33:34.619 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignInStart - - - 302 0 - 120.1823ms
+2023-06-22 21:33:36.820 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignIn?code=4%2F0AbUR2VO0aGVN3CKdGHM9Mci7aXvxZ_Cu5M7a7gB-5iuuBWK23uuk3k7t04Ty7mIVgV-MZA&scope=email+profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&authuser=0&prompt=consent - -
+2023-06-22 21:33:36.831 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi)'
+2023-06-22 21:33:36.843 +03:00 [INF] Route matched with {action = "GoogleSignIn", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GoogleSignInAsync(System.String, System.Threading.CancellationToken) on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-06-22 21:33:36.862 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi) - Validation state: "Valid"
+2023-06-22 22:10:36.699 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-22 22:10:36.837 +03:00 [INF] Now listening on: https://localhost:7109
+2023-06-22 22:10:36.839 +03:00 [INF] Now listening on: http://localhost:5223
+2023-06-22 22:10:36.841 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-22 22:10:36.842 +03:00 [INF] Hosting environment: Development
+2023-06-22 22:10:36.843 +03:00 [INF] Content root path: D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi
+2023-06-22 22:10:38.349 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - -
+2023-06-22 22:10:38.559 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - - - 200 - text/html;charset=utf-8 212.1584ms
+2023-06-22 22:10:38.647 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - -
+2023-06-22 22:10:38.647 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_vs/browserLink - -
+2023-06-22 22:10:38.674 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 26.5862ms
+2023-06-22 22:10:38.705 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 58.2867ms
+2023-06-22 22:10:38.781 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
+2023-06-22 22:10:38.888 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 106.9677ms
+2023-06-22 22:11:20.827 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignInStart - -
+2023-06-22 22:11:20.898 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi)'
+2023-06-22 22:11:20.906 +03:00 [INF] Route matched with {action = "GoogleSignInStart", controller = "Authentication"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GoogleSignInStartAsync() on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-06-22 22:11:21.327 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi) - Validation state: "Valid"
+2023-06-22 22:11:21.333 +03:00 [INF] Executed action method WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 0.409ms.
+2023-06-22 22:11:21.336 +03:00 [INF] Executing RedirectResult, redirecting to https://accounts.google.com/o/oauth2/v2/auth?client_id=1058050308657-ljc4t62gfie2q0jg7tucr4b6v6q2agb4.apps.googleusercontent.com&response_type=code&scope=openid%20email%20profile&access_type=offline&redirect_uri=https://localhost:7109/api/Authentication/GoogleSignIn.
+2023-06-22 22:11:21.339 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi) in 430.004ms
+2023-06-22 22:11:21.341 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi)'
+2023-06-22 22:11:21.344 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignInStart - - - 302 0 - 517.7000ms
+2023-06-22 22:11:24.862 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignIn?code=4%2F0AbUR2VOLoFtOGnz0CN4UWfdsWOa4SeMJUNNcnf94mSq0NRwzyAysKXJZEHG64XDgqCQXkw&scope=email+profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&authuser=0&prompt=consent - -
+2023-06-22 22:11:24.875 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi)'
+2023-06-22 22:11:24.886 +03:00 [INF] Route matched with {action = "GoogleSignIn", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GoogleSignInAsync(System.String, System.Threading.CancellationToken) on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-06-22 22:11:24.926 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi) - Validation state: "Valid"
+2023-06-22 22:11:26.538 +03:00 [INF] Executed DbCommand (95ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`FirstName`, `a`.`LastName`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedEmail` = @__normalizedEmail_0
+LIMIT 2
+2023-06-22 22:11:26.705 +03:00 [INF] Executed action method WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkResult in 1777.374ms.
+2023-06-22 22:11:26.709 +03:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2023-06-22 22:11:26.711 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi) in 1823.1808ms
+2023-06-22 22:11:26.712 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi)'
+2023-06-22 22:11:26.717 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignIn?code=4%2F0AbUR2VOLoFtOGnz0CN4UWfdsWOa4SeMJUNNcnf94mSq0NRwzyAysKXJZEHG64XDgqCQXkw&scope=email+profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&authuser=0&prompt=consent - - - 200 0 - 1854.8587ms
+2023-06-22 22:11:26.989 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/favicon.ico - -
+2023-06-22 22:11:26.997 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/favicon.ico - - - 404 0 - 8.4918ms
+2023-06-22 22:12:46.700 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-22 22:12:46.841 +03:00 [INF] Now listening on: https://localhost:7109
+2023-06-22 22:12:46.842 +03:00 [INF] Now listening on: http://localhost:5223
+2023-06-22 22:12:46.843 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-22 22:12:46.844 +03:00 [INF] Hosting environment: Development
+2023-06-22 22:12:46.845 +03:00 [INF] Content root path: D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi
+2023-06-22 22:12:47.884 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - -
+2023-06-22 22:12:48.078 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - - - 200 - text/html;charset=utf-8 195.2340ms
+2023-06-22 22:12:48.159 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_vs/browserLink - -
+2023-06-22 22:12:48.159 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - -
+2023-06-22 22:12:48.174 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 15.6455ms
+2023-06-22 22:12:48.202 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 43.5893ms
+2023-06-22 22:12:48.254 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
+2023-06-22 22:12:48.347 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 92.8203ms
+2023-06-22 22:12:53.189 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignIn?code=4%2F0AbUR2VNkBWAJGpB2E1BQBkNl7QlMqEa3bk3SqsxfAn7S5yuUl0t_edFH5tKZfs9h7WxMAA&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&authuser=0&prompt=none - -
+2023-06-22 22:12:53.247 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi)'
+2023-06-22 22:12:53.263 +03:00 [INF] Route matched with {action = "GoogleSignIn", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GoogleSignInAsync(System.String, System.Threading.CancellationToken) on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-06-22 22:12:53.515 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi) - Validation state: "Valid"
+2023-06-22 22:12:56.052 +03:00 [ERR] The operation was canceled.
+System.Threading.Tasks.TaskCanceledException: The operation was canceled.
+   at System.Net.Http.HttpClient.HandleFailure(Exception e, Boolean telemetryStarted, HttpResponseMessage response, CancellationTokenSource cts, CancellationToken cancellationToken, CancellationTokenSource pendingRequestsCts)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at Google.Apis.Auth.OAuth2.Requests.RequestExtensions.PostFormAsync(Object request, HttpClient httpClient, String url, AuthenticationHeaderValue authenticationHeaderValue, IClock clock, ILogger logger, CancellationToken taskCancellationToken)
+   at Google.Apis.Auth.OAuth2.Flows.AuthorizationCodeFlow.FetchTokenAsync(String userId, TokenRequest request, CancellationToken taskCancellationToken)
+   at Google.Apis.Auth.OAuth2.Flows.AuthorizationCodeFlow.ExchangeCodeForTokenAsync(String userId, String code, String redirectUri, CancellationToken taskCancellationToken)
+   at WebApi.Controllers.AuthenticationController.GoogleSignInAsync(String code, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Controllers\AuthenticationController.cs:line 67
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2023-06-22 22:12:56.080 +03:00 [INF] Executing ObjectResult, writing value of type 'Application.Common.Models.Errors.ApiErrorDto'.
+2023-06-22 22:12:56.089 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi) in 2822.6257ms
+2023-06-22 22:12:56.090 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi)'
+2023-06-22 22:12:56.093 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignIn?code=4%2F0AbUR2VNkBWAJGpB2E1BQBkNl7QlMqEa3bk3SqsxfAn7S5yuUl0t_edFH5tKZfs9h7WxMAA&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&authuser=0&prompt=none - - - 0 - application/json;+charset=utf-8 2903.6283ms
+2023-06-22 22:13:05.528 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-22 22:13:05.695 +03:00 [INF] Now listening on: https://localhost:7109
+2023-06-22 22:13:05.696 +03:00 [INF] Now listening on: http://localhost:5223
+2023-06-22 22:13:05.698 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-22 22:13:05.699 +03:00 [INF] Hosting environment: Development
+2023-06-22 22:13:05.700 +03:00 [INF] Content root path: D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi
+2023-06-22 22:13:06.990 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - -
+2023-06-22 22:13:07.154 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - - - 200 - text/html;charset=utf-8 165.0673ms
+2023-06-22 22:13:07.239 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - -
+2023-06-22 22:13:07.242 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_vs/browserLink - -
+2023-06-22 22:13:07.262 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 22.9473ms
+2023-06-22 22:13:07.298 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 56.4988ms
+2023-06-22 22:13:07.352 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
+2023-06-22 22:13:07.436 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 84.0751ms
+2023-06-22 22:13:19.691 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignInStart - -
+2023-06-22 22:13:19.748 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi)'
+2023-06-22 22:13:19.756 +03:00 [INF] Route matched with {action = "GoogleSignInStart", controller = "Authentication"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GoogleSignInStartAsync() on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-06-22 22:13:19.995 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi) - Validation state: "Valid"
+2023-06-22 22:13:20.000 +03:00 [INF] Executed action method WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 0.3014ms.
+2023-06-22 22:13:20.003 +03:00 [INF] Executing RedirectResult, redirecting to https://accounts.google.com/o/oauth2/v2/auth?client_id=1058050308657-ljc4t62gfie2q0jg7tucr4b6v6q2agb4.apps.googleusercontent.com&response_type=code&scope=openid%20email%20profile&access_type=offline&redirect_uri=https://localhost:7109/api/Authentication/GoogleSignIn.
+2023-06-22 22:13:20.007 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi) in 246.9757ms
+2023-06-22 22:13:20.008 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi)'
+2023-06-22 22:13:20.011 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignInStart - - - 302 0 - 319.5839ms
+2023-06-22 22:13:20.387 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignIn?code=4%2F0AbUR2VMxxkH-m9ToubC9IlYFC2yGYAtoftoiok5uiOZyK6BMSPN7THSkT8lOw8WJBLynWA&scope=email+profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&authuser=0&prompt=none - -
+2023-06-22 22:13:20.398 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi)'
+2023-06-22 22:13:20.409 +03:00 [INF] Route matched with {action = "GoogleSignIn", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GoogleSignInAsync(System.String, System.Threading.CancellationToken) on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-06-22 22:13:20.448 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi) - Validation state: "Valid"
+2023-06-22 22:13:21.989 +03:00 [INF] Executed DbCommand (99ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`FirstName`, `a`.`LastName`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedEmail` = @__normalizedEmail_0
+LIMIT 2
+2023-06-22 22:13:22.124 +03:00 [INF] Executed action method WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 1674.3505ms.
+2023-06-22 22:13:22.127 +03:00 [INF] Executing RedirectResult, redirecting to http://127.0.0.1:5173/social-login?access_token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJiMjVmYzJmOS04YmYyLTRlNTAtOTNjYy1kZjk5YzhmZGQzZDEiLCJlbWFpbCI6ImFsdHVkZXYwMkBnbWFpbC5jb20iLCJzdWIiOiJiMjVmYzJmOS04YmYyLTRlNTAtOTNjYy1kZjk5YzhmZGQzZDEiLCJnaXZlbl9uYW1lIjoiQWxwZXIgVHVuZ2EiLCJmYW1pbHlfbmFtZSI6IkFscGVyIFR1bmdhIiwianRpIjoiMjRjZDdhOWMtNWQ4YS00YmJlLWFkMjctMzk4ZDhhNTBkNjU0IiwiZXhwIjoxNjg3NDY0ODAyLCJpc3MiOiJVcFN0b3JhZ2UiLCJhdWQiOiJVcFN0b3JhZ2UifQ.TCX2fnbbV3Zh7kP5HyGyec7Gk7_k-yE2Yr-WilWedyE&expiry_date=-8585141420834107906.
+2023-06-22 22:13:22.128 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi) in 1717.2302ms
+2023-06-22 22:13:22.129 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi)'
+2023-06-22 22:13:22.135 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignIn?code=4%2F0AbUR2VMxxkH-m9ToubC9IlYFC2yGYAtoftoiok5uiOZyK6BMSPN7THSkT8lOw8WJBLynWA&scope=email+profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&authuser=0&prompt=none - - - 302 0 - 1747.8341ms
+2023-06-22 22:14:24.230 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignInStart - -
+2023-06-22 22:14:24.233 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi)'
+2023-06-22 22:14:24.235 +03:00 [INF] Route matched with {action = "GoogleSignInStart", controller = "Authentication"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GoogleSignInStartAsync() on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-06-22 22:14:24.268 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi) - Validation state: "Valid"
+2023-06-22 22:14:24.269 +03:00 [INF] Executed action method WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 0.009ms.
+2023-06-22 22:14:24.270 +03:00 [INF] Executing RedirectResult, redirecting to https://accounts.google.com/o/oauth2/v2/auth?client_id=1058050308657-ljc4t62gfie2q0jg7tucr4b6v6q2agb4.apps.googleusercontent.com&response_type=code&scope=openid%20email%20profile&access_type=offline&redirect_uri=https://localhost:7109/api/Authentication/GoogleSignIn.
+2023-06-22 22:14:24.271 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi) in 34.1675ms
+2023-06-22 22:14:24.272 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi)'
+2023-06-22 22:14:24.274 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignInStart - - - 302 0 - 43.6257ms
+2023-06-22 22:14:24.657 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignIn?code=4%2F0AbUR2VOZNX1jOWWdm6UTRZa8miws9AbDnbgFhTxq4o-3e22-4OlGeyzX9qrt_ew6q6Q9aA&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&authuser=0&prompt=none - -
+2023-06-22 22:14:24.659 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi)'
+2023-06-22 22:14:24.660 +03:00 [INF] Route matched with {action = "GoogleSignIn", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GoogleSignInAsync(System.String, System.Threading.CancellationToken) on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-06-22 22:14:24.681 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi) - Validation state: "Valid"
+2023-06-22 22:14:25.017 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`FirstName`, `a`.`LastName`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedEmail` = @__normalizedEmail_0
+LIMIT 2
+2023-06-22 22:14:25.021 +03:00 [INF] Executed action method WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 338.5218ms.
+2023-06-22 22:14:25.022 +03:00 [INF] Executing RedirectResult, redirecting to http://127.0.0.1:5173/social-login?access_token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJiMjVmYzJmOS04YmYyLTRlNTAtOTNjYy1kZjk5YzhmZGQzZDEiLCJlbWFpbCI6ImFsdHVkZXYwMkBnbWFpbC5jb20iLCJzdWIiOiJiMjVmYzJmOS04YmYyLTRlNTAtOTNjYy1kZjk5YzhmZGQzZDEiLCJnaXZlbl9uYW1lIjoiQWxwZXIgVHVuZ2EiLCJmYW1pbHlfbmFtZSI6IkFscGVyIFR1bmdhIiwianRpIjoiYTgwMGZkMjQtNmY1Yy00OWI5LTlhZGYtYjBhODE1ZmY0NWRmIiwiZXhwIjoxNjg3NDY0ODY1LCJpc3MiOiJVcFN0b3JhZ2UiLCJhdWQiOiJVcFN0b3JhZ2UifQ.VdFKNZSE38FcS69_luRyp-_Kv-w2J-gclIeZiylC2Jg&expiry_date=-8585141420204568780.
+2023-06-22 22:14:25.023 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi) in 361.1464ms
+2023-06-22 22:14:25.024 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi)'
+2023-06-22 22:14:25.025 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignIn?code=4%2F0AbUR2VOZNX1jOWWdm6UTRZa8miws9AbDnbgFhTxq4o-3e22-4OlGeyzX9qrt_ew6q6Q9aA&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&authuser=0&prompt=none - - - 302 0 - 368.0592ms
+2023-06-22 22:16:19.234 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignInStart - -
+2023-06-22 22:16:19.236 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi)'
+2023-06-22 22:16:19.237 +03:00 [INF] Route matched with {action = "GoogleSignInStart", controller = "Authentication"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GoogleSignInStartAsync() on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-06-22 22:16:19.258 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi) - Validation state: "Valid"
+2023-06-22 22:16:19.260 +03:00 [INF] Executed action method WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 0.0121ms.
+2023-06-22 22:16:19.261 +03:00 [INF] Executing RedirectResult, redirecting to https://accounts.google.com/o/oauth2/v2/auth?client_id=1058050308657-ljc4t62gfie2q0jg7tucr4b6v6q2agb4.apps.googleusercontent.com&response_type=code&scope=openid%20email%20profile&access_type=offline&redirect_uri=https://localhost:7109/api/Authentication/GoogleSignIn.
+2023-06-22 22:16:19.262 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi) in 23.6264ms
+2023-06-22 22:16:19.263 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi)'
+2023-06-22 22:16:19.264 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignInStart - - - 302 0 - 29.9568ms
+2023-06-22 22:16:19.596 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignIn?code=4%2F0AbUR2VNCP3FLiAaPzTi2DwwkyhE5OcUfMVmzHEr_1dfZ99w7BmCEFhdE20lK0-7UAthN8A&scope=email+profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&authuser=0&prompt=none - -
+2023-06-22 22:16:19.597 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi)'
+2023-06-22 22:16:19.598 +03:00 [INF] Route matched with {action = "GoogleSignIn", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GoogleSignInAsync(System.String, System.Threading.CancellationToken) on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-06-22 22:16:19.618 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi) - Validation state: "Valid"
+2023-06-22 22:16:19.932 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`FirstName`, `a`.`LastName`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedEmail` = @__normalizedEmail_0
+LIMIT 2
+2023-06-22 22:16:19.934 +03:00 [INF] Executed action method WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 314.5293ms.
+2023-06-22 22:16:19.936 +03:00 [INF] Executing RedirectResult, redirecting to http://127.0.0.1:5173/social-login?access_token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJiMjVmYzJmOS04YmYyLTRlNTAtOTNjYy1kZjk5YzhmZGQzZDEiLCJlbWFpbCI6ImFsdHVkZXYwMkBnbWFpbC5jb20iLCJzdWIiOiJiMjVmYzJmOS04YmYyLTRlNTAtOTNjYy1kZjk5YzhmZGQzZDEiLCJnaXZlbl9uYW1lIjoiQWxwZXIgVHVuZ2EiLCJmYW1pbHlfbmFtZSI6IkFscGVyIFR1bmdhIiwianRpIjoiZjk0YjMzMmYtYmZlMi00NTI3LTgzMjctZGJiYTc4NzE0OTZiIiwiZXhwIjoxNjg3NDY0OTc5LCJpc3MiOiJVcFN0b3JhZ2UiLCJhdWQiOiJVcFN0b3JhZ2UifQ.reP9IoWBs4bUPtrE3-oiKEsYF6wLtJi5xjOmIPC_me0&expiry_date=-8585141419055428420.
+2023-06-22 22:16:19.937 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi) in 337.3684ms
+2023-06-22 22:16:19.938 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi)'
+2023-06-22 22:16:19.939 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignIn?code=4%2F0AbUR2VNCP3FLiAaPzTi2DwwkyhE5OcUfMVmzHEr_1dfZ99w7BmCEFhdE20lK0-7UAthN8A&scope=email+profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&authuser=0&prompt=none - - - 302 0 - 342.8044ms
+2023-06-22 22:18:05.504 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignInStart - -
+2023-06-22 22:18:05.506 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi)'
+2023-06-22 22:18:05.507 +03:00 [INF] Route matched with {action = "GoogleSignInStart", controller = "Authentication"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GoogleSignInStartAsync() on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-06-22 22:18:05.527 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi) - Validation state: "Valid"
+2023-06-22 22:18:05.528 +03:00 [INF] Executed action method WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 0.0087ms.
+2023-06-22 22:18:05.529 +03:00 [INF] Executing RedirectResult, redirecting to https://accounts.google.com/o/oauth2/v2/auth?client_id=1058050308657-ljc4t62gfie2q0jg7tucr4b6v6q2agb4.apps.googleusercontent.com&response_type=code&scope=openid%20email%20profile&access_type=offline&redirect_uri=https://localhost:7109/api/Authentication/GoogleSignIn.
+2023-06-22 22:18:05.530 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi) in 20.6135ms
+2023-06-22 22:18:05.530 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi)'
+2023-06-22 22:18:05.532 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignInStart - - - 302 0 - 27.9393ms
+2023-06-22 22:18:05.975 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignIn?code=4%2F0AbUR2VMFo3O7ImnjYepNZnVPaBGn946DSw-agK1ZzQrbEwQJtm9JadpngTirsNMWyIVWXg&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&authuser=0&prompt=none - -
+2023-06-22 22:18:05.977 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi)'
+2023-06-22 22:18:05.978 +03:00 [INF] Route matched with {action = "GoogleSignIn", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GoogleSignInAsync(System.String, System.Threading.CancellationToken) on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-06-22 22:18:05.995 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi) - Validation state: "Valid"
+2023-06-22 22:18:06.271 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`FirstName`, `a`.`LastName`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedEmail` = @__normalizedEmail_0
+LIMIT 2
+2023-06-22 22:18:06.274 +03:00 [INF] Executed action method WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 277.8056ms.
+2023-06-22 22:18:06.276 +03:00 [INF] Executing RedirectResult, redirecting to http://127.0.0.1:5173/social-login?access_token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJiMjVmYzJmOS04YmYyLTRlNTAtOTNjYy1kZjk5YzhmZGQzZDEiLCJlbWFpbCI6ImFsdHVkZXYwMkBnbWFpbC5jb20iLCJzdWIiOiJiMjVmYzJmOS04YmYyLTRlNTAtOTNjYy1kZjk5YzhmZGQzZDEiLCJnaXZlbl9uYW1lIjoiQWxwZXIgVHVuZ2EiLCJmYW1pbHlfbmFtZSI6IkFscGVyIFR1bmdhIiwianRpIjoiZWRlZTVjNTMtMjBmOS00ZDYwLTkwZGQtZjU2ODIzMDdjYWU1IiwiZXhwIjoxNjg3NDY1MDg2LCJpc3MiOiJVcFN0b3JhZ2UiLCJhdWQiOiJVcFN0b3JhZ2UifQ.QfYxmmgKB4KH_KKqRHcc7lGDPKnG9DYnSTRVIMPasOA&expiry_date=-8585141417992030898.
+2023-06-22 22:18:06.277 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi) in 297.4984ms
+2023-06-22 22:18:06.277 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi)'
+2023-06-22 22:18:06.278 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignIn?code=4%2F0AbUR2VMFo3O7ImnjYepNZnVPaBGn946DSw-agK1ZzQrbEwQJtm9JadpngTirsNMWyIVWXg&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&authuser=0&prompt=none - - - 302 0 - 303.2289ms
+2023-06-22 22:18:59.068 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignInStart - -
+2023-06-22 22:18:59.075 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi)'
+2023-06-22 22:18:59.077 +03:00 [INF] Route matched with {action = "GoogleSignInStart", controller = "Authentication"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GoogleSignInStartAsync() on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-06-22 22:18:59.096 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi) - Validation state: "Valid"
+2023-06-22 22:18:59.097 +03:00 [INF] Executed action method WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 0.0095ms.
+2023-06-22 22:18:59.098 +03:00 [INF] Executing RedirectResult, redirecting to https://accounts.google.com/o/oauth2/v2/auth?client_id=1058050308657-ljc4t62gfie2q0jg7tucr4b6v6q2agb4.apps.googleusercontent.com&response_type=code&scope=openid%20email%20profile&access_type=offline&redirect_uri=https://localhost:7109/api/Authentication/GoogleSignIn.
+2023-06-22 22:18:59.099 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi) in 20.3558ms
+2023-06-22 22:18:59.101 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInStartAsync (WebApi)'
+2023-06-22 22:18:59.102 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignInStart - - - 302 0 - 33.6935ms
+2023-06-22 22:18:59.488 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignIn?code=4%2F0AbUR2VMKXvbAj2a6lxsC3PPKVJZQbeTyEw-oi4LWcnckecYMRrXSekJUp_Aecn5SkJTCTg&scope=email+profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&authuser=0&prompt=none - -
+2023-06-22 22:18:59.489 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi)'
+2023-06-22 22:18:59.490 +03:00 [INF] Route matched with {action = "GoogleSignIn", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GoogleSignInAsync(System.String, System.Threading.CancellationToken) on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-06-22 22:18:59.509 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi) - Validation state: "Valid"
+2023-06-22 22:18:59.809 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`FirstName`, `a`.`LastName`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedEmail` = @__normalizedEmail_0
+LIMIT 2
+2023-06-22 22:18:59.812 +03:00 [INF] Executed action method WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 301.4427ms.
+2023-06-22 22:18:59.813 +03:00 [INF] Executing RedirectResult, redirecting to http://127.0.0.1:5173/social-login?access_token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJiMjVmYzJmOS04YmYyLTRlNTAtOTNjYy1kZjk5YzhmZGQzZDEiLCJlbWFpbCI6ImFsdHVkZXYwMkBnbWFpbC5jb20iLCJzdWIiOiJiMjVmYzJmOS04YmYyLTRlNTAtOTNjYy1kZjk5YzhmZGQzZDEiLCJnaXZlbl9uYW1lIjoiQWxwZXIgVHVuZ2EiLCJmYW1pbHlfbmFtZSI6IkFscGVyIFR1bmdhIiwianRpIjoiMzEzZGI5MDktYTM1Zi00ZmFmLWEzMWMtZGQyZDE2MzBkN2RjIiwiZXhwIjoxNjg3NDY1MTM5LCJpc3MiOiJVcFN0b3JhZ2UiLCJhdWQiOiJVcFN0b3JhZ2UifQ.QVA7J7zM2Mw4M45ZIrXT2NUXrR4c8FkKn8yDwPWvtf8&expiry_date=-8585141417456653747.
+2023-06-22 22:18:59.813 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi) in 321.7669ms
+2023-06-22 22:18:59.814 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.GoogleSignInAsync (WebApi)'
+2023-06-22 22:18:59.815 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Authentication/GoogleSignIn?code=4%2F0AbUR2VMKXvbAj2a6lxsC3PPKVJZQbeTyEw-oi4LWcnckecYMRrXSekJUp_Aecn5SkJTCTg&scope=email+profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&authuser=0&prompt=none - - - 302 0 - 326.9924ms
+2023-06-22 22:26:12.404 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Authentication/Login - -
+2023-06-22 22:26:12.413 +03:00 [INF] CORS policy execution successful.
+2023-06-22 22:26:12.415 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Authentication/Login - - - 204 - - 10.5378ms
+2023-06-22 22:26:12.424 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Authentication/Login application/json 26
+2023-06-22 22:26:12.425 +03:00 [INF] CORS policy execution successful.
+2023-06-22 22:26:12.426 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.LoginAsync (WebApi)'
+2023-06-22 22:26:12.429 +03:00 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginAsync(Application.Features.Auth.Commands.Login.AuthLoginCommand) on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-06-22 22:26:12.484 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.LoginAsync (WebApi) - Validation state: "Valid"
+2023-06-22 22:26:12.571 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@__email_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `AspNetUsers` AS `a`
+    WHERE `a`.`Email` = @__email_0)

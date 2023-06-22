@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 import logo from '/upstorage_logo_730_608.png';
 import {AppUserContext} from "../context/StateContext.tsx"; // import your image
 
+const BASE_URL = import.meta.env.VITE_API_URL;
+
 /*export type LoginPageProps = {
 
 }*/
@@ -58,7 +60,8 @@ function LoginPage() {
 
     const onGoogleLoginClick = (e:React.FormEvent) => {
         e.preventDefault();
-        // Handle Google login
+
+        window.location.href = `${BASE_URL}/Authentication/GoogleSignInStart`;
     };
 
     return (
@@ -94,7 +97,7 @@ function LoginPage() {
                             Login
                         </Button>
 
-                        <Button color='red' fluid onClick={onGoogleLoginClick} size='large' style={{marginTop:"5px"}}>
+                        <Button color='red' fluid onClick={onGoogleLoginClick} size='large' style={{marginTop:"5px"}} type="button">
                             <Icon name='google' /> Sign in with Google
                         </Button>
                     </Segment>
