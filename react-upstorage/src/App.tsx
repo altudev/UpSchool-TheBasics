@@ -17,6 +17,7 @@ import {dummyAccounts} from "./utils/dummyData.ts";
 import ProtectedRoute from "./components/ProtectedRoute.tsx";
 import AccountsAddPage from "./pages/AccountsAddPage.tsx";
 import SocialLogin from "./pages/SocialLogin.tsx";
+import CountriesPage from "./pages/CountriesPage.tsx";
 
 function App() {
 
@@ -78,6 +79,7 @@ function App() {
                             }/>
                             <Route path="/login" element={<LoginPage/>}/>
                             <Route path="/social-login" element={<SocialLogin/>}/>
+                            <Route path="/countries" element={<CountriesPage/>}/>
                             <Route path="*" element={<NotFoundPage/>}/>
                         </Routes>
                     </Container>
