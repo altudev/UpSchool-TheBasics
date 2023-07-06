@@ -18,10 +18,13 @@ export const countrySlice = createSlice({
         addCountry: (state, action: PayloadAction<string>) => {
             state.countries.push(action.payload);
         },
+        removeCountry:(state, action: PayloadAction<string>) => {
+           state.countries = state.countries.filter(country => country!==action.payload);
+        },
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { addCountry } = countrySlice.actions
+export const { addCountry, removeCountry } = countrySlice.actions
 
 export default countrySlice.reducer
