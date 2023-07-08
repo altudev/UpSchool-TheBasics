@@ -15,7 +15,7 @@ const NavBar = () => {
 
     const { accounts } = useContext(AccountsContext);
 
-    const countries = useSelector((state: RootState) => state.country.countries);
+    const paginatedCountries = useSelector((state: RootState) => state.country.paginatedCountries);
 
     return (
         <Menu fixed='top' inverted>
@@ -26,7 +26,7 @@ const NavBar = () => {
                 </Menu.Item>
                 <Menu.Item as={NavLink} to="/">Home</Menu.Item>
                 <Menu.Item as={NavLink} to="/accounts">Accounts ({accounts.length})</Menu.Item>
-                <Menu.Item as={NavLink} to="/countries">Countries ({countries.length})</Menu.Item>
+                <Menu.Item as={NavLink} to="/countries">Countries ({paginatedCountries && paginatedCountries.items.length})</Menu.Item>
                 <Menu.Item as={NavLink} to="/dafasdqweasdaf">Not Found</Menu.Item>
                 {!appUser && <Menu.Item as={NavLink} to="/login" position="right"><Icon name="sign-in" /> Login</Menu.Item>}
             </Container>

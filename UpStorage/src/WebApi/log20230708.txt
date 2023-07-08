@@ -1,0 +1,72 @@
+2023-07-08 19:57:56.944 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-07-08 19:57:57.154 +03:00 [INF] Now listening on: https://localhost:7109
+2023-07-08 19:57:57.156 +03:00 [INF] Now listening on: http://localhost:5223
+2023-07-08 19:57:57.158 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-08 19:57:57.159 +03:00 [INF] Hosting environment: Development
+2023-07-08 19:57:57.160 +03:00 [INF] Content root path: D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi
+2023-07-08 19:57:59.153 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger - -
+2023-07-08 19:57:59.222 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger - - - 301 0 - 63.5502ms
+2023-07-08 19:57:59.232 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - -
+2023-07-08 19:57:59.373 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - - - 200 - text/html;charset=utf-8 140.9669ms
+2023-07-08 19:57:59.449 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/swagger-ui.css - -
+2023-07-08 19:57:59.450 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/swagger-ui-bundle.js - -
+2023-07-08 19:57:59.451 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/swagger-ui-standalone-preset.js - -
+2023-07-08 19:57:59.451 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_vs/browserLink - -
+2023-07-08 19:57:59.461 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - -
+2023-07-08 19:57:59.500 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 39.2728ms
+2023-07-08 19:57:59.514 +03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2023-07-08 19:57:59.516 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2023-07-08 19:57:59.516 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/swagger-ui.css - - - 200 143943 text/css 67.1455ms
+2023-07-08 19:57:59.518 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/swagger-ui-standalone-preset.js - - - 200 339486 text/javascript 67.2712ms
+2023-07-08 19:57:59.614 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2023-07-08 19:57:59.619 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/swagger-ui-bundle.js - - - 200 1096145 text/javascript 168.4686ms
+2023-07-08 19:57:59.628 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 176.3073ms
+2023-07-08 19:57:59.737 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
+2023-07-08 19:57:59.757 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/favicon-32x32.png - -
+2023-07-08 19:57:59.758 +03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2023-07-08 19:57:59.760 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/favicon-32x32.png - - - 200 628 image/png 2.9854ms
+2023-07-08 19:57:59.830 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 93.4534ms
+2023-07-08 20:09:12.689 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:09:12.700 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:09:12.702 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 13.6079ms
+2023-07-08 20:09:12.708 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:09:12.710 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:09:12.911 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:09:12'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:09:12.932 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:09:12'.
+2023-07-08 20:09:12.936 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:09:12.951 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:09:13.025 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:10:04.775 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Account' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-07-08 20:10:04.776 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'City' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-07-08 20:10:04.777 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Country' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-07-08 20:10:05.101 +03:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Name`
+FROM `Countries` AS `c`
+2023-07-08 20:10:05.124 +03:00 [INF] Executed action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 52094.1194ms.
+2023-07-08 20:10:05.130 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Countries.Queries.GetAll.CountriesGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-08 20:10:05.138 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 52183.4798ms
+2023-07-08 20:10:05.140 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:10:05.146 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 200 - application/json;+charset=utf-8 52438.0619ms
+2023-07-08 20:10:19.832 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-07-08 20:10:19.964 +03:00 [INF] Now listening on: https://localhost:7109
+2023-07-08 20:10:19.965 +03:00 [INF] Now listening on: http://localhost:5223
+2023-07-08 20:10:19.968 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-08 20:10:19.969 +03:00 [INF] Hosting environment: Development
+2023-07-08 20:10:19.970 +03:00 [INF] Content root path: D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi
+2023-07-08 20:10:21.341 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - -
+2023-07-08 20:10:21.500 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - - - 200 - text/html;charset=utf-8 159.9755ms
+2023-07-08 20:10:21.579 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - -
+2023-07-08 20:10:21.579 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_vs/browserLink - -
+2023-07-08 20:10:21.588 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 8.3967ms
+2023-07-08 20:10:21.619 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 39.4101ms
+2023-07-08 20:10:21.720 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
+2023-07-08 20:10:21.796 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 76.8244ms
