@@ -29,8 +29,8 @@ namespace Application.Features.Countries.Queries.GetAll
             CancellationToken cancellationToken)
         {
             if (_memoryCache.TryGetValue(COUNTRIES_KEY, out List<CountriesGetAllDto> countries))
-                //if (countries is not null && countries.Any())
-                return PaginatedList<CountriesGetAllDto>.Create(countries, request.PageNumber, request.PageSize);
+                if (countries is not null && countries.Any())
+                    return PaginatedList<CountriesGetAllDto>.Create(countries, request.PageNumber, request.PageSize);
 
             var countryDtos = await _applicationDbContext.Countries
                 .Select(x => new CountriesGetAllDto(x.Id, x.Name))

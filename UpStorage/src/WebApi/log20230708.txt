@@ -70,3 +70,1202 @@ FROM `Countries` AS `c`
 2023-07-08 20:10:21.619 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 39.4101ms
 2023-07-08 20:10:21.720 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
 2023-07-08 20:10:21.796 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 76.8244ms
+2023-07-08 20:34:40.690 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:34:40.697 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:34:40.699 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 9.3633ms
+2023-07-08 20:34:40.705 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:34:40.707 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:34:40.838 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:34:40'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:34:40.858 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:34:40'.
+2023-07-08 20:34:40.863 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:34:40.878 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:34:40.939 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:34:41.516 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Account' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-07-08 20:34:41.518 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'City' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-07-08 20:34:41.519 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Country' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-07-08 20:34:41.828 +03:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Name`
+FROM `Countries` AS `c`
+2023-07-08 20:34:41.850 +03:00 [INF] Executed action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 906.0219ms.
+2023-07-08 20:34:41.857 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Countries.Queries.GetAll.CountriesGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-08 20:34:41.865 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 982.6612ms
+2023-07-08 20:34:41.866 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:34:41.872 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 200 - application/json;+charset=utf-8 1167.7899ms
+2023-07-08 20:39:13.140 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-07-08 20:39:13.287 +03:00 [INF] Now listening on: https://localhost:7109
+2023-07-08 20:39:13.288 +03:00 [INF] Now listening on: http://localhost:5223
+2023-07-08 20:39:13.290 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-08 20:39:13.290 +03:00 [INF] Hosting environment: Development
+2023-07-08 20:39:13.291 +03:00 [INF] Content root path: D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi
+2023-07-08 20:39:15.005 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - -
+2023-07-08 20:39:15.182 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - - - 200 - text/html;charset=utf-8 178.2526ms
+2023-07-08 20:39:15.266 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_vs/browserLink - -
+2023-07-08 20:39:15.266 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - -
+2023-07-08 20:39:15.288 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 21.2726ms
+2023-07-08 20:39:15.315 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 48.3861ms
+2023-07-08 20:39:15.364 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
+2023-07-08 20:39:15.468 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 103.8249ms
+2023-07-08 20:39:24.681 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:39:24.689 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:39:24.691 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 10.2833ms
+2023-07-08 20:39:24.697 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:39:24.699 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:39:24.841 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:39:24'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:39:24.866 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:39:24'.
+2023-07-08 20:39:24.869 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:39:24.884 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:39:24.950 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:39:25.608 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Account' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-07-08 20:39:25.609 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'City' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-07-08 20:39:25.610 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Country' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-07-08 20:39:25.925 +03:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Name`
+FROM `Countries` AS `c`
+2023-07-08 20:39:25.949 +03:00 [INF] Executed action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 993.9081ms.
+2023-07-08 20:39:25.955 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Countries.Queries.GetAll.CountriesGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-08 20:39:25.963 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 1074.6881ms
+2023-07-08 20:39:25.965 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:39:25.971 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 200 - application/json;+charset=utf-8 1274.1186ms
+2023-07-08 20:39:35.684 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:39:35.685 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:39:35.686 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 2.1207ms
+2023-07-08 20:39:35.691 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:39:35.692 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:39:35.695 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:39:35'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:39:35.697 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:39:35'.
+2023-07-08 20:39:35.699 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:39:35.700 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:39:35.713 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:39:50.900 +03:00 [ERR] Value cannot be null. (Parameter 'source')
+System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   at Application.Common.Models.General.PaginatedList`1.Create(IEnumerable`1 source, Int32 pageNumber, Int32 pageSize) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Models\General\PaginatedList.cs:line 35
+   at Application.Features.Countries.Queries.GetAll.CountriesGetAllQueryHandler.Handle(CountriesGetAllQuery request, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Features\Countries\Queries\GetAll\CountriesGetAllQueryHandler.cs:line 33
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Behaviours\ValidationBehaviour.cs:line 35
+   at WebApi.Controllers.CountriesController.GetAllAsync(CountriesGetAllQuery query) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Controllers\CountriesController.cs:line 14
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2023-07-08 20:39:50.913 +03:00 [INF] Executing ObjectResult, writing value of type 'Application.Common.Models.Errors.ApiErrorDto'.
+2023-07-08 20:39:50.916 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 15213.6024ms
+2023-07-08 20:39:50.917 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:39:50.918 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 500 - application/json;+charset=utf-8 15226.9896ms
+2023-07-08 20:40:01.815 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-07-08 20:40:01.956 +03:00 [INF] Now listening on: https://localhost:7109
+2023-07-08 20:40:01.957 +03:00 [INF] Now listening on: http://localhost:5223
+2023-07-08 20:40:01.959 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-08 20:40:01.960 +03:00 [INF] Hosting environment: Development
+2023-07-08 20:40:01.961 +03:00 [INF] Content root path: D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi
+2023-07-08 20:40:03.345 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - -
+2023-07-08 20:40:03.503 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - - - 200 - text/html;charset=utf-8 159.4859ms
+2023-07-08 20:40:03.582 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_vs/browserLink - -
+2023-07-08 20:40:03.582 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - -
+2023-07-08 20:40:03.596 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 13.4031ms
+2023-07-08 20:40:03.628 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 46.1662ms
+2023-07-08 20:40:03.677 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
+2023-07-08 20:40:03.758 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 80.0894ms
+2023-07-08 20:41:57.763 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:41:57.763 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:41:57.773 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:41:57.773 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:41:57.775 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 12.0374ms
+2023-07-08 20:41:57.775 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 12.0303ms
+2023-07-08 20:41:57.789 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:41:57.791 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:41:57.792 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:41:57.793 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:41:57.941 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:41:57'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:41:57.941 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:41:57'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:41:57.960 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:41:57'.
+2023-07-08 20:41:57.960 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:41:57'.
+2023-07-08 20:41:57.964 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:41:57.964 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:41:57.980 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:41:57.980 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:41:58.038 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:41:58.038 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:41:58.622 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Account' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-07-08 20:41:58.623 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'City' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-07-08 20:41:58.625 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Country' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-07-08 20:41:58.956 +03:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Name`
+FROM `Countries` AS `c`
+2023-07-08 20:41:58.956 +03:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Name`
+FROM `Countries` AS `c`
+2023-07-08 20:41:58.981 +03:00 [INF] Executed action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 937.9885ms.
+2023-07-08 20:41:58.981 +03:00 [INF] Executed action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 937.7853ms.
+2023-07-08 20:41:58.987 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Countries.Queries.GetAll.CountriesGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-08 20:41:58.987 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Countries.Queries.GetAll.CountriesGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-08 20:41:58.996 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 1009.6577ms
+2023-07-08 20:41:58.996 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 1011.2197ms
+2023-07-08 20:41:58.998 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:41:58.998 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:41:59.005 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 200 - application/json;+charset=utf-8 1216.3478ms
+2023-07-08 20:41:59.005 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 200 - application/json;+charset=utf-8 1213.4465ms
+2023-07-08 20:42:14.706 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:42:14.706 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:42:14.707 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:42:14.707 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:42:14.708 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 2.0727ms
+2023-07-08 20:42:14.709 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 2.3542ms
+2023-07-08 20:42:14.713 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:42:14.714 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:42:14.718 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:42:14'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:42:14.718 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:42:14.720 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:42:14'.
+2023-07-08 20:42:14.721 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:42:14.722 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:42:14.723 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:42:14'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:42:14.724 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:42:14.726 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:42:14'.
+2023-07-08 20:42:14.728 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:42:14.737 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:42:14.737 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:42:14.747 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:42:14.900 +03:00 [ERR] Value cannot be null. (Parameter 'source')
+System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   at Application.Common.Models.General.PaginatedList`1.Create(IEnumerable`1 source, Int32 pageNumber, Int32 pageSize) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Models\General\PaginatedList.cs:line 35
+   at Application.Features.Countries.Queries.GetAll.CountriesGetAllQueryHandler.Handle(CountriesGetAllQuery request, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Features\Countries\Queries\GetAll\CountriesGetAllQueryHandler.cs:line 33
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Behaviours\ValidationBehaviour.cs:line 35
+   at WebApi.Controllers.CountriesController.GetAllAsync(CountriesGetAllQuery query) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Controllers\CountriesController.cs:line 14
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2023-07-08 20:42:14.900 +03:00 [ERR] Value cannot be null. (Parameter 'source')
+System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   at Application.Common.Models.General.PaginatedList`1.Create(IEnumerable`1 source, Int32 pageNumber, Int32 pageSize) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Models\General\PaginatedList.cs:line 35
+   at Application.Features.Countries.Queries.GetAll.CountriesGetAllQueryHandler.Handle(CountriesGetAllQuery request, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Features\Countries\Queries\GetAll\CountriesGetAllQueryHandler.cs:line 33
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Behaviours\ValidationBehaviour.cs:line 35
+   at WebApi.Controllers.CountriesController.GetAllAsync(CountriesGetAllQuery query) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Controllers\CountriesController.cs:line 14
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2023-07-08 20:42:14.908 +03:00 [INF] Executing ObjectResult, writing value of type 'Application.Common.Models.Errors.ApiErrorDto'.
+2023-07-08 20:42:14.911 +03:00 [INF] Executing ObjectResult, writing value of type 'Application.Common.Models.Errors.ApiErrorDto'.
+2023-07-08 20:42:14.913 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 173.8931ms
+2023-07-08 20:42:14.913 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 186.0405ms
+2023-07-08 20:42:14.914 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:42:14.915 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:42:14.916 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 500 - application/json;+charset=utf-8 198.6139ms
+2023-07-08 20:42:14.917 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 500 - application/json;+charset=utf-8 203.7350ms
+2023-07-08 20:43:36.490 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:43:36.490 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:43:36.495 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:43:36.496 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:43:36.496 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 6.4823ms
+2023-07-08 20:43:36.500 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 7.6844ms
+2023-07-08 20:43:36.503 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:43:36.504 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:43:36.506 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:43:36'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:43:36.507 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:43:36.508 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:43:36'.
+2023-07-08 20:43:36.509 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:43:36.509 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:43:36.510 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:43:36'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:43:36.511 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:43:36.513 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:43:36'.
+2023-07-08 20:43:36.523 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:43:36.524 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:43:36.526 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:43:36.536 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:43:36.667 +03:00 [ERR] Value cannot be null. (Parameter 'source')
+System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   at Application.Common.Models.General.PaginatedList`1.Create(IEnumerable`1 source, Int32 pageNumber, Int32 pageSize) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Models\General\PaginatedList.cs:line 35
+   at Application.Features.Countries.Queries.GetAll.CountriesGetAllQueryHandler.Handle(CountriesGetAllQuery request, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Features\Countries\Queries\GetAll\CountriesGetAllQueryHandler.cs:line 33
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Behaviours\ValidationBehaviour.cs:line 35
+   at WebApi.Controllers.CountriesController.GetAllAsync(CountriesGetAllQuery query) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Controllers\CountriesController.cs:line 14
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2023-07-08 20:43:36.667 +03:00 [ERR] Value cannot be null. (Parameter 'source')
+System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   at Application.Common.Models.General.PaginatedList`1.Create(IEnumerable`1 source, Int32 pageNumber, Int32 pageSize) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Models\General\PaginatedList.cs:line 35
+   at Application.Features.Countries.Queries.GetAll.CountriesGetAllQueryHandler.Handle(CountriesGetAllQuery request, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Features\Countries\Queries\GetAll\CountriesGetAllQueryHandler.cs:line 33
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Behaviours\ValidationBehaviour.cs:line 35
+   at WebApi.Controllers.CountriesController.GetAllAsync(CountriesGetAllQuery query) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Controllers\CountriesController.cs:line 14
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2023-07-08 20:43:36.670 +03:00 [INF] Executing ObjectResult, writing value of type 'Application.Common.Models.Errors.ApiErrorDto'.
+2023-07-08 20:43:36.673 +03:00 [INF] Executing ObjectResult, writing value of type 'Application.Common.Models.Errors.ApiErrorDto'.
+2023-07-08 20:43:36.674 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 160.0186ms
+2023-07-08 20:43:36.675 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 148.1318ms
+2023-07-08 20:43:36.676 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:43:36.677 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:43:36.678 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 500 - application/json;+charset=utf-8 175.3297ms
+2023-07-08 20:43:36.679 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 500 - application/json;+charset=utf-8 172.1753ms
+2023-07-08 20:43:48.114 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:43:48.115 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:43:48.116 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:43:48.116 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:43:48.117 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 2.5098ms
+2023-07-08 20:43:48.117 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 2.9635ms
+2023-07-08 20:43:48.124 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:43:48.125 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:43:48.126 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:43:48'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:43:48.127 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:43:48.129 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:43:48'.
+2023-07-08 20:43:48.130 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:43:48.130 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:43:48.131 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:43:48'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:43:48.132 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:43:48.134 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:43:48'.
+2023-07-08 20:43:48.145 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:43:48.146 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:43:48.147 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:43:48.156 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:43:48.295 +03:00 [ERR] Value cannot be null. (Parameter 'source')
+System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   at Application.Common.Models.General.PaginatedList`1.Create(IEnumerable`1 source, Int32 pageNumber, Int32 pageSize) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Models\General\PaginatedList.cs:line 35
+   at Application.Features.Countries.Queries.GetAll.CountriesGetAllQueryHandler.Handle(CountriesGetAllQuery request, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Features\Countries\Queries\GetAll\CountriesGetAllQueryHandler.cs:line 33
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Behaviours\ValidationBehaviour.cs:line 35
+   at WebApi.Controllers.CountriesController.GetAllAsync(CountriesGetAllQuery query) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Controllers\CountriesController.cs:line 14
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2023-07-08 20:43:48.296 +03:00 [ERR] Value cannot be null. (Parameter 'source')
+System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   at Application.Common.Models.General.PaginatedList`1.Create(IEnumerable`1 source, Int32 pageNumber, Int32 pageSize) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Models\General\PaginatedList.cs:line 35
+   at Application.Features.Countries.Queries.GetAll.CountriesGetAllQueryHandler.Handle(CountriesGetAllQuery request, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Features\Countries\Queries\GetAll\CountriesGetAllQueryHandler.cs:line 33
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Behaviours\ValidationBehaviour.cs:line 35
+   at WebApi.Controllers.CountriesController.GetAllAsync(CountriesGetAllQuery query) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Controllers\CountriesController.cs:line 14
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2023-07-08 20:43:48.299 +03:00 [INF] Executing ObjectResult, writing value of type 'Application.Common.Models.Errors.ApiErrorDto'.
+2023-07-08 20:43:48.302 +03:00 [INF] Executing ObjectResult, writing value of type 'Application.Common.Models.Errors.ApiErrorDto'.
+2023-07-08 20:43:48.303 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 167.5294ms
+2023-07-08 20:43:48.304 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 155.5705ms
+2023-07-08 20:43:48.305 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:43:48.306 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:43:48.307 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 500 - application/json;+charset=utf-8 182.6719ms
+2023-07-08 20:43:48.308 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 500 - application/json;+charset=utf-8 181.1476ms
+2023-07-08 20:43:58.118 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:43:58.118 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:43:58.119 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:43:58.120 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:43:58.120 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 2.4348ms
+2023-07-08 20:43:58.121 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 2.4462ms
+2023-07-08 20:43:58.126 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:43:58.127 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:43:58.128 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:43:58'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:43:58.128 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:43:58.131 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:43:58'.
+2023-07-08 20:43:58.131 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:43:58.132 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:43:58.133 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:43:58'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:43:58.134 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:43:58.137 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:43:58'.
+2023-07-08 20:43:58.148 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:43:58.148 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:43:58.150 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:43:58.161 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:43:58.296 +03:00 [ERR] Value cannot be null. (Parameter 'source')
+System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   at Application.Common.Models.General.PaginatedList`1.Create(IEnumerable`1 source, Int32 pageNumber, Int32 pageSize) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Models\General\PaginatedList.cs:line 35
+   at Application.Features.Countries.Queries.GetAll.CountriesGetAllQueryHandler.Handle(CountriesGetAllQuery request, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Features\Countries\Queries\GetAll\CountriesGetAllQueryHandler.cs:line 33
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Behaviours\ValidationBehaviour.cs:line 35
+   at WebApi.Controllers.CountriesController.GetAllAsync(CountriesGetAllQuery query) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Controllers\CountriesController.cs:line 14
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2023-07-08 20:43:58.297 +03:00 [ERR] Value cannot be null. (Parameter 'source')
+System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   at Application.Common.Models.General.PaginatedList`1.Create(IEnumerable`1 source, Int32 pageNumber, Int32 pageSize) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Models\General\PaginatedList.cs:line 35
+   at Application.Features.Countries.Queries.GetAll.CountriesGetAllQueryHandler.Handle(CountriesGetAllQuery request, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Features\Countries\Queries\GetAll\CountriesGetAllQueryHandler.cs:line 33
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Behaviours\ValidationBehaviour.cs:line 35
+   at WebApi.Controllers.CountriesController.GetAllAsync(CountriesGetAllQuery query) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Controllers\CountriesController.cs:line 14
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2023-07-08 20:43:58.300 +03:00 [INF] Executing ObjectResult, writing value of type 'Application.Common.Models.Errors.ApiErrorDto'.
+2023-07-08 20:43:58.303 +03:00 [INF] Executing ObjectResult, writing value of type 'Application.Common.Models.Errors.ApiErrorDto'.
+2023-07-08 20:43:58.304 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 165.9581ms
+2023-07-08 20:43:58.305 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 153.4458ms
+2023-07-08 20:43:58.307 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:43:58.308 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:43:58.308 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 500 - application/json;+charset=utf-8 182.7709ms
+2023-07-08 20:43:58.309 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 500 - application/json;+charset=utf-8 181.0566ms
+2023-07-08 20:45:35.995 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:45:35.995 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:45:36.001 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:45:36.001 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:45:36.002 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 7.2415ms
+2023-07-08 20:45:36.002 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 7.4287ms
+2023-07-08 20:45:36.009 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:45:36.010 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:45:36.011 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:45:36.011 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:45:36'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:45:36.012 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:45:36.014 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:45:36'.
+2023-07-08 20:45:36.015 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:45:36'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:45:36.016 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:45:36.018 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:45:36'.
+2023-07-08 20:45:36.019 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:45:36.020 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:45:36.029 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:45:36.030 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:45:36.042 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:45:36.175 +03:00 [ERR] Value cannot be null. (Parameter 'source')
+System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   at Application.Common.Models.General.PaginatedList`1.Create(IEnumerable`1 source, Int32 pageNumber, Int32 pageSize) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Models\General\PaginatedList.cs:line 35
+   at Application.Features.Countries.Queries.GetAll.CountriesGetAllQueryHandler.Handle(CountriesGetAllQuery request, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Features\Countries\Queries\GetAll\CountriesGetAllQueryHandler.cs:line 33
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Behaviours\ValidationBehaviour.cs:line 35
+   at WebApi.Controllers.CountriesController.GetAllAsync(CountriesGetAllQuery query) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Controllers\CountriesController.cs:line 14
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2023-07-08 20:45:36.175 +03:00 [ERR] Value cannot be null. (Parameter 'source')
+System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   at Application.Common.Models.General.PaginatedList`1.Create(IEnumerable`1 source, Int32 pageNumber, Int32 pageSize) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Models\General\PaginatedList.cs:line 35
+   at Application.Features.Countries.Queries.GetAll.CountriesGetAllQueryHandler.Handle(CountriesGetAllQuery request, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Features\Countries\Queries\GetAll\CountriesGetAllQueryHandler.cs:line 33
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Behaviours\ValidationBehaviour.cs:line 35
+   at WebApi.Controllers.CountriesController.GetAllAsync(CountriesGetAllQuery query) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Controllers\CountriesController.cs:line 14
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2023-07-08 20:45:36.179 +03:00 [INF] Executing ObjectResult, writing value of type 'Application.Common.Models.Errors.ApiErrorDto'.
+2023-07-08 20:45:36.182 +03:00 [INF] Executing ObjectResult, writing value of type 'Application.Common.Models.Errors.ApiErrorDto'.
+2023-07-08 20:45:36.183 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 162.0704ms
+2023-07-08 20:45:36.184 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 151.8895ms
+2023-07-08 20:45:36.186 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:45:36.186 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:45:36.187 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 500 - application/json;+charset=utf-8 178.6466ms
+2023-07-08 20:45:36.188 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 500 - application/json;+charset=utf-8 177.5238ms
+2023-07-08 20:45:58.630 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:45:58.631 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:45:58.632 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:45:58.633 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 2.6158ms
+2023-07-08 20:45:58.638 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:45:58.638 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:45:58.639 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 6.9806ms
+2023-07-08 20:45:58.640 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:45:58.642 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:45:58'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:45:58.644 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:45:58'.
+2023-07-08 20:45:58.645 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:45:58.645 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:45:58.646 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:45:58.647 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:45:58.657 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:45:58.658 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:45:58'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:45:58.660 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:45:58'.
+2023-07-08 20:45:58.661 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:45:58.662 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:45:58.673 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:45:58.811 +03:00 [ERR] Value cannot be null. (Parameter 'source')
+System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   at Application.Common.Models.General.PaginatedList`1.Create(IEnumerable`1 source, Int32 pageNumber, Int32 pageSize) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Models\General\PaginatedList.cs:line 35
+   at Application.Features.Countries.Queries.GetAll.CountriesGetAllQueryHandler.Handle(CountriesGetAllQuery request, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Features\Countries\Queries\GetAll\CountriesGetAllQueryHandler.cs:line 33
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Behaviours\ValidationBehaviour.cs:line 35
+   at WebApi.Controllers.CountriesController.GetAllAsync(CountriesGetAllQuery query) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Controllers\CountriesController.cs:line 14
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2023-07-08 20:45:58.812 +03:00 [ERR] Value cannot be null. (Parameter 'source')
+System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   at Application.Common.Models.General.PaginatedList`1.Create(IEnumerable`1 source, Int32 pageNumber, Int32 pageSize) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Models\General\PaginatedList.cs:line 35
+   at Application.Features.Countries.Queries.GetAll.CountriesGetAllQueryHandler.Handle(CountriesGetAllQuery request, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Features\Countries\Queries\GetAll\CountriesGetAllQueryHandler.cs:line 33
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Behaviours\ValidationBehaviour.cs:line 35
+   at WebApi.Controllers.CountriesController.GetAllAsync(CountriesGetAllQuery query) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Controllers\CountriesController.cs:line 14
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2023-07-08 20:45:58.815 +03:00 [INF] Executing ObjectResult, writing value of type 'Application.Common.Models.Errors.ApiErrorDto'.
+2023-07-08 20:45:58.818 +03:00 [INF] Executing ObjectResult, writing value of type 'Application.Common.Models.Errors.ApiErrorDto'.
+2023-07-08 20:45:58.819 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 170.5624ms
+2023-07-08 20:45:58.820 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 156.6213ms
+2023-07-08 20:45:58.821 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:45:58.822 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:45:58.823 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 500 - application/json;+charset=utf-8 184.8302ms
+2023-07-08 20:45:58.823 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 500 - application/json;+charset=utf-8 178.1936ms
+2023-07-08 20:46:16.451 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:46:16.452 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:46:16.452 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:46:16.453 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:46:16.453 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 2.4813ms
+2023-07-08 20:46:16.454 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 2.5041ms
+2023-07-08 20:46:16.459 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:46:16.460 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:46:16.461 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:46:16'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:46:16.461 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:46:16.463 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:46:16'.
+2023-07-08 20:46:16.464 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:46:16.465 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:46:16.466 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:46:16'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:46:16.467 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:46:16.469 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:46:16'.
+2023-07-08 20:46:16.483 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:46:16.484 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:46:16.486 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:46:16.495 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:46:16.631 +03:00 [ERR] Value cannot be null. (Parameter 'source')
+System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   at Application.Common.Models.General.PaginatedList`1.Create(IEnumerable`1 source, Int32 pageNumber, Int32 pageSize) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Models\General\PaginatedList.cs:line 35
+   at Application.Features.Countries.Queries.GetAll.CountriesGetAllQueryHandler.Handle(CountriesGetAllQuery request, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Features\Countries\Queries\GetAll\CountriesGetAllQueryHandler.cs:line 33
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Behaviours\ValidationBehaviour.cs:line 35
+   at WebApi.Controllers.CountriesController.GetAllAsync(CountriesGetAllQuery query) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Controllers\CountriesController.cs:line 14
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2023-07-08 20:46:16.632 +03:00 [ERR] Value cannot be null. (Parameter 'source')
+System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   at Application.Common.Models.General.PaginatedList`1.Create(IEnumerable`1 source, Int32 pageNumber, Int32 pageSize) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Models\General\PaginatedList.cs:line 35
+   at Application.Features.Countries.Queries.GetAll.CountriesGetAllQueryHandler.Handle(CountriesGetAllQuery request, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Features\Countries\Queries\GetAll\CountriesGetAllQueryHandler.cs:line 33
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Behaviours\ValidationBehaviour.cs:line 35
+   at WebApi.Controllers.CountriesController.GetAllAsync(CountriesGetAllQuery query) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Controllers\CountriesController.cs:line 14
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2023-07-08 20:46:16.635 +03:00 [INF] Executing ObjectResult, writing value of type 'Application.Common.Models.Errors.ApiErrorDto'.
+2023-07-08 20:46:16.638 +03:00 [INF] Executing ObjectResult, writing value of type 'Application.Common.Models.Errors.ApiErrorDto'.
+2023-07-08 20:46:16.639 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 168.8829ms
+2023-07-08 20:46:16.640 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 153.1735ms
+2023-07-08 20:46:16.641 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:46:16.650 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:46:16.651 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 500 - application/json;+charset=utf-8 192.1929ms
+2023-07-08 20:46:16.652 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 500 - application/json;+charset=utf-8 190.3225ms
+2023-07-08 20:47:44.679 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:47:44.685 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:47:44.686 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 6.8657ms
+2023-07-08 20:47:44.691 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:47:44.692 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:47:44.693 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:47:44'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:47:44.695 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:47:44'.
+2023-07-08 20:47:44.696 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:47:44.697 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:47:44.711 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:47:44.786 +03:00 [ERR] Value cannot be null. (Parameter 'source')
+System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   at Application.Common.Models.General.PaginatedList`1.Create(IEnumerable`1 source, Int32 pageNumber, Int32 pageSize) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Models\General\PaginatedList.cs:line 35
+   at Application.Features.Countries.Queries.GetAll.CountriesGetAllQueryHandler.Handle(CountriesGetAllQuery request, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Features\Countries\Queries\GetAll\CountriesGetAllQueryHandler.cs:line 33
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Behaviours\ValidationBehaviour.cs:line 35
+   at WebApi.Controllers.CountriesController.GetAllAsync(CountriesGetAllQuery query) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Controllers\CountriesController.cs:line 14
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2023-07-08 20:47:44.789 +03:00 [INF] Executing ObjectResult, writing value of type 'Application.Common.Models.Errors.ApiErrorDto'.
+2023-07-08 20:47:44.790 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 92.0898ms
+2023-07-08 20:47:44.792 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:47:44.792 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 500 - application/json;+charset=utf-8 101.5089ms
+2023-07-08 20:48:40.909 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:48:40.910 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:48:40.916 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:48:40.919 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:48:40.919 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 10.2096ms
+2023-07-08 20:48:40.920 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 10.1420ms
+2023-07-08 20:48:40.926 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:48:40.928 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:48:40.928 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:48:40.929 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:48:40'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:48:40.930 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:48:40.932 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:48:40'.
+2023-07-08 20:48:40.933 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:48:40'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:48:40.933 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:48:40.936 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:48:40'.
+2023-07-08 20:48:40.936 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:48:40.938 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:48:40.951 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:48:40.952 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:48:40.962 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:48:41.091 +03:00 [ERR] Value cannot be null. (Parameter 'source')
+System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   at Application.Common.Models.General.PaginatedList`1.Create(IEnumerable`1 source, Int32 pageNumber, Int32 pageSize) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Models\General\PaginatedList.cs:line 35
+   at Application.Features.Countries.Queries.GetAll.CountriesGetAllQueryHandler.Handle(CountriesGetAllQuery request, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Features\Countries\Queries\GetAll\CountriesGetAllQueryHandler.cs:line 33
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Behaviours\ValidationBehaviour.cs:line 35
+   at WebApi.Controllers.CountriesController.GetAllAsync(CountriesGetAllQuery query) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Controllers\CountriesController.cs:line 14
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2023-07-08 20:48:41.091 +03:00 [ERR] Value cannot be null. (Parameter 'source')
+System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   at Application.Common.Models.General.PaginatedList`1.Create(IEnumerable`1 source, Int32 pageNumber, Int32 pageSize) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Models\General\PaginatedList.cs:line 35
+   at Application.Features.Countries.Queries.GetAll.CountriesGetAllQueryHandler.Handle(CountriesGetAllQuery request, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Features\Countries\Queries\GetAll\CountriesGetAllQueryHandler.cs:line 33
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Behaviours\ValidationBehaviour.cs:line 35
+   at WebApi.Controllers.CountriesController.GetAllAsync(CountriesGetAllQuery query) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Controllers\CountriesController.cs:line 14
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2023-07-08 20:48:41.094 +03:00 [INF] Executing ObjectResult, writing value of type 'Application.Common.Models.Errors.ApiErrorDto'.
+2023-07-08 20:48:41.097 +03:00 [INF] Executing ObjectResult, writing value of type 'Application.Common.Models.Errors.ApiErrorDto'.
+2023-07-08 20:48:41.098 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 158.9957ms
+2023-07-08 20:48:41.099 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 145.4769ms
+2023-07-08 20:48:41.101 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:48:41.107 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:48:41.108 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 500 - application/json;+charset=utf-8 182.6827ms
+2023-07-08 20:48:41.109 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 500 - application/json;+charset=utf-8 180.8528ms
+2023-07-08 20:49:21.275 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:49:21.276 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:49:21.276 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:49:21.277 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:49:21.278 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 2.5237ms
+2023-07-08 20:49:21.279 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 3.6390ms
+2023-07-08 20:49:21.284 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:49:21.285 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:49:21.286 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:49:21'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:49:21.287 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:49:21.289 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:49:21'.
+2023-07-08 20:49:21.289 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:49:21.290 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:49:21.291 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:49:21'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:49:21.292 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:49:21.294 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:49:21'.
+2023-07-08 20:49:21.297 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:49:21.306 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:49:21.307 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:49:21.319 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:50:19.532 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-07-08 20:50:19.671 +03:00 [INF] Now listening on: https://localhost:7109
+2023-07-08 20:50:19.672 +03:00 [INF] Now listening on: http://localhost:5223
+2023-07-08 20:50:19.674 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-08 20:50:19.675 +03:00 [INF] Hosting environment: Development
+2023-07-08 20:50:19.676 +03:00 [INF] Content root path: D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi
+2023-07-08 20:50:21.740 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - -
+2023-07-08 20:50:21.971 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - - - 200 - text/html;charset=utf-8 232.7212ms
+2023-07-08 20:50:22.059 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_vs/browserLink - -
+2023-07-08 20:50:22.059 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - -
+2023-07-08 20:50:22.092 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 32.8824ms
+2023-07-08 20:50:22.121 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 62.4149ms
+2023-07-08 20:50:22.191 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
+2023-07-08 20:50:22.296 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 105.3658ms
+2023-07-08 20:50:32.065 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:50:32.065 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:50:32.078 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:50:32.078 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:50:32.081 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 16.6019ms
+2023-07-08 20:50:32.081 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 16.4782ms
+2023-07-08 20:50:32.089 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:50:32.091 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:50:32.091 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:50:32.092 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:50:32.249 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:50:32'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:50:32.249 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:50:32'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:50:32.273 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:50:32'.
+2023-07-08 20:50:32.273 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:50:32'.
+2023-07-08 20:50:32.279 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:50:32.279 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:50:32.299 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:50:32.299 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:50:32.364 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:50:32.364 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:50:32.991 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Account' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-07-08 20:50:32.992 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'City' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-07-08 20:50:32.993 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Country' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-07-08 20:50:33.334 +03:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Name`
+FROM `Countries` AS `c`
+2023-07-08 20:50:33.334 +03:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Name`
+FROM `Countries` AS `c`
+2023-07-08 20:50:33.359 +03:00 [INF] Executed action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 989.6426ms.
+2023-07-08 20:50:33.359 +03:00 [INF] Executed action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 989.7107ms.
+2023-07-08 20:50:33.366 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Countries.Queries.GetAll.CountriesGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-08 20:50:33.366 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Countries.Queries.GetAll.CountriesGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-08 20:50:33.375 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 1071.1442ms
+2023-07-08 20:50:33.375 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 1072.2269ms
+2023-07-08 20:50:33.377 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:50:33.378 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:50:33.384 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 200 - application/json;+charset=utf-8 1292.9509ms
+2023-07-08 20:50:33.384 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 200 - application/json;+charset=utf-8 1295.5803ms
+2023-07-08 20:51:53.168 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:51:53.168 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:51:53.169 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:51:53.170 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:51:53.170 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 2.3145ms
+2023-07-08 20:51:53.171 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 2.6390ms
+2023-07-08 20:51:53.177 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:51:53.178 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:51:53.179 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:51:53.180 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:51:53.182 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:51:53'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:51:53.182 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:51:53'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:51:53.184 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:51:53'.
+2023-07-08 20:51:53.186 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:51:53'.
+2023-07-08 20:51:53.188 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:51:53.188 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:51:53.189 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:51:53.190 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:51:53.201 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:51:53.210 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:51:53.286 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Name`
+FROM `Countries` AS `c`
+2023-07-08 20:51:53.286 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Name`
+FROM `Countries` AS `c`
+2023-07-08 20:51:53.288 +03:00 [INF] Executed action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 77.4209ms.
+2023-07-08 20:51:53.289 +03:00 [INF] Executed action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 77.4918ms.
+2023-07-08 20:51:53.290 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Countries.Queries.GetAll.CountriesGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-08 20:51:53.291 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Countries.Queries.GetAll.CountriesGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-08 20:51:53.292 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 101.2012ms
+2023-07-08 20:51:53.294 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 92.9229ms
+2023-07-08 20:51:53.295 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:51:53.296 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:51:53.297 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 200 - application/json;+charset=utf-8 119.4115ms
+2023-07-08 20:51:53.298 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 200 - application/json;+charset=utf-8 118.5231ms
+2023-07-08 20:54:18.773 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:54:18.773 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:54:18.778 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:54:18.780 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:54:18.781 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 7.5109ms
+2023-07-08 20:54:18.782 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 8.1608ms
+2023-07-08 20:54:18.792 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:54:18.793 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:54:18.794 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:54:18.795 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:54:18'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:54:18.795 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:54:18.797 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:54:18'.
+2023-07-08 20:54:18.798 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:54:18'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:54:18.799 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:54:18.800 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:54:18'.
+2023-07-08 20:54:18.801 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:54:18.802 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:54:18.812 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:54:18.812 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:54:18.821 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:54:18.850 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Name`
+FROM `Countries` AS `c`
+2023-07-08 20:54:18.851 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Name`
+FROM `Countries` AS `c`
+2023-07-08 20:54:18.852 +03:00 [INF] Executed action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 30.2342ms.
+2023-07-08 20:54:18.854 +03:00 [INF] Executed action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 32.9459ms.
+2023-07-08 20:54:18.855 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Countries.Queries.GetAll.CountriesGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-08 20:54:18.856 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Countries.Queries.GetAll.CountriesGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-08 20:54:18.857 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 43.8152ms
+2023-07-08 20:54:18.858 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 54.6997ms
+2023-07-08 20:54:18.863 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:54:18.865 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:54:18.865 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 200 - application/json;+charset=utf-8 71.1210ms
+2023-07-08 20:54:18.866 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 200 - application/json;+charset=utf-8 74.2331ms
+2023-07-08 20:54:50.683 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:54:50.684 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:54:50.684 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 1.8765ms
+2023-07-08 20:54:50.691 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:54:50.692 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:54:50.693 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:54:50'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:54:50.695 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:54:50'.
+2023-07-08 20:54:50.696 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:54:50.697 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:54:50.710 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:54:50.740 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Name`
+FROM `Countries` AS `c`
+2023-07-08 20:54:50.742 +03:00 [INF] Executed action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 31.2314ms.
+2023-07-08 20:54:50.743 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Countries.Queries.GetAll.CountriesGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-08 20:54:50.744 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 44.9097ms
+2023-07-08 20:54:50.745 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:54:50.745 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 200 - application/json;+charset=utf-8 54.4822ms
+2023-07-08 20:55:54.499 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:55:54.500 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:55:54.500 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 1.5996ms
+2023-07-08 20:55:54.502 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:55:54.507 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:55:54.509 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:55:54.509 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:55:54.510 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 7.8597ms
+2023-07-08 20:55:54.516 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:55:54'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:55:54.520 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:55:54.522 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:55:54'.
+2023-07-08 20:55:54.523 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:55:54.523 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:55:54.524 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:55:54'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:55:54.525 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:55:54.528 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:55:54'.
+2023-07-08 20:55:54.541 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:55:54.542 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:55:54.543 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:55:54.561 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:55:54.581 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Name`
+FROM `Countries` AS `c`
+2023-07-08 20:55:54.585 +03:00 [INF] Executed action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 42.374ms.
+2023-07-08 20:55:54.587 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Countries.Queries.GetAll.CountriesGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-08 20:55:54.588 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 59.1301ms
+2023-07-08 20:55:54.590 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:55:54.591 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 200 - application/json;+charset=utf-8 84.2505ms
+2023-07-08 20:55:54.593 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Name`
+FROM `Countries` AS `c`
+2023-07-08 20:55:54.595 +03:00 [INF] Executed action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 31.9145ms.
+2023-07-08 20:55:54.596 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Countries.Queries.GetAll.CountriesGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-08 20:55:54.597 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 53.0181ms
+2023-07-08 20:55:54.599 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:55:54.600 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 200 - application/json;+charset=utf-8 79.6319ms
+2023-07-08 20:57:41.672 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:57:41.676 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - -
+2023-07-08 20:57:41.678 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:57:41.682 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:57:41.683 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 11.4917ms
+2023-07-08 20:57:41.683 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Countries/GetAll - - - 204 - - 7.0997ms
+2023-07-08 20:57:41.687 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:57:41.688 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:57:41.689 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:57:41'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:57:41.690 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30
+2023-07-08 20:57:41.691 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:57:41'.
+2023-07-08 20:57:41.692 +03:00 [INF] CORS policy execution successful.
+2023-07-08 20:57:41.693 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:57:41.694 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:57:41'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-08 20:57:41.694 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:57:41.697 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '15/06/2023 19:27:43', Current time: '08/07/2023 17:57:41'.
+2023-07-08 20:57:41.700 +03:00 [INF] Executing endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:57:41.707 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:57:41.708 +03:00 [INF] Route matched with {action = "GetAll", controller = "Countries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Application.Features.Countries.Queries.GetAll.CountriesGetAllQuery) on controller WebApi.Controllers.CountriesController (WebApi).
+2023-07-08 20:57:41.718 +03:00 [INF] Executing action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-08 20:57:41.745 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Name`
+FROM `Countries` AS `c`
+2023-07-08 20:57:41.748 +03:00 [INF] Executed action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 39.6664ms.
+2023-07-08 20:57:41.750 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Countries.Queries.GetAll.CountriesGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-08 20:57:41.751 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 51.9245ms
+2023-07-08 20:57:41.752 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:57:41.756 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 200 - application/json;+charset=utf-8 68.7301ms
+2023-07-08 20:57:41.786 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Name`
+FROM `Countries` AS `c`
+2023-07-08 20:57:41.789 +03:00 [INF] Executed action method WebApi.Controllers.CountriesController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 68.9704ms.
+2023-07-08 20:57:41.790 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Countries.Queries.GetAll.CountriesGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-08 20:57:41.791 +03:00 [INF] Executed action WebApi.Controllers.CountriesController.GetAllAsync (WebApi) in 81.2119ms
+2023-07-08 20:57:41.792 +03:00 [INF] Executed endpoint 'WebApi.Controllers.CountriesController.GetAllAsync (WebApi)'
+2023-07-08 20:57:41.793 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Countries/GetAll application/json 30 - 200 - application/json;+charset=utf-8 103.5374ms

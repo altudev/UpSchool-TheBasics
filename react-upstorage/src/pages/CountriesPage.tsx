@@ -1,6 +1,6 @@
 import type { RootState } from '../store/store.ts';
 import { useSelector, useDispatch } from 'react-redux';
-import {fetchAllCountries} from '../store/features/country/countrySlice';
+import {fetchAllCountries, removeCountry} from '../store/features/country/countrySlice';
 import {useEffect, useState} from "react";
 import {Button, Form, Header, Input, Segment} from "semantic-ui-react";
 import {addCity, removeCity} from "../store/features/city/citySlice.ts";
@@ -9,18 +9,25 @@ import {CountriesGetAllQuery} from "../types/CountryTypes.ts";
 function CountriesPage() {
 
     const paginatedCountries = useSelector((state: RootState) => state.country.paginatedCountries);
+    const isLoading = useSelector((state: RootState) => state.country.isLoading);
     const cities = useSelector((state:RootState) => state.city.cities);
 
     const dispatch = useDispatch()
 
     useEffect(() => {
 
-        const countriesGetAllQuery:CountriesGetAllQuery = {
-            pageNumber:1,
-            pageSize:10,
-        };
+        const fetchCountries = async () => {
 
-        fetchAllCountries(countriesGetAllQuery);
+            const countriesGetAllQuery:CountriesGetAllQuery = {
+                pageNumber:1,
+                pageSize:10,
+            };
+
+            // @ts-ignore
+            await dispatch(fetchAllCountries(countriesGetAllQuery));
+        }
+
+        fetchCountries();
 
     },[]);
 
@@ -47,9 +54,11 @@ function CountriesPage() {
     return (
         <>
        <div>
+           { isLoading }
+
            <ul>
                { paginatedCountries && paginatedCountries.items.map((country) => (
-                   <li key={country.id}>{country.name}</li>
+                   <li key={country.id} onClick={async () => await dispatch(removeCountry(country.id))}>{country.name}</li>
                )) }
            </ul>
        </div>
