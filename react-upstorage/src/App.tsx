@@ -27,6 +27,8 @@ function App() {
 
     const [appUser, setAppUser] = useState<LocalUser | undefined>(undefined);
 
+    console.log("Hanife hanım uyardı.");
+
     useEffect(() => {
 
         const jwtJson = localStorage.getItem("upstorage_user");

@@ -36,6 +36,17 @@ namespace WebApi.Controllers
             return Ok(await Mediator.Send(command));
         }
 
+        [HttpPost("RefreshToken")]
+        public async Task<IActionResult> RefreshTokenAsync(string accessToken)
+        {
+
+
+
+            return Ok();
+
+            //return Ok(await Mediator.Send(command));
+        }
+
 
         [HttpGet("GoogleSignInStart")]
         public IActionResult GoogleSignInStartAsync()
