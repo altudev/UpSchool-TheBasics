@@ -2,6 +2,7 @@
 @using UpSchool.Domain.Dtos
 @using UpSchool.Domain.Services
 @using UpSchool.Domain.Utilities
+@using System.Net.Http.Headers
 @inject NavigationManager NavigationManager
 @inject IToasterService ToasterService
 @inject HttpClient HttpClient
@@ -80,6 +81,10 @@
         addDto.Password = StringHelper.Base64Encode(addDto.Password);
 
         addDto.ConnectionId = ConnectionId;
+
+        string accessToken = "token";
+
+        HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
         var response = await HttpClient.PostAsJsonAsync("Accounts", addDto);
 

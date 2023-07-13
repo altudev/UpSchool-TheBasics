@@ -1,0 +1,683 @@
+2023-07-13 20:40:48.181 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-07-13 20:40:48.330 +03:00 [INF] Now listening on: https://localhost:7109
+2023-07-13 20:40:48.330 +03:00 [INF] Now listening on: http://localhost:5223
+2023-07-13 20:40:48.332 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-13 20:40:48.333 +03:00 [INF] Hosting environment: Development
+2023-07-13 20:40:48.334 +03:00 [INF] Content root path: D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi
+2023-07-13 20:40:51.014 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - -
+2023-07-13 20:40:51.158 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - - - 200 - text/html;charset=utf-8 144.3462ms
+2023-07-13 20:40:51.242 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - -
+2023-07-13 20:40:51.249 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - - - 200 12344 application/javascript;+charset=utf-8 6.7120ms
+2023-07-13 20:40:51.336 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
+2023-07-13 20:40:51.456 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 119.6588ms
+2023-07-13 20:43:20.490 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Authentication/Login - -
+2023-07-13 20:43:20.504 +03:00 [INF] CORS policy execution successful.
+2023-07-13 20:43:20.506 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Authentication/Login - - - 204 - - 15.8276ms
+2023-07-13 20:43:20.515 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Authentication/Login application/json 72
+2023-07-13 20:43:20.518 +03:00 [INF] CORS policy execution successful.
+2023-07-13 20:43:20.740 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '11/07/2023 18:29:20', Current time: '13/07/2023 17:43:20'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-13 20:43:20.764 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '11/07/2023 18:29:20', Current time: '13/07/2023 17:43:20'.
+2023-07-13 20:43:20.767 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.LoginAsync (WebApi)'
+2023-07-13 20:43:20.778 +03:00 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginAsync(Application.Features.Auth.Commands.Login.AuthLoginCommand) on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-07-13 20:43:21.215 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.LoginAsync (WebApi) - Validation state: "Valid"
+2023-07-13 20:43:22.069 +03:00 [INF] Executed DbCommand (38ms) [Parameters=[@__email_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `AspNetUsers` AS `a`
+    WHERE `a`.`Email` = @__email_0)
+2023-07-13 20:43:22.209 +03:00 [INF] Executed DbCommand (75ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`FirstName`, `a`.`LastName`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedEmail` = @__normalizedEmail_0
+LIMIT 2
+2023-07-13 20:43:22.389 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[@__user_Id_0='?' (Size = 191)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`ClaimType`, `a`.`ClaimValue`, `a`.`UserId`
+FROM `AspNetUserClaims` AS `a`
+WHERE `a`.`UserId` = @__user_Id_0
+2023-07-13 20:43:22.425 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__userId_0='?' (Size = 191)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+2023-07-13 20:43:22.435 +03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2023-07-13 20:43:22.454 +03:00 [INF] Executed action method WebApi.Controllers.AuthenticationController.LoginAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1234.7171ms.
+2023-07-13 20:43:22.459 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Features.Auth.Commands.Login.AuthLoginDto'.
+2023-07-13 20:43:22.471 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.LoginAsync (WebApi) in 1688.7591ms
+2023-07-13 20:43:22.474 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.LoginAsync (WebApi)'
+2023-07-13 20:43:22.483 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Authentication/Login application/json 72 - 200 - application/json;+charset=utf-8 1968.0706ms
+2023-07-13 20:43:23.153 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Accounts - -
+2023-07-13 20:43:23.155 +03:00 [INF] CORS policy execution successful.
+2023-07-13 20:43:23.155 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Accounts - - - 204 - - 2.5572ms
+2023-07-13 20:43:23.159 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Accounts - -
+2023-07-13 20:43:23.160 +03:00 [INF] CORS policy execution successful.
+2023-07-13 20:43:23.171 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-07-13 20:43:23.175 +03:00 [INF] Route matched with {action = "GetAll", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Int32, Int32) on controller WebApi.Controllers.AccountsController (WebApi).
+2023-07-13 20:43:23.191 +03:00 [INF] Executing action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-13 20:43:23.253 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Account' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-07-13 20:43:23.255 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'City' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-07-13 20:43:23.256 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Country' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-07-13 20:43:23.300 +03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2023-07-13 20:43:23.301 +03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2023-07-13 20:43:23.367 +03:00 [INF] Executed DbCommand (22ms) [Parameters=[@___currentUserService_UserId_0='?' (Size = 4000), @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`CreatedByUserId`, `t`.`CreatedOn`, `t`.`DeletedByUserId`, `t`.`DeletedOn`, `t`.`IsDeleted`, `t`.`IsFavourite`, `t`.`ModifiedByUserId`, `t`.`ModifiedOn`, `t`.`Password`, `t`.`Title`, `t`.`Url`, `t`.`UserId`, `t`.`UserName`, `t0`.`AccountId`, `t0`.`CategoryId`, `t0`.`Id`, `t0`.`CreatedByUserId`, `t0`.`CreatedOn`, `t0`.`DeletedByUserId`, `t0`.`DeletedOn`, `t0`.`IsDeleted`, `t0`.`ModifiedByUserId`, `t0`.`ModifiedOn`, `t0`.`Name`, `t0`.`UserId`
+FROM (
+    SELECT `a`.`Id`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`DeletedByUserId`, `a`.`DeletedOn`, `a`.`IsDeleted`, `a`.`IsFavourite`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`Password`, `a`.`Title`, `a`.`Url`, `a`.`UserId`, `a`.`UserName`
+    FROM `Accounts` AS `a`
+    WHERE `a`.`UserId` = @___currentUserService_UserId_0
+    LIMIT @__p_2 OFFSET @__p_1
+) AS `t`
+LEFT JOIN (
+    SELECT `a0`.`AccountId`, `a0`.`CategoryId`, `c`.`Id`, `c`.`CreatedByUserId`, `c`.`CreatedOn`, `c`.`DeletedByUserId`, `c`.`DeletedOn`, `c`.`IsDeleted`, `c`.`ModifiedByUserId`, `c`.`ModifiedOn`, `c`.`Name`, `c`.`UserId`
+    FROM `AccountCategories` AS `a0`
+    INNER JOIN `Categories` AS `c` ON `a0`.`CategoryId` = `c`.`Id`
+) AS `t0` ON `t`.`Id` = `t0`.`AccountId`
+ORDER BY `t`.`Id`, `t0`.`AccountId`, `t0`.`CategoryId`
+2023-07-13 20:43:23.413 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@___currentUserService_UserId_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Accounts` AS `a`
+WHERE `a`.`UserId` = @___currentUserService_UserId_0
+2023-07-13 20:43:23.418 +03:00 [INF] Executed action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 225.2948ms.
+2023-07-13 20:43:23.419 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Accounts.Queries.GetAll.AccountGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-13 20:43:23.428 +03:00 [INF] Executed action WebApi.Controllers.AccountsController.GetAllAsync (WebApi) in 251.7662ms
+2023-07-13 20:43:23.429 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-07-13 20:43:23.430 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Accounts - - - 200 - application/json;+charset=utf-8 271.7029ms
+2023-07-13 20:43:24.280 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109//Hubs/AccountHub/negotiate?negotiateVersion=1 - -
+2023-07-13 20:43:24.285 +03:00 [INF] CORS policy execution successful.
+2023-07-13 20:43:24.286 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109//Hubs/AccountHub/negotiate?negotiateVersion=1 - - - 204 - - 5.6369ms
+2023-07-13 20:43:24.289 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109//Hubs/AccountHub/negotiate?negotiateVersion=1 - 0
+2023-07-13 20:43:24.290 +03:00 [INF] CORS policy execution successful.
+2023-07-13 20:43:24.292 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109//Hubs/AccountHub/negotiate?negotiateVersion=1 - 0 - 404 0 - 2.3971ms
+2023-07-13 20:44:14.694 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/Hubs/AccountHub/negotiate?negotiateVersion=1 - -
+2023-07-13 20:44:14.694 +03:00 [INF] CORS policy execution successful.
+2023-07-13 20:44:14.695 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/Hubs/AccountHub/negotiate?negotiateVersion=1 - - - 204 - - 1.3679ms
+2023-07-13 20:44:14.698 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/Hubs/AccountHub/negotiate?negotiateVersion=1 - 0
+2023-07-13 20:44:14.698 +03:00 [INF] CORS policy execution successful.
+2023-07-13 20:44:14.698 +03:00 [INF] Executing endpoint 'Hubs/AccountHub/negotiate'
+2023-07-13 20:44:14.703 +03:00 [INF] Executed endpoint 'Hubs/AccountHub/negotiate'
+2023-07-13 20:44:14.705 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/Hubs/AccountHub/negotiate?negotiateVersion=1 - 0 - 200 316 application/json 7.1858ms
+2023-07-13 20:44:14.710 +03:00 [INF] Request starting HTTP/2 CONNECT https://localhost:7109/Hubs/AccountHub?id=tmRw-CwplFYLUCqTgmkSiQ - -
+2023-07-13 20:44:14.711 +03:00 [INF] CORS policy execution successful.
+2023-07-13 20:44:14.711 +03:00 [INF] Executing endpoint 'Hubs/AccountHub'
+2023-07-13 20:44:30.866 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 100), @p2='?' (DbType = DateTimeOffset), @p3='?' (Size = 100), @p4='?' (DbType = DateTimeOffset), @p5='?' (DbType = Boolean), @p6='?' (Size = 100), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 1000), @p9='?' (Size = 150), @p10='?' (Size = 1000), @p11='?' (Size = 4000), @p12='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+INSERT INTO `Accounts` (`Id`, `CreatedByUserId`, `CreatedOn`, `DeletedByUserId`, `DeletedOn`, `IsFavourite`, `ModifiedByUserId`, `ModifiedOn`, `Password`, `Title`, `Url`, `UserId`, `UserName`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12)
+RETURNING `IsDeleted`;
+2023-07-13 20:44:30.892 +03:00 [ERR] An exception occurred in the database while saving changes for context type 'Infrastructure.Persistence.Contexts.ApplicationDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Column 'UserId' cannot be null
+   at MySqlConnector.Core.ResultSet.<ScanRowAsync>g__ScanRowAsyncAwaited|9_0(ResultSet resultSet, Task`1 payloadTask, Row row, CancellationToken token) in /_/src/MySqlConnector/Core/ResultSet.cs:line 244
+   at MySqlConnector.Core.ResultSet.ReadAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ResultSet.cs:line 199
+   at MySqlConnector.MySqlDataReader.ReadAsync(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 38
+   at Pomelo.EntityFrameworkCore.MySql.Update.Internal.MySqlModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Column 'UserId' cannot be null
+   at MySqlConnector.Core.ResultSet.<ScanRowAsync>g__ScanRowAsyncAwaited|9_0(ResultSet resultSet, Task`1 payloadTask, Row row, CancellationToken token) in /_/src/MySqlConnector/Core/ResultSet.cs:line 244
+   at MySqlConnector.Core.ResultSet.ReadAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ResultSet.cs:line 199
+   at MySqlConnector.MySqlDataReader.ReadAsync(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 38
+   at Pomelo.EntityFrameworkCore.MySql.Update.Internal.MySqlModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2023-07-13 20:44:31.055 +03:00 [ERR] Failed to invoke hub method 'AddANewAccount'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Column 'UserId' cannot be null
+   at MySqlConnector.Core.ResultSet.<ScanRowAsync>g__ScanRowAsyncAwaited|9_0(ResultSet resultSet, Task`1 payloadTask, Row row, CancellationToken token) in /_/src/MySqlConnector/Core/ResultSet.cs:line 244
+   at MySqlConnector.Core.ResultSet.ReadAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ResultSet.cs:line 199
+   at MySqlConnector.MySqlDataReader.ReadAsync(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 38
+   at Pomelo.EntityFrameworkCore.MySql.Update.Internal.MySqlModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Application.Features.Accounts.Commands.Add.AccountAddCommandHandler.Handle(AccountAddCommand request, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Features\Accounts\Commands\Add\AccountAddCommandHandler.cs:line 29
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\Application\Common\Behaviours\ValidationBehaviour.cs:line 35
+   at WebApi.Hubs.AccountHub.AddANewAccount(AccountAddCommand command) in D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi\Hubs\AccountHub.cs:line 20
+   at lambda_method4(Closure, Object)
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.ExecuteMethod(ObjectMethodExecutor methodExecutor, Hub hub, Object[] arguments)
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.<Invoke>g__ExecuteInvocation|18_0(DefaultHubDispatcher`1 dispatcher, ObjectMethodExecutor methodExecutor, THub hub, Object[] arguments, AsyncServiceScope scope, IHubActivator`1 hubActivator, HubConnectionContext connection, HubMethodInvocationMessage hubMethodInvocationMessage, Boolean isStreamCall)
+2023-07-13 20:49:08.858 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-07-13 20:49:08.987 +03:00 [INF] Now listening on: https://localhost:7109
+2023-07-13 20:49:08.988 +03:00 [INF] Now listening on: http://localhost:5223
+2023-07-13 20:49:09.004 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-13 20:49:09.005 +03:00 [INF] Hosting environment: Development
+2023-07-13 20:49:09.005 +03:00 [INF] Content root path: D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi
+2023-07-13 20:49:09.130 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/Hubs/AccountHub/negotiate?negotiateVersion=1 - -
+2023-07-13 20:49:09.198 +03:00 [INF] CORS policy execution successful.
+2023-07-13 20:49:09.203 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/Hubs/AccountHub/negotiate?negotiateVersion=1 - - - 204 - - 73.1487ms
+2023-07-13 20:49:09.227 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/Hubs/AccountHub/negotiate?negotiateVersion=1 - 0
+2023-07-13 20:49:09.231 +03:00 [INF] CORS policy execution successful.
+2023-07-13 20:49:09.291 +03:00 [INF] Executing endpoint 'Hubs/AccountHub/negotiate'
+2023-07-13 20:49:09.297 +03:00 [INF] Executed endpoint 'Hubs/AccountHub/negotiate'
+2023-07-13 20:49:09.299 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/Hubs/AccountHub/negotiate?negotiateVersion=1 - 0 - 200 316 application/json 71.1795ms
+2023-07-13 20:49:09.318 +03:00 [INF] Request starting HTTP/2 CONNECT https://localhost:7109/Hubs/AccountHub?id=wn0k3so9p1hEVHBJHYP3GA - -
+2023-07-13 20:49:09.319 +03:00 [INF] CORS policy execution successful.
+2023-07-13 20:49:09.321 +03:00 [INF] Executing endpoint 'Hubs/AccountHub'
+2023-07-13 20:49:10.446 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - -
+2023-07-13 20:49:10.524 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - - - 200 - text/html;charset=utf-8 78.6857ms
+2023-07-13 20:49:10.585 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - -
+2023-07-13 20:49:10.594 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - - - 200 12344 application/javascript;+charset=utf-8 8.6719ms
+2023-07-13 20:49:10.648 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
+2023-07-13 20:49:10.741 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 91.9550ms
+2023-07-13 20:52:27.034 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-07-13 20:52:27.153 +03:00 [INF] Now listening on: https://localhost:7109
+2023-07-13 20:52:27.154 +03:00 [INF] Now listening on: http://localhost:5223
+2023-07-13 20:52:27.155 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-13 20:52:27.156 +03:00 [INF] Hosting environment: Development
+2023-07-13 20:52:27.156 +03:00 [INF] Content root path: D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi
+2023-07-13 20:52:28.946 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - -
+2023-07-13 20:52:29.068 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - - - 200 - text/html;charset=utf-8 123.4150ms
+2023-07-13 20:52:29.134 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - -
+2023-07-13 20:52:29.139 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - - - 200 12344 application/javascript;+charset=utf-8 4.8536ms
+2023-07-13 20:52:29.189 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
+2023-07-13 20:52:29.290 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 100.3434ms
+2023-07-13 20:52:29.687 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/Hubs/AccountHub/negotiate?negotiateVersion=1 - -
+2023-07-13 20:52:29.704 +03:00 [INF] CORS policy execution successful.
+2023-07-13 20:52:29.706 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/Hubs/AccountHub/negotiate?negotiateVersion=1 - - - 204 - - 18.9479ms
+2023-07-13 20:52:29.708 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/Hubs/AccountHub/negotiate?negotiateVersion=1 - 0
+2023-07-13 20:52:29.710 +03:00 [INF] CORS policy execution successful.
+2023-07-13 20:52:29.766 +03:00 [INF] Executing endpoint 'Hubs/AccountHub/negotiate'
+2023-07-13 20:52:29.771 +03:00 [INF] Executed endpoint 'Hubs/AccountHub/negotiate'
+2023-07-13 20:52:29.772 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/Hubs/AccountHub/negotiate?negotiateVersion=1 - 0 - 200 316 application/json 63.2312ms
+2023-07-13 20:52:29.780 +03:00 [INF] Request starting HTTP/2 CONNECT https://localhost:7109/Hubs/AccountHub?id=VeY45tb8PKbSxt-R99to0Q - -
+2023-07-13 20:52:29.781 +03:00 [INF] CORS policy execution successful.
+2023-07-13 20:52:29.782 +03:00 [INF] Executing endpoint 'Hubs/AccountHub'
+2023-07-13 20:52:43.112 +03:00 [INF] Executed endpoint 'Hubs/AccountHub'
+2023-07-13 20:52:43.114 +03:00 [INF] Request finished HTTP/2 CONNECT https://localhost:7109/Hubs/AccountHub?id=VeY45tb8PKbSxt-R99to0Q - - - 200 - - 13333.7128ms
+2023-07-13 20:52:51.198 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Authentication/Login - -
+2023-07-13 20:52:51.199 +03:00 [INF] CORS policy execution successful.
+2023-07-13 20:52:51.200 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Authentication/Login - - - 204 - - 1.7063ms
+2023-07-13 20:52:51.205 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Authentication/Login application/json 72
+2023-07-13 20:52:51.207 +03:00 [INF] CORS policy execution successful.
+2023-07-13 20:52:51.312 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/07/2023 17:44:22', Current time: '13/07/2023 17:52:51'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-13 20:52:51.336 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/07/2023 17:44:22', Current time: '13/07/2023 17:52:51'.
+2023-07-13 20:52:51.337 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.LoginAsync (WebApi)'
+2023-07-13 20:52:51.349 +03:00 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginAsync(Application.Features.Auth.Commands.Login.AuthLoginCommand) on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-07-13 20:52:51.608 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.LoginAsync (WebApi) - Validation state: "Valid"
+2023-07-13 20:52:52.401 +03:00 [INF] Executed DbCommand (40ms) [Parameters=[@__email_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `AspNetUsers` AS `a`
+    WHERE `a`.`Email` = @__email_0)
+2023-07-13 20:52:52.517 +03:00 [INF] Executed DbCommand (53ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`FirstName`, `a`.`LastName`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedEmail` = @__normalizedEmail_0
+LIMIT 2
+2023-07-13 20:52:52.694 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@__user_Id_0='?' (Size = 191)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`ClaimType`, `a`.`ClaimValue`, `a`.`UserId`
+FROM `AspNetUserClaims` AS `a`
+WHERE `a`.`UserId` = @__user_Id_0
+2023-07-13 20:52:52.728 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__userId_0='?' (Size = 191)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+2023-07-13 20:52:52.740 +03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2023-07-13 20:52:52.762 +03:00 [INF] Executed action method WebApi.Controllers.AuthenticationController.LoginAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1149.1262ms.
+2023-07-13 20:52:52.769 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Features.Auth.Commands.Login.AuthLoginDto'.
+2023-07-13 20:52:52.779 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.LoginAsync (WebApi) in 1425.9658ms
+2023-07-13 20:52:52.780 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.LoginAsync (WebApi)'
+2023-07-13 20:52:52.785 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Authentication/Login application/json 72 - 200 - application/json;+charset=utf-8 1580.5894ms
+2023-07-13 20:52:54.628 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Accounts - -
+2023-07-13 20:52:54.629 +03:00 [INF] CORS policy execution successful.
+2023-07-13 20:52:54.630 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Accounts - - - 204 - - 1.6554ms
+2023-07-13 20:52:54.632 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Accounts - -
+2023-07-13 20:52:54.633 +03:00 [INF] CORS policy execution successful.
+2023-07-13 20:52:54.645 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-07-13 20:52:54.649 +03:00 [INF] Route matched with {action = "GetAll", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Int32, Int32) on controller WebApi.Controllers.AccountsController (WebApi).
+2023-07-13 20:52:54.662 +03:00 [INF] Executing action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-13 20:52:54.733 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Account' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-07-13 20:52:54.734 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'City' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-07-13 20:52:54.735 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Country' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-07-13 20:52:54.782 +03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2023-07-13 20:52:54.783 +03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2023-07-13 20:52:54.861 +03:00 [INF] Executed DbCommand (26ms) [Parameters=[@___currentUserService_UserId_0='?' (Size = 4000), @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`CreatedByUserId`, `t`.`CreatedOn`, `t`.`DeletedByUserId`, `t`.`DeletedOn`, `t`.`IsDeleted`, `t`.`IsFavourite`, `t`.`ModifiedByUserId`, `t`.`ModifiedOn`, `t`.`Password`, `t`.`Title`, `t`.`Url`, `t`.`UserId`, `t`.`UserName`, `t0`.`AccountId`, `t0`.`CategoryId`, `t0`.`Id`, `t0`.`CreatedByUserId`, `t0`.`CreatedOn`, `t0`.`DeletedByUserId`, `t0`.`DeletedOn`, `t0`.`IsDeleted`, `t0`.`ModifiedByUserId`, `t0`.`ModifiedOn`, `t0`.`Name`, `t0`.`UserId`
+FROM (
+    SELECT `a`.`Id`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`DeletedByUserId`, `a`.`DeletedOn`, `a`.`IsDeleted`, `a`.`IsFavourite`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`Password`, `a`.`Title`, `a`.`Url`, `a`.`UserId`, `a`.`UserName`
+    FROM `Accounts` AS `a`
+    WHERE `a`.`UserId` = @___currentUserService_UserId_0
+    LIMIT @__p_2 OFFSET @__p_1
+) AS `t`
+LEFT JOIN (
+    SELECT `a0`.`AccountId`, `a0`.`CategoryId`, `c`.`Id`, `c`.`CreatedByUserId`, `c`.`CreatedOn`, `c`.`DeletedByUserId`, `c`.`DeletedOn`, `c`.`IsDeleted`, `c`.`ModifiedByUserId`, `c`.`ModifiedOn`, `c`.`Name`, `c`.`UserId`
+    FROM `AccountCategories` AS `a0`
+    INNER JOIN `Categories` AS `c` ON `a0`.`CategoryId` = `c`.`Id`
+) AS `t0` ON `t`.`Id` = `t0`.`AccountId`
+ORDER BY `t`.`Id`, `t0`.`AccountId`, `t0`.`CategoryId`
+2023-07-13 20:52:54.909 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@___currentUserService_UserId_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Accounts` AS `a`
+WHERE `a`.`UserId` = @___currentUserService_UserId_0
+2023-07-13 20:52:54.913 +03:00 [INF] Executed action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 250.2394ms.
+2023-07-13 20:52:54.916 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Accounts.Queries.GetAll.AccountGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-13 20:52:54.925 +03:00 [INF] Executed action WebApi.Controllers.AccountsController.GetAllAsync (WebApi) in 275.4602ms
+2023-07-13 20:52:54.927 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-07-13 20:52:54.927 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Accounts - - - 200 - application/json;+charset=utf-8 295.1466ms
+2023-07-13 20:52:58.880 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/Hubs/AccountHub/negotiate?negotiateVersion=1 - -
+2023-07-13 20:52:58.881 +03:00 [INF] CORS policy execution successful.
+2023-07-13 20:52:58.881 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/Hubs/AccountHub/negotiate?negotiateVersion=1 - - - 204 - - 1.5779ms
+2023-07-13 20:52:58.884 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/Hubs/AccountHub/negotiate?negotiateVersion=1 - 0
+2023-07-13 20:52:58.884 +03:00 [INF] CORS policy execution successful.
+2023-07-13 20:52:58.885 +03:00 [INF] Executing endpoint 'Hubs/AccountHub/negotiate'
+2023-07-13 20:52:58.886 +03:00 [INF] Executed endpoint 'Hubs/AccountHub/negotiate'
+2023-07-13 20:52:58.887 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/Hubs/AccountHub/negotiate?negotiateVersion=1 - 0 - 200 316 application/json 3.0272ms
+2023-07-13 20:52:58.896 +03:00 [INF] Request starting HTTP/2 CONNECT https://localhost:7109/Hubs/AccountHub?id=EcGYURqYcOWZqIS9da2YvQ - -
+2023-07-13 20:52:58.897 +03:00 [INF] CORS policy execution successful.
+2023-07-13 20:52:58.897 +03:00 [INF] Executing endpoint 'Hubs/AccountHub'
+2023-07-13 20:54:23.000 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-07-13 20:54:23.205 +03:00 [INF] Now listening on: https://localhost:7109
+2023-07-13 20:54:23.206 +03:00 [INF] Now listening on: http://localhost:5223
+2023-07-13 20:54:23.208 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-13 20:54:23.209 +03:00 [INF] Hosting environment: Development
+2023-07-13 20:54:23.210 +03:00 [INF] Content root path: D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi
+2023-07-13 20:54:24.860 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/Hubs/AccountHub/negotiate?negotiateVersion=1 - -
+2023-07-13 20:54:24.888 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - -
+2023-07-13 20:54:24.928 +03:00 [INF] CORS policy execution successful.
+2023-07-13 20:54:24.933 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/Hubs/AccountHub/negotiate?negotiateVersion=1 - - - 204 - - 73.3864ms
+2023-07-13 20:54:24.974 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/Hubs/AccountHub/negotiate?negotiateVersion=1 - 0
+2023-07-13 20:54:24.977 +03:00 [INF] CORS policy execution successful.
+2023-07-13 20:54:25.037 +03:00 [INF] Executing endpoint 'Hubs/AccountHub/negotiate'
+2023-07-13 20:54:25.042 +03:00 [INF] Executed endpoint 'Hubs/AccountHub/negotiate'
+2023-07-13 20:54:25.043 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/Hubs/AccountHub/negotiate?negotiateVersion=1 - 0 - 200 316 application/json 68.6160ms
+2023-07-13 20:54:25.053 +03:00 [INF] Request starting HTTP/2 CONNECT https://localhost:7109/Hubs/AccountHub?id=yZpNAoMBFAycg3l3fofpuA - -
+2023-07-13 20:54:25.054 +03:00 [INF] CORS policy execution successful.
+2023-07-13 20:54:25.056 +03:00 [INF] Executing endpoint 'Hubs/AccountHub'
+2023-07-13 20:54:25.063 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - - - 200 - text/html;charset=utf-8 175.5638ms
+2023-07-13 20:54:27.288 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - -
+2023-07-13 20:54:27.302 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - - - 200 12344 application/javascript;+charset=utf-8 13.8467ms
+2023-07-13 20:54:27.330 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
+2023-07-13 20:54:27.417 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 86.9506ms
+2023-07-13 21:06:58.979 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-07-13 21:06:59.118 +03:00 [INF] Now listening on: https://localhost:7109
+2023-07-13 21:06:59.119 +03:00 [INF] Now listening on: http://localhost:5223
+2023-07-13 21:06:59.121 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-13 21:06:59.128 +03:00 [INF] Hosting environment: Development
+2023-07-13 21:06:59.129 +03:00 [INF] Content root path: D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi
+2023-07-13 21:07:00.833 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - -
+2023-07-13 21:07:00.976 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - - - 200 - text/html;charset=utf-8 144.6965ms
+2023-07-13 21:07:01.046 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - -
+2023-07-13 21:07:01.052 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - - - 200 12344 application/javascript;+charset=utf-8 5.8850ms
+2023-07-13 21:07:01.099 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
+2023-07-13 21:07:01.189 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 89.9206ms
+2023-07-13 21:08:11.345 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Authentication/Login - -
+2023-07-13 21:08:11.355 +03:00 [INF] CORS policy execution successful.
+2023-07-13 21:08:11.356 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Authentication/Login - - - 204 - - 10.9800ms
+2023-07-13 21:08:11.362 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Authentication/Login application/json 72
+2023-07-13 21:08:11.364 +03:00 [INF] CORS policy execution successful.
+2023-07-13 21:08:11.509 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/07/2023 17:53:52', Current time: '13/07/2023 18:08:11'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-13 21:08:11.531 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/07/2023 17:53:52', Current time: '13/07/2023 18:08:11'.
+2023-07-13 21:08:11.534 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.LoginAsync (WebApi)'
+2023-07-13 21:08:11.546 +03:00 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginAsync(Application.Features.Auth.Commands.Login.AuthLoginCommand) on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-07-13 21:08:11.818 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.LoginAsync (WebApi) - Validation state: "Valid"
+2023-07-13 21:08:12.698 +03:00 [INF] Executed DbCommand (38ms) [Parameters=[@__email_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `AspNetUsers` AS `a`
+    WHERE `a`.`Email` = @__email_0)
+2023-07-13 21:08:12.815 +03:00 [INF] Executed DbCommand (52ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`FirstName`, `a`.`LastName`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedEmail` = @__normalizedEmail_0
+LIMIT 2
+2023-07-13 21:08:12.987 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@__user_Id_0='?' (Size = 191)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`ClaimType`, `a`.`ClaimValue`, `a`.`UserId`
+FROM `AspNetUserClaims` AS `a`
+WHERE `a`.`UserId` = @__user_Id_0
+2023-07-13 21:08:13.023 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__userId_0='?' (Size = 191)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+2023-07-13 21:08:13.033 +03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2023-07-13 21:08:13.054 +03:00 [INF] Executed action method WebApi.Controllers.AuthenticationController.LoginAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1231.5306ms.
+2023-07-13 21:08:13.059 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Features.Auth.Commands.Login.AuthLoginDto'.
+2023-07-13 21:08:13.071 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.LoginAsync (WebApi) in 1520.3118ms
+2023-07-13 21:08:13.072 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.LoginAsync (WebApi)'
+2023-07-13 21:08:13.079 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Authentication/Login application/json 72 - 200 - application/json;+charset=utf-8 1717.3183ms
+2023-07-13 21:08:13.616 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Accounts - -
+2023-07-13 21:08:13.617 +03:00 [INF] CORS policy execution successful.
+2023-07-13 21:08:13.618 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Accounts - - - 204 - - 2.3614ms
+2023-07-13 21:08:13.621 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Accounts - -
+2023-07-13 21:08:13.622 +03:00 [INF] CORS policy execution successful.
+2023-07-13 21:08:13.634 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-07-13 21:08:13.638 +03:00 [INF] Route matched with {action = "GetAll", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Int32, Int32) on controller WebApi.Controllers.AccountsController (WebApi).
+2023-07-13 21:08:13.650 +03:00 [INF] Executing action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-13 21:08:13.723 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Account' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-07-13 21:08:13.724 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'City' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-07-13 21:08:13.725 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Country' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-07-13 21:08:13.769 +03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2023-07-13 21:08:13.770 +03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2023-07-13 21:08:13.892 +03:00 [INF] Executed DbCommand (79ms) [Parameters=[@___currentUserService_UserId_0='?' (Size = 4000), @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`CreatedByUserId`, `t`.`CreatedOn`, `t`.`DeletedByUserId`, `t`.`DeletedOn`, `t`.`IsDeleted`, `t`.`IsFavourite`, `t`.`ModifiedByUserId`, `t`.`ModifiedOn`, `t`.`Password`, `t`.`Title`, `t`.`Url`, `t`.`UserId`, `t`.`UserName`, `t0`.`AccountId`, `t0`.`CategoryId`, `t0`.`Id`, `t0`.`CreatedByUserId`, `t0`.`CreatedOn`, `t0`.`DeletedByUserId`, `t0`.`DeletedOn`, `t0`.`IsDeleted`, `t0`.`ModifiedByUserId`, `t0`.`ModifiedOn`, `t0`.`Name`, `t0`.`UserId`
+FROM (
+    SELECT `a`.`Id`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`DeletedByUserId`, `a`.`DeletedOn`, `a`.`IsDeleted`, `a`.`IsFavourite`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`Password`, `a`.`Title`, `a`.`Url`, `a`.`UserId`, `a`.`UserName`
+    FROM `Accounts` AS `a`
+    WHERE `a`.`UserId` = @___currentUserService_UserId_0
+    LIMIT @__p_2 OFFSET @__p_1
+) AS `t`
+LEFT JOIN (
+    SELECT `a0`.`AccountId`, `a0`.`CategoryId`, `c`.`Id`, `c`.`CreatedByUserId`, `c`.`CreatedOn`, `c`.`DeletedByUserId`, `c`.`DeletedOn`, `c`.`IsDeleted`, `c`.`ModifiedByUserId`, `c`.`ModifiedOn`, `c`.`Name`, `c`.`UserId`
+    FROM `AccountCategories` AS `a0`
+    INNER JOIN `Categories` AS `c` ON `a0`.`CategoryId` = `c`.`Id`
+) AS `t0` ON `t`.`Id` = `t0`.`AccountId`
+ORDER BY `t`.`Id`, `t0`.`AccountId`, `t0`.`CategoryId`
+2023-07-13 21:08:13.953 +03:00 [INF] Executed DbCommand (22ms) [Parameters=[@___currentUserService_UserId_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Accounts` AS `a`
+WHERE `a`.`UserId` = @___currentUserService_UserId_0
+2023-07-13 21:08:13.958 +03:00 [INF] Executed action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 307.3759ms.
+2023-07-13 21:08:13.959 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Accounts.Queries.GetAll.AccountGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-13 21:08:13.969 +03:00 [INF] Executed action WebApi.Controllers.AccountsController.GetAllAsync (WebApi) in 329.9683ms
+2023-07-13 21:08:13.970 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-07-13 21:08:13.971 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Accounts - - - 200 - application/json;+charset=utf-8 349.9789ms
+2023-07-13 21:08:21.019 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/Hubs/AccountHub/negotiate?access_token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIzMGY0NTllOC02Yzc2LTRkYTItOGE1Mi03MGI0MzQ5MGQ4OGIiLCJlbWFpbCI6ImFscGVyLnR1bmdhQGFsdHVkZXYuY29tIiwic3ViIjoiMzBmNDU5ZTgtNmM3Ni00ZGEyLThhNTItNzBiNDM0OTBkODhiIiwiZ2l2ZW5fbmFtZSI6IkFscGVyIiwiZmFtaWx5X25hbWUiOiJUdW5nYSIsImp0aSI6IjE4NjIyZWQ2LTk0Y2ItNDBiMC1hNDM0LWE4Mjg3MmZmZTVmMiIsImV4cCI6MTY4OTI3MTc1MywiaXNzIjoiVXBTdG9yYWdlIiwiYXVkIjoiVXBTdG9yYWdlIn0.X94L57pKX4AhtiEJfpmJdyNg4EljISRZFBzp98aIAQ8&negotiateVersion=1 - -
+2023-07-13 21:08:21.023 +03:00 [INF] CORS policy execution successful.
+2023-07-13 21:08:21.024 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/Hubs/AccountHub/negotiate?access_token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIzMGY0NTllOC02Yzc2LTRkYTItOGE1Mi03MGI0MzQ5MGQ4OGIiLCJlbWFpbCI6ImFscGVyLnR1bmdhQGFsdHVkZXYuY29tIiwic3ViIjoiMzBmNDU5ZTgtNmM3Ni00ZGEyLThhNTItNzBiNDM0OTBkODhiIiwiZ2l2ZW5fbmFtZSI6IkFscGVyIiwiZmFtaWx5X25hbWUiOiJUdW5nYSIsImp0aSI6IjE4NjIyZWQ2LTk0Y2ItNDBiMC1hNDM0LWE4Mjg3MmZmZTVmMiIsImV4cCI6MTY4OTI3MTc1MywiaXNzIjoiVXBTdG9yYWdlIiwiYXVkIjoiVXBTdG9yYWdlIn0.X94L57pKX4AhtiEJfpmJdyNg4EljISRZFBzp98aIAQ8&negotiateVersion=1 - - - 204 - - 5.1009ms
+2023-07-13 21:08:21.029 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/Hubs/AccountHub/negotiate?access_token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIzMGY0NTllOC02Yzc2LTRkYTItOGE1Mi03MGI0MzQ5MGQ4OGIiLCJlbWFpbCI6ImFscGVyLnR1bmdhQGFsdHVkZXYuY29tIiwic3ViIjoiMzBmNDU5ZTgtNmM3Ni00ZGEyLThhNTItNzBiNDM0OTBkODhiIiwiZ2l2ZW5fbmFtZSI6IkFscGVyIiwiZmFtaWx5X25hbWUiOiJUdW5nYSIsImp0aSI6IjE4NjIyZWQ2LTk0Y2ItNDBiMC1hNDM0LWE4Mjg3MmZmZTVmMiIsImV4cCI6MTY4OTI3MTc1MywiaXNzIjoiVXBTdG9yYWdlIiwiYXVkIjoiVXBTdG9yYWdlIn0.X94L57pKX4AhtiEJfpmJdyNg4EljISRZFBzp98aIAQ8&negotiateVersion=1 - 0
+2023-07-13 21:08:21.030 +03:00 [INF] CORS policy execution successful.
+2023-07-13 21:08:21.032 +03:00 [INF] Executing endpoint 'Hubs/AccountHub/negotiate'
+2023-07-13 21:08:21.038 +03:00 [INF] Executed endpoint 'Hubs/AccountHub/negotiate'
+2023-07-13 21:08:21.039 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/Hubs/AccountHub/negotiate?access_token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIzMGY0NTllOC02Yzc2LTRkYTItOGE1Mi03MGI0MzQ5MGQ4OGIiLCJlbWFpbCI6ImFscGVyLnR1bmdhQGFsdHVkZXYuY29tIiwic3ViIjoiMzBmNDU5ZTgtNmM3Ni00ZGEyLThhNTItNzBiNDM0OTBkODhiIiwiZ2l2ZW5fbmFtZSI6IkFscGVyIiwiZmFtaWx5X25hbWUiOiJUdW5nYSIsImp0aSI6IjE4NjIyZWQ2LTk0Y2ItNDBiMC1hNDM0LWE4Mjg3MmZmZTVmMiIsImV4cCI6MTY4OTI3MTc1MywiaXNzIjoiVXBTdG9yYWdlIiwiYXVkIjoiVXBTdG9yYWdlIn0.X94L57pKX4AhtiEJfpmJdyNg4EljISRZFBzp98aIAQ8&negotiateVersion=1 - 0 - 200 316 application/json 9.4756ms
+2023-07-13 21:08:21.049 +03:00 [INF] Request starting HTTP/2 CONNECT https://localhost:7109/Hubs/AccountHub?access_token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIzMGY0NTllOC02Yzc2LTRkYTItOGE1Mi03MGI0MzQ5MGQ4OGIiLCJlbWFpbCI6ImFscGVyLnR1bmdhQGFsdHVkZXYuY29tIiwic3ViIjoiMzBmNDU5ZTgtNmM3Ni00ZGEyLThhNTItNzBiNDM0OTBkODhiIiwiZ2l2ZW5fbmFtZSI6IkFscGVyIiwiZmFtaWx5X25hbWUiOiJUdW5nYSIsImp0aSI6IjE4NjIyZWQ2LTk0Y2ItNDBiMC1hNDM0LWE4Mjg3MmZmZTVmMiIsImV4cCI6MTY4OTI3MTc1MywiaXNzIjoiVXBTdG9yYWdlIiwiYXVkIjoiVXBTdG9yYWdlIn0.X94L57pKX4AhtiEJfpmJdyNg4EljISRZFBzp98aIAQ8&id=3D9oNT5WGfdFF3CEhWRYFQ - -
+2023-07-13 21:08:21.049 +03:00 [INF] CORS policy execution successful.
+2023-07-13 21:08:21.050 +03:00 [INF] Executing endpoint 'Hubs/AccountHub'
+2023-07-13 21:26:48.412 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-07-13 21:26:48.540 +03:00 [INF] Now listening on: https://localhost:7109
+2023-07-13 21:26:48.541 +03:00 [INF] Now listening on: http://localhost:5223
+2023-07-13 21:26:48.543 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-13 21:26:48.544 +03:00 [INF] Hosting environment: Development
+2023-07-13 21:26:48.545 +03:00 [INF] Content root path: D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi
+2023-07-13 21:26:50.168 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - -
+2023-07-13 21:26:50.286 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - - - 200 - text/html;charset=utf-8 119.4974ms
+2023-07-13 21:26:50.372 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - -
+2023-07-13 21:26:50.378 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - - - 200 12344 application/javascript;+charset=utf-8 6.3350ms
+2023-07-13 21:26:50.429 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
+2023-07-13 21:26:50.526 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 97.8652ms
+2023-07-13 21:34:03.309 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-07-13 21:34:03.445 +03:00 [INF] Now listening on: https://localhost:7109
+2023-07-13 21:34:03.446 +03:00 [INF] Now listening on: http://localhost:5223
+2023-07-13 21:34:03.448 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-13 21:34:03.449 +03:00 [INF] Hosting environment: Development
+2023-07-13 21:34:03.450 +03:00 [INF] Content root path: D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi
+2023-07-13 21:34:05.116 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - -
+2023-07-13 21:34:05.253 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - - - 200 - text/html;charset=utf-8 138.9869ms
+2023-07-13 21:34:05.356 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - -
+2023-07-13 21:34:05.366 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - - - 200 12344 application/javascript;+charset=utf-8 9.8436ms
+2023-07-13 21:34:05.439 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
+2023-07-13 21:34:05.551 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 112.2544ms
+2023-07-13 21:34:20.420 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Authentication/Login - -
+2023-07-13 21:34:20.429 +03:00 [INF] CORS policy execution successful.
+2023-07-13 21:34:20.431 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Authentication/Login - - - 204 - - 11.0341ms
+2023-07-13 21:34:20.436 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Authentication/Login application/json 72
+2023-07-13 21:34:20.438 +03:00 [INF] CORS policy execution successful.
+2023-07-13 21:34:20.584 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/07/2023 18:09:13', Current time: '13/07/2023 18:34:20'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-13 21:34:20.605 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/07/2023 18:09:13', Current time: '13/07/2023 18:34:20'.
+2023-07-13 21:34:20.608 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.LoginAsync (WebApi)'
+2023-07-13 21:34:20.620 +03:00 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginAsync(Application.Features.Auth.Commands.Login.AuthLoginCommand) on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-07-13 21:34:20.875 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.LoginAsync (WebApi) - Validation state: "Valid"
+2023-07-13 21:34:21.758 +03:00 [INF] Executed DbCommand (43ms) [Parameters=[@__email_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `AspNetUsers` AS `a`
+    WHERE `a`.`Email` = @__email_0)
+2023-07-13 21:34:21.897 +03:00 [INF] Executed DbCommand (58ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`FirstName`, `a`.`LastName`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedEmail` = @__normalizedEmail_0
+LIMIT 2
+2023-07-13 21:34:22.091 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@__user_Id_0='?' (Size = 191)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`ClaimType`, `a`.`ClaimValue`, `a`.`UserId`
+FROM `AspNetUserClaims` AS `a`
+WHERE `a`.`UserId` = @__user_Id_0
+2023-07-13 21:34:22.127 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__userId_0='?' (Size = 191)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+2023-07-13 21:34:22.139 +03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2023-07-13 21:34:22.161 +03:00 [INF] Executed action method WebApi.Controllers.AuthenticationController.LoginAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1280.7103ms.
+2023-07-13 21:34:22.167 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Features.Auth.Commands.Login.AuthLoginDto'.
+2023-07-13 21:34:22.181 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.LoginAsync (WebApi) in 1557.3515ms
+2023-07-13 21:34:22.183 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.LoginAsync (WebApi)'
+2023-07-13 21:34:22.190 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Authentication/Login application/json 72 - 200 - application/json;+charset=utf-8 1754.1121ms
+2023-07-13 21:34:23.406 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Accounts - -
+2023-07-13 21:34:23.407 +03:00 [INF] CORS policy execution successful.
+2023-07-13 21:34:23.408 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Accounts - - - 204 - - 1.9704ms
+2023-07-13 21:34:23.410 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Accounts - -
+2023-07-13 21:34:23.411 +03:00 [INF] CORS policy execution successful.
+2023-07-13 21:34:23.425 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-07-13 21:34:23.429 +03:00 [INF] Route matched with {action = "GetAll", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Int32, Int32) on controller WebApi.Controllers.AccountsController (WebApi).
+2023-07-13 21:34:23.443 +03:00 [INF] Executing action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-13 21:34:23.512 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Account' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-07-13 21:34:23.514 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'City' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-07-13 21:34:23.515 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Country' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-07-13 21:34:23.571 +03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2023-07-13 21:34:23.572 +03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2023-07-13 21:34:23.692 +03:00 [INF] Executed DbCommand (75ms) [Parameters=[@___currentUserService_UserId_0='?' (Size = 4000), @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`CreatedByUserId`, `t`.`CreatedOn`, `t`.`DeletedByUserId`, `t`.`DeletedOn`, `t`.`IsDeleted`, `t`.`IsFavourite`, `t`.`ModifiedByUserId`, `t`.`ModifiedOn`, `t`.`Password`, `t`.`Title`, `t`.`Url`, `t`.`UserId`, `t`.`UserName`, `t0`.`AccountId`, `t0`.`CategoryId`, `t0`.`Id`, `t0`.`CreatedByUserId`, `t0`.`CreatedOn`, `t0`.`DeletedByUserId`, `t0`.`DeletedOn`, `t0`.`IsDeleted`, `t0`.`ModifiedByUserId`, `t0`.`ModifiedOn`, `t0`.`Name`, `t0`.`UserId`
+FROM (
+    SELECT `a`.`Id`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`DeletedByUserId`, `a`.`DeletedOn`, `a`.`IsDeleted`, `a`.`IsFavourite`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`Password`, `a`.`Title`, `a`.`Url`, `a`.`UserId`, `a`.`UserName`
+    FROM `Accounts` AS `a`
+    WHERE `a`.`UserId` = @___currentUserService_UserId_0
+    LIMIT @__p_2 OFFSET @__p_1
+) AS `t`
+LEFT JOIN (
+    SELECT `a0`.`AccountId`, `a0`.`CategoryId`, `c`.`Id`, `c`.`CreatedByUserId`, `c`.`CreatedOn`, `c`.`DeletedByUserId`, `c`.`DeletedOn`, `c`.`IsDeleted`, `c`.`ModifiedByUserId`, `c`.`ModifiedOn`, `c`.`Name`, `c`.`UserId`
+    FROM `AccountCategories` AS `a0`
+    INNER JOIN `Categories` AS `c` ON `a0`.`CategoryId` = `c`.`Id`
+) AS `t0` ON `t`.`Id` = `t0`.`AccountId`
+ORDER BY `t`.`Id`, `t0`.`AccountId`, `t0`.`CategoryId`
+2023-07-13 21:34:23.739 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@___currentUserService_UserId_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Accounts` AS `a`
+WHERE `a`.`UserId` = @___currentUserService_UserId_0
+2023-07-13 21:34:23.745 +03:00 [INF] Executed action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 301.1843ms.
+2023-07-13 21:34:23.746 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Accounts.Queries.GetAll.AccountGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-13 21:34:23.757 +03:00 [INF] Executed action WebApi.Controllers.AccountsController.GetAllAsync (WebApi) in 325.3452ms
+2023-07-13 21:34:23.758 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-07-13 21:34:23.759 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Accounts - - - 200 - application/json;+charset=utf-8 349.2865ms
+2023-07-13 21:34:26.343 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/Hubs/AccountHub/negotiate?access_token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIzMGY0NTllOC02Yzc2LTRkYTItOGE1Mi03MGI0MzQ5MGQ4OGIiLCJlbWFpbCI6ImFscGVyLnR1bmdhQGFsdHVkZXYuY29tIiwic3ViIjoiMzBmNDU5ZTgtNmM3Ni00ZGEyLThhNTItNzBiNDM0OTBkODhiIiwiZ2l2ZW5fbmFtZSI6IkFscGVyIiwiZmFtaWx5X25hbWUiOiJUdW5nYSIsImp0aSI6ImIwNzNlMWZjLTk4NWQtNDVmMS05ZjlmLTAwZGM4ZTYzOTI2ZSIsImV4cCI6MTY4OTI3MzMyMiwiaXNzIjoiVXBTdG9yYWdlIiwiYXVkIjoiVXBTdG9yYWdlIn0.SNOBN2ZPt5k95ImlDxnWRaTBmomWDkBEvvd1HYVavnU&negotiateVersion=1 - -
+2023-07-13 21:34:26.350 +03:00 [INF] CORS policy execution successful.
+2023-07-13 21:34:26.351 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/Hubs/AccountHub/negotiate?access_token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIzMGY0NTllOC02Yzc2LTRkYTItOGE1Mi03MGI0MzQ5MGQ4OGIiLCJlbWFpbCI6ImFscGVyLnR1bmdhQGFsdHVkZXYuY29tIiwic3ViIjoiMzBmNDU5ZTgtNmM3Ni00ZGEyLThhNTItNzBiNDM0OTBkODhiIiwiZ2l2ZW5fbmFtZSI6IkFscGVyIiwiZmFtaWx5X25hbWUiOiJUdW5nYSIsImp0aSI6ImIwNzNlMWZjLTk4NWQtNDVmMS05ZjlmLTAwZGM4ZTYzOTI2ZSIsImV4cCI6MTY4OTI3MzMyMiwiaXNzIjoiVXBTdG9yYWdlIiwiYXVkIjoiVXBTdG9yYWdlIn0.SNOBN2ZPt5k95ImlDxnWRaTBmomWDkBEvvd1HYVavnU&negotiateVersion=1 - - - 204 - - 8.1547ms
+2023-07-13 21:34:26.359 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/Hubs/AccountHub/negotiate?access_token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIzMGY0NTllOC02Yzc2LTRkYTItOGE1Mi03MGI0MzQ5MGQ4OGIiLCJlbWFpbCI6ImFscGVyLnR1bmdhQGFsdHVkZXYuY29tIiwic3ViIjoiMzBmNDU5ZTgtNmM3Ni00ZGEyLThhNTItNzBiNDM0OTBkODhiIiwiZ2l2ZW5fbmFtZSI6IkFscGVyIiwiZmFtaWx5X25hbWUiOiJUdW5nYSIsImp0aSI6ImIwNzNlMWZjLTk4NWQtNDVmMS05ZjlmLTAwZGM4ZTYzOTI2ZSIsImV4cCI6MTY4OTI3MzMyMiwiaXNzIjoiVXBTdG9yYWdlIiwiYXVkIjoiVXBTdG9yYWdlIn0.SNOBN2ZPt5k95ImlDxnWRaTBmomWDkBEvvd1HYVavnU&negotiateVersion=1 - 0
+2023-07-13 21:34:26.360 +03:00 [INF] CORS policy execution successful.
+2023-07-13 21:34:26.363 +03:00 [INF] Executing endpoint 'Hubs/AccountHub/negotiate'
+2023-07-13 21:34:26.369 +03:00 [INF] Executed endpoint 'Hubs/AccountHub/negotiate'
+2023-07-13 21:34:26.370 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/Hubs/AccountHub/negotiate?access_token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIzMGY0NTllOC02Yzc2LTRkYTItOGE1Mi03MGI0MzQ5MGQ4OGIiLCJlbWFpbCI6ImFscGVyLnR1bmdhQGFsdHVkZXYuY29tIiwic3ViIjoiMzBmNDU5ZTgtNmM3Ni00ZGEyLThhNTItNzBiNDM0OTBkODhiIiwiZ2l2ZW5fbmFtZSI6IkFscGVyIiwiZmFtaWx5X25hbWUiOiJUdW5nYSIsImp0aSI6ImIwNzNlMWZjLTk4NWQtNDVmMS05ZjlmLTAwZGM4ZTYzOTI2ZSIsImV4cCI6MTY4OTI3MzMyMiwiaXNzIjoiVXBTdG9yYWdlIiwiYXVkIjoiVXBTdG9yYWdlIn0.SNOBN2ZPt5k95ImlDxnWRaTBmomWDkBEvvd1HYVavnU&negotiateVersion=1 - 0 - 200 316 application/json 10.4724ms
+2023-07-13 21:34:26.379 +03:00 [INF] Request starting HTTP/2 CONNECT https://localhost:7109/Hubs/AccountHub?access_token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIzMGY0NTllOC02Yzc2LTRkYTItOGE1Mi03MGI0MzQ5MGQ4OGIiLCJlbWFpbCI6ImFscGVyLnR1bmdhQGFsdHVkZXYuY29tIiwic3ViIjoiMzBmNDU5ZTgtNmM3Ni00ZGEyLThhNTItNzBiNDM0OTBkODhiIiwiZ2l2ZW5fbmFtZSI6IkFscGVyIiwiZmFtaWx5X25hbWUiOiJUdW5nYSIsImp0aSI6ImIwNzNlMWZjLTk4NWQtNDVmMS05ZjlmLTAwZGM4ZTYzOTI2ZSIsImV4cCI6MTY4OTI3MzMyMiwiaXNzIjoiVXBTdG9yYWdlIiwiYXVkIjoiVXBTdG9yYWdlIn0.SNOBN2ZPt5k95ImlDxnWRaTBmomWDkBEvvd1HYVavnU&id=OwYAxLnBL6xELqaN94uRig - -
+2023-07-13 21:34:26.380 +03:00 [INF] CORS policy execution successful.
+2023-07-13 21:34:26.382 +03:00 [INF] Executing endpoint 'Hubs/AccountHub'
+2023-07-13 21:34:35.346 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 100), @p2='?' (DbType = DateTimeOffset), @p3='?' (Size = 100), @p4='?' (DbType = DateTimeOffset), @p5='?' (DbType = Boolean), @p6='?' (Size = 100), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 1000), @p9='?' (Size = 150), @p10='?' (Size = 1000), @p11='?' (Size = 4000), @p12='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+INSERT INTO `Accounts` (`Id`, `CreatedByUserId`, `CreatedOn`, `DeletedByUserId`, `DeletedOn`, `IsFavourite`, `ModifiedByUserId`, `ModifiedOn`, `Password`, `Title`, `Url`, `UserId`, `UserName`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12)
+RETURNING `IsDeleted`;
+2023-07-13 21:37:46.687 +03:00 [INF] User profile is available. Using 'C:\Users\alper\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-07-13 21:37:46.818 +03:00 [INF] Now listening on: https://localhost:7109
+2023-07-13 21:37:46.820 +03:00 [INF] Now listening on: http://localhost:5223
+2023-07-13 21:37:46.823 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-13 21:37:46.823 +03:00 [INF] Hosting environment: Development
+2023-07-13 21:37:46.824 +03:00 [INF] Content root path: D:\NETRepos\UpSchool-TheBasics\UpStorage\src\WebApi
+2023-07-13 21:37:48.446 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - -
+2023-07-13 21:37:48.584 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - - - 200 - text/html;charset=utf-8 139.0359ms
+2023-07-13 21:37:48.676 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - -
+2023-07-13 21:37:48.684 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/_framework/aspnetcore-browser-refresh.js - - - 200 12344 application/javascript;+charset=utf-8 8.7647ms
+2023-07-13 21:37:48.708 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/Hubs/AccountHub/negotiate?access_token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIzMGY0NTllOC02Yzc2LTRkYTItOGE1Mi03MGI0MzQ5MGQ4OGIiLCJlbWFpbCI6ImFscGVyLnR1bmdhQGFsdHVkZXYuY29tIiwic3ViIjoiMzBmNDU5ZTgtNmM3Ni00ZGEyLThhNTItNzBiNDM0OTBkODhiIiwiZ2l2ZW5fbmFtZSI6IkFscGVyIiwiZmFtaWx5X25hbWUiOiJUdW5nYSIsImp0aSI6ImIwNzNlMWZjLTk4NWQtNDVmMS05ZjlmLTAwZGM4ZTYzOTI2ZSIsImV4cCI6MTY4OTI3MzMyMiwiaXNzIjoiVXBTdG9yYWdlIiwiYXVkIjoiVXBTdG9yYWdlIn0.SNOBN2ZPt5k95ImlDxnWRaTBmomWDkBEvvd1HYVavnU&negotiateVersion=1 - -
+2023-07-13 21:37:48.725 +03:00 [INF] CORS policy execution successful.
+2023-07-13 21:37:48.728 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/Hubs/AccountHub/negotiate?access_token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIzMGY0NTllOC02Yzc2LTRkYTItOGE1Mi03MGI0MzQ5MGQ4OGIiLCJlbWFpbCI6ImFscGVyLnR1bmdhQGFsdHVkZXYuY29tIiwic3ViIjoiMzBmNDU5ZTgtNmM3Ni00ZGEyLThhNTItNzBiNDM0OTBkODhiIiwiZ2l2ZW5fbmFtZSI6IkFscGVyIiwiZmFtaWx5X25hbWUiOiJUdW5nYSIsImp0aSI6ImIwNzNlMWZjLTk4NWQtNDVmMS05ZjlmLTAwZGM4ZTYzOTI2ZSIsImV4cCI6MTY4OTI3MzMyMiwiaXNzIjoiVXBTdG9yYWdlIiwiYXVkIjoiVXBTdG9yYWdlIn0.SNOBN2ZPt5k95ImlDxnWRaTBmomWDkBEvvd1HYVavnU&negotiateVersion=1 - - - 204 - - 20.2161ms
+2023-07-13 21:37:48.730 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/Hubs/AccountHub/negotiate?access_token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIzMGY0NTllOC02Yzc2LTRkYTItOGE1Mi03MGI0MzQ5MGQ4OGIiLCJlbWFpbCI6ImFscGVyLnR1bmdhQGFsdHVkZXYuY29tIiwic3ViIjoiMzBmNDU5ZTgtNmM3Ni00ZGEyLThhNTItNzBiNDM0OTBkODhiIiwiZ2l2ZW5fbmFtZSI6IkFscGVyIiwiZmFtaWx5X25hbWUiOiJUdW5nYSIsImp0aSI6ImIwNzNlMWZjLTk4NWQtNDVmMS05ZjlmLTAwZGM4ZTYzOTI2ZSIsImV4cCI6MTY4OTI3MzMyMiwiaXNzIjoiVXBTdG9yYWdlIiwiYXVkIjoiVXBTdG9yYWdlIn0.SNOBN2ZPt5k95ImlDxnWRaTBmomWDkBEvvd1HYVavnU&negotiateVersion=1 - 0
+2023-07-13 21:37:48.732 +03:00 [INF] CORS policy execution successful.
+2023-07-13 21:37:48.763 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - -
+2023-07-13 21:37:48.841 +03:00 [INF] Executing endpoint 'Hubs/AccountHub/negotiate'
+2023-07-13 21:37:48.847 +03:00 [INF] Executed endpoint 'Hubs/AccountHub/negotiate'
+2023-07-13 21:37:48.848 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/Hubs/AccountHub/negotiate?access_token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIzMGY0NTllOC02Yzc2LTRkYTItOGE1Mi03MGI0MzQ5MGQ4OGIiLCJlbWFpbCI6ImFscGVyLnR1bmdhQGFsdHVkZXYuY29tIiwic3ViIjoiMzBmNDU5ZTgtNmM3Ni00ZGEyLThhNTItNzBiNDM0OTBkODhiIiwiZ2l2ZW5fbmFtZSI6IkFscGVyIiwiZmFtaWx5X25hbWUiOiJUdW5nYSIsImp0aSI6ImIwNzNlMWZjLTk4NWQtNDVmMS05ZjlmLTAwZGM4ZTYzOTI2ZSIsImV4cCI6MTY4OTI3MzMyMiwiaXNzIjoiVXBTdG9yYWdlIiwiYXVkIjoiVXBTdG9yYWdlIn0.SNOBN2ZPt5k95ImlDxnWRaTBmomWDkBEvvd1HYVavnU&negotiateVersion=1 - 0 - 200 316 application/json 117.6408ms
+2023-07-13 21:37:48.855 +03:00 [INF] Request starting HTTP/2 CONNECT https://localhost:7109/Hubs/AccountHub?access_token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIzMGY0NTllOC02Yzc2LTRkYTItOGE1Mi03MGI0MzQ5MGQ4OGIiLCJlbWFpbCI6ImFscGVyLnR1bmdhQGFsdHVkZXYuY29tIiwic3ViIjoiMzBmNDU5ZTgtNmM3Ni00ZGEyLThhNTItNzBiNDM0OTBkODhiIiwiZ2l2ZW5fbmFtZSI6IkFscGVyIiwiZmFtaWx5X25hbWUiOiJUdW5nYSIsImp0aSI6ImIwNzNlMWZjLTk4NWQtNDVmMS05ZjlmLTAwZGM4ZTYzOTI2ZSIsImV4cCI6MTY4OTI3MzMyMiwiaXNzIjoiVXBTdG9yYWdlIiwiYXVkIjoiVXBTdG9yYWdlIn0.SNOBN2ZPt5k95ImlDxnWRaTBmomWDkBEvvd1HYVavnU&id=H7AXeXNhq7orGHamY5zAdA - -
+2023-07-13 21:37:48.856 +03:00 [INF] CORS policy execution successful.
+2023-07-13 21:37:48.858 +03:00 [INF] Executing endpoint 'Hubs/AccountHub'
+2023-07-13 21:37:48.933 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 170.0442ms
+2023-07-13 21:37:53.605 +03:00 [INF] Executed endpoint 'Hubs/AccountHub'
+2023-07-13 21:37:53.609 +03:00 [INF] Request finished HTTP/2 CONNECT https://localhost:7109/Hubs/AccountHub?access_token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIzMGY0NTllOC02Yzc2LTRkYTItOGE1Mi03MGI0MzQ5MGQ4OGIiLCJlbWFpbCI6ImFscGVyLnR1bmdhQGFsdHVkZXYuY29tIiwic3ViIjoiMzBmNDU5ZTgtNmM3Ni00ZGEyLThhNTItNzBiNDM0OTBkODhiIiwiZ2l2ZW5fbmFtZSI6IkFscGVyIiwiZmFtaWx5X25hbWUiOiJUdW5nYSIsImp0aSI6ImIwNzNlMWZjLTk4NWQtNDVmMS05ZjlmLTAwZGM4ZTYzOTI2ZSIsImV4cCI6MTY4OTI3MzMyMiwiaXNzIjoiVXBTdG9yYWdlIiwiYXVkIjoiVXBTdG9yYWdlIn0.SNOBN2ZPt5k95ImlDxnWRaTBmomWDkBEvvd1HYVavnU&id=H7AXeXNhq7orGHamY5zAdA - - - 200 - - 4754.2580ms
+2023-07-13 21:37:54.972 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Authentication/Login - -
+2023-07-13 21:37:54.973 +03:00 [INF] CORS policy execution successful.
+2023-07-13 21:37:54.973 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Authentication/Login - - - 204 - - 1.7182ms
+2023-07-13 21:37:54.979 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/api/Authentication/Login application/json 72
+2023-07-13 21:37:54.981 +03:00 [INF] CORS policy execution successful.
+2023-07-13 21:37:55.084 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/07/2023 18:35:22', Current time: '13/07/2023 18:37:55'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-07-13 21:37:55.106 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '13/07/2023 18:35:22', Current time: '13/07/2023 18:37:55'.
+2023-07-13 21:37:55.107 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AuthenticationController.LoginAsync (WebApi)'
+2023-07-13 21:37:55.119 +03:00 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginAsync(Application.Features.Auth.Commands.Login.AuthLoginCommand) on controller WebApi.Controllers.AuthenticationController (WebApi).
+2023-07-13 21:37:55.379 +03:00 [INF] Executing action method WebApi.Controllers.AuthenticationController.LoginAsync (WebApi) - Validation state: "Valid"
+2023-07-13 21:37:56.283 +03:00 [INF] Executed DbCommand (70ms) [Parameters=[@__email_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `AspNetUsers` AS `a`
+    WHERE `a`.`Email` = @__email_0)
+2023-07-13 21:37:56.427 +03:00 [INF] Executed DbCommand (69ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`FirstName`, `a`.`LastName`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedEmail` = @__normalizedEmail_0
+LIMIT 2
+2023-07-13 21:37:56.615 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[@__user_Id_0='?' (Size = 191)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`ClaimType`, `a`.`ClaimValue`, `a`.`UserId`
+FROM `AspNetUserClaims` AS `a`
+WHERE `a`.`UserId` = @__user_Id_0
+2023-07-13 21:37:56.666 +03:00 [INF] Executed DbCommand (17ms) [Parameters=[@__userId_0='?' (Size = 191)], CommandType='"Text"', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+2023-07-13 21:37:56.679 +03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2023-07-13 21:37:56.705 +03:00 [INF] Executed action method WebApi.Controllers.AuthenticationController.LoginAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1318.869ms.
+2023-07-13 21:37:56.714 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Features.Auth.Commands.Login.AuthLoginDto'.
+2023-07-13 21:37:56.725 +03:00 [INF] Executed action WebApi.Controllers.AuthenticationController.LoginAsync (WebApi) in 1601.3061ms
+2023-07-13 21:37:56.726 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AuthenticationController.LoginAsync (WebApi)'
+2023-07-13 21:37:56.733 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/api/Authentication/Login application/json 72 - 200 - application/json;+charset=utf-8 1754.5441ms
+2023-07-13 21:37:57.831 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/api/Accounts - -
+2023-07-13 21:37:57.832 +03:00 [INF] CORS policy execution successful.
+2023-07-13 21:37:57.833 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/api/Accounts - - - 204 - - 2.1766ms
+2023-07-13 21:37:57.837 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7109/api/Accounts - -
+2023-07-13 21:37:57.838 +03:00 [INF] CORS policy execution successful.
+2023-07-13 21:37:57.851 +03:00 [INF] Executing endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-07-13 21:37:57.856 +03:00 [INF] Route matched with {action = "GetAll", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAsync(Int32, Int32) on controller WebApi.Controllers.AccountsController (WebApi).
+2023-07-13 21:37:57.869 +03:00 [INF] Executing action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi) - Validation state: "Valid"
+2023-07-13 21:37:57.946 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Account' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-07-13 21:37:57.948 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'City' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-07-13 21:37:57.949 +03:00 [WRN] The 'bool' property 'IsDeleted' on entity type 'Country' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-07-13 21:37:58.006 +03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2023-07-13 21:37:58.007 +03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2023-07-13 21:37:58.083 +03:00 [INF] Executed DbCommand (25ms) [Parameters=[@___currentUserService_UserId_0='?' (Size = 4000), @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`CreatedByUserId`, `t`.`CreatedOn`, `t`.`DeletedByUserId`, `t`.`DeletedOn`, `t`.`IsDeleted`, `t`.`IsFavourite`, `t`.`ModifiedByUserId`, `t`.`ModifiedOn`, `t`.`Password`, `t`.`Title`, `t`.`Url`, `t`.`UserId`, `t`.`UserName`, `t0`.`AccountId`, `t0`.`CategoryId`, `t0`.`Id`, `t0`.`CreatedByUserId`, `t0`.`CreatedOn`, `t0`.`DeletedByUserId`, `t0`.`DeletedOn`, `t0`.`IsDeleted`, `t0`.`ModifiedByUserId`, `t0`.`ModifiedOn`, `t0`.`Name`, `t0`.`UserId`
+FROM (
+    SELECT `a`.`Id`, `a`.`CreatedByUserId`, `a`.`CreatedOn`, `a`.`DeletedByUserId`, `a`.`DeletedOn`, `a`.`IsDeleted`, `a`.`IsFavourite`, `a`.`ModifiedByUserId`, `a`.`ModifiedOn`, `a`.`Password`, `a`.`Title`, `a`.`Url`, `a`.`UserId`, `a`.`UserName`
+    FROM `Accounts` AS `a`
+    WHERE `a`.`UserId` = @___currentUserService_UserId_0
+    LIMIT @__p_2 OFFSET @__p_1
+) AS `t`
+LEFT JOIN (
+    SELECT `a0`.`AccountId`, `a0`.`CategoryId`, `c`.`Id`, `c`.`CreatedByUserId`, `c`.`CreatedOn`, `c`.`DeletedByUserId`, `c`.`DeletedOn`, `c`.`IsDeleted`, `c`.`ModifiedByUserId`, `c`.`ModifiedOn`, `c`.`Name`, `c`.`UserId`
+    FROM `AccountCategories` AS `a0`
+    INNER JOIN `Categories` AS `c` ON `a0`.`CategoryId` = `c`.`Id`
+) AS `t0` ON `t`.`Id` = `t0`.`AccountId`
+ORDER BY `t`.`Id`, `t0`.`AccountId`, `t0`.`CategoryId`
+2023-07-13 21:37:58.140 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[@___currentUserService_UserId_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Accounts` AS `a`
+WHERE `a`.`UserId` = @___currentUserService_UserId_0
+2023-07-13 21:37:58.146 +03:00 [INF] Executed action method WebApi.Controllers.AccountsController.GetAllAsync (WebApi), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 275.6564ms.
+2023-07-13 21:37:58.148 +03:00 [INF] Executing OkObjectResult, writing value of type 'Application.Common.Models.General.PaginatedList`1[[Application.Features.Accounts.Queries.GetAll.AccountGetAllDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-13 21:37:58.158 +03:00 [INF] Executed action WebApi.Controllers.AccountsController.GetAllAsync (WebApi) in 300.1982ms
+2023-07-13 21:37:58.159 +03:00 [INF] Executed endpoint 'WebApi.Controllers.AccountsController.GetAllAsync (WebApi)'
+2023-07-13 21:37:58.160 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7109/api/Accounts - - - 200 - application/json;+charset=utf-8 323.0326ms
+2023-07-13 21:38:00.001 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7109/Hubs/AccountHub/negotiate?alper_hocam_jwt_istedi=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIzMGY0NTllOC02Yzc2LTRkYTItOGE1Mi03MGI0MzQ5MGQ4OGIiLCJlbWFpbCI6ImFscGVyLnR1bmdhQGFsdHVkZXYuY29tIiwic3ViIjoiMzBmNDU5ZTgtNmM3Ni00ZGEyLThhNTItNzBiNDM0OTBkODhiIiwiZ2l2ZW5fbmFtZSI6IkFscGVyIiwiZmFtaWx5X25hbWUiOiJUdW5nYSIsImp0aSI6IjE1OTFmZTIzLTU1MTUtNDA3Yy1hN2M1LWMwZmMzZTMzYjRiNCIsImV4cCI6MTY4OTI3MzUzNiwiaXNzIjoiVXBTdG9yYWdlIiwiYXVkIjoiVXBTdG9yYWdlIn0.t-XI5zh_Prc9WxLkggqm_BOcY94G1KmL7M4HzTrAfwA&negotiateVersion=1 - -
+2023-07-13 21:38:00.002 +03:00 [INF] CORS policy execution successful.
+2023-07-13 21:38:00.003 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7109/Hubs/AccountHub/negotiate?alper_hocam_jwt_istedi=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIzMGY0NTllOC02Yzc2LTRkYTItOGE1Mi03MGI0MzQ5MGQ4OGIiLCJlbWFpbCI6ImFscGVyLnR1bmdhQGFsdHVkZXYuY29tIiwic3ViIjoiMzBmNDU5ZTgtNmM3Ni00ZGEyLThhNTItNzBiNDM0OTBkODhiIiwiZ2l2ZW5fbmFtZSI6IkFscGVyIiwiZmFtaWx5X25hbWUiOiJUdW5nYSIsImp0aSI6IjE1OTFmZTIzLTU1MTUtNDA3Yy1hN2M1LWMwZmMzZTMzYjRiNCIsImV4cCI6MTY4OTI3MzUzNiwiaXNzIjoiVXBTdG9yYWdlIiwiYXVkIjoiVXBTdG9yYWdlIn0.t-XI5zh_Prc9WxLkggqm_BOcY94G1KmL7M4HzTrAfwA&negotiateVersion=1 - - - 204 - - 1.9761ms
+2023-07-13 21:38:00.007 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7109/Hubs/AccountHub/negotiate?alper_hocam_jwt_istedi=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIzMGY0NTllOC02Yzc2LTRkYTItOGE1Mi03MGI0MzQ5MGQ4OGIiLCJlbWFpbCI6ImFscGVyLnR1bmdhQGFsdHVkZXYuY29tIiwic3ViIjoiMzBmNDU5ZTgtNmM3Ni00ZGEyLThhNTItNzBiNDM0OTBkODhiIiwiZ2l2ZW5fbmFtZSI6IkFscGVyIiwiZmFtaWx5X25hbWUiOiJUdW5nYSIsImp0aSI6IjE1OTFmZTIzLTU1MTUtNDA3Yy1hN2M1LWMwZmMzZTMzYjRiNCIsImV4cCI6MTY4OTI3MzUzNiwiaXNzIjoiVXBTdG9yYWdlIiwiYXVkIjoiVXBTdG9yYWdlIn0.t-XI5zh_Prc9WxLkggqm_BOcY94G1KmL7M4HzTrAfwA&negotiateVersion=1 - 0
+2023-07-13 21:38:00.008 +03:00 [INF] CORS policy execution successful.
+2023-07-13 21:38:00.010 +03:00 [INF] Executing endpoint 'Hubs/AccountHub/negotiate'
+2023-07-13 21:38:00.011 +03:00 [INF] Executed endpoint 'Hubs/AccountHub/negotiate'
+2023-07-13 21:38:00.013 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7109/Hubs/AccountHub/negotiate?alper_hocam_jwt_istedi=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIzMGY0NTllOC02Yzc2LTRkYTItOGE1Mi03MGI0MzQ5MGQ4OGIiLCJlbWFpbCI6ImFscGVyLnR1bmdhQGFsdHVkZXYuY29tIiwic3ViIjoiMzBmNDU5ZTgtNmM3Ni00ZGEyLThhNTItNzBiNDM0OTBkODhiIiwiZ2l2ZW5fbmFtZSI6IkFscGVyIiwiZmFtaWx5X25hbWUiOiJUdW5nYSIsImp0aSI6IjE1OTFmZTIzLTU1MTUtNDA3Yy1hN2M1LWMwZmMzZTMzYjRiNCIsImV4cCI6MTY4OTI3MzUzNiwiaXNzIjoiVXBTdG9yYWdlIiwiYXVkIjoiVXBTdG9yYWdlIn0.t-XI5zh_Prc9WxLkggqm_BOcY94G1KmL7M4HzTrAfwA&negotiateVersion=1 - 0 - 200 316 application/json 5.4658ms
+2023-07-13 21:38:00.026 +03:00 [INF] Request starting HTTP/2 CONNECT https://localhost:7109/Hubs/AccountHub?alper_hocam_jwt_istedi=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIzMGY0NTllOC02Yzc2LTRkYTItOGE1Mi03MGI0MzQ5MGQ4OGIiLCJlbWFpbCI6ImFscGVyLnR1bmdhQGFsdHVkZXYuY29tIiwic3ViIjoiMzBmNDU5ZTgtNmM3Ni00ZGEyLThhNTItNzBiNDM0OTBkODhiIiwiZ2l2ZW5fbmFtZSI6IkFscGVyIiwiZmFtaWx5X25hbWUiOiJUdW5nYSIsImp0aSI6IjE1OTFmZTIzLTU1MTUtNDA3Yy1hN2M1LWMwZmMzZTMzYjRiNCIsImV4cCI6MTY4OTI3MzUzNiwiaXNzIjoiVXBTdG9yYWdlIiwiYXVkIjoiVXBTdG9yYWdlIn0.t-XI5zh_Prc9WxLkggqm_BOcY94G1KmL7M4HzTrAfwA&id=3p-NvpUdCwFji4EunTOpKQ - -
+2023-07-13 21:38:00.028 +03:00 [INF] CORS policy execution successful.
+2023-07-13 21:38:00.030 +03:00 [INF] Executing endpoint 'Hubs/AccountHub'
+2023-07-13 21:38:06.524 +03:00 [INF] Executed DbCommand (17ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 100), @p2='?' (DbType = DateTimeOffset), @p3='?' (Size = 100), @p4='?' (DbType = DateTimeOffset), @p5='?' (DbType = Boolean), @p6='?' (Size = 100), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 1000), @p9='?' (Size = 150), @p10='?' (Size = 1000), @p11='?' (Size = 4000), @p12='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+INSERT INTO `Accounts` (`Id`, `CreatedByUserId`, `CreatedOn`, `DeletedByUserId`, `DeletedOn`, `IsFavourite`, `ModifiedByUserId`, `ModifiedOn`, `Password`, `Title`, `Url`, `UserId`, `UserName`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12)
+RETURNING `IsDeleted`;

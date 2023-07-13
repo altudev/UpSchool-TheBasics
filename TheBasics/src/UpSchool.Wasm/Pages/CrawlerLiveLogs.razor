@@ -36,6 +36,15 @@
             InvokeAsync(StateHasChanged);
         });
 
+        hubConnection.On<AccountAddDto,string>("NewAccountAdded", (addCommand,accessToken) =>
+        {
+            //logs.Add(seleniumLogDto);
+
+            // Crawler.Start(addCommand)
+
+            InvokeAsync(StateHasChanged);
+        });
+
         await hubConnection.StartAsync();
 
         await base.OnInitializedAsync();

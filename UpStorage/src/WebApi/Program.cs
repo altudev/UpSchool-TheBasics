@@ -12,6 +12,7 @@ using Microsoft.OpenApi.Models;
 using WebApi.Filters;
 using Microsoft.Extensions.Options;
 using Serilog;
+using WebApi.Hubs;
 using WebApi.Services;
 
 Log.Logger = new LoggerConfiguration()
@@ -98,6 +99,24 @@ try
                 ValidAudience = builder.Configuration["JwtSettings:Audience"],
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JwtSettings:SecretKey"]))
             };
+
+            o.Events = new JwtBearerEvents
+            {
+                OnMessageReceived = context =>
+                {
+                    var accessToken = context.Request.Query["access_token"];
+
+                    // If the request is for our hub...
+                    var path = context.HttpContext.Request.Path;
+                    if (!string.IsNullOrEmpty(accessToken) &&
+                        (path.StartsWithSegments("/Hubs/AccountHub") || (path.StartsWithSegments("/Hubs/OrderHub"))))
+                    {
+                        // Read the token out of the query string
+                        context.Token = accessToken;
+                    }
+                    return Task.CompletedTask;
+                }
+            };
         });
 
     // Localization Files' Path
@@ -165,6 +184,8 @@ try
     app.UseAuthorization();
 
     app.MapControllers();
+
+    app.MapHub<AccountHub>("Hubs/AccountHub");
 
     app.Run();
 
