@@ -1,4 +1,5 @@
-﻿using Application.Features.Accounts.Commands.Add;
+﻿using Application.Common.Models.WorkerService;
+using Application.Features.Accounts.Commands.Add;
 using Application.Features.Accounts.Queries.GetById;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -26,7 +27,7 @@ namespace WebApi.Hubs
 
             var accountGetById =   await Mediator.Send(new AccountGetByIdQuery(result.Data));
 
-            await Clients.All.SendAsync("NewAccountAdded", accountGetById, accessToken);
+            await Clients.All.SendAsync("NewAccountAdded", new WorkerServiceNewAccountAddedDto(accountGetById,accessToken));
 
             return result.Data;
         }

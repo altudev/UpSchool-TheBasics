@@ -1,4 +1,5 @@
-﻿using Application.Features.Accounts.Commands.Add;
+﻿using Application.Common.Models.WorkerService;
+using Application.Features.Accounts.Commands.Add;
 using Application.Features.Accounts.Queries.GetAll;
 using Application.Features.Accounts.Queries.GetById;
 using Microsoft.AspNetCore.Authorization;
@@ -13,6 +14,12 @@ namespace WebApi.Controllers
         public async Task<IActionResult> AddAsync(AccountAddCommand command)
         {
             return Ok(await Mediator.Send(command));
+        }
+
+        [HttpPost("CrawlerServiceExample")]
+        public async Task<IActionResult> CrawlerServiceExampleAsync(WorkerServiceNewAccountAddedDto newAccountAddedDto)
+        {
+            return Ok();
         }
 
         [HttpGet]

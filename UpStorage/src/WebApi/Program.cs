@@ -185,7 +185,7 @@ try
 
     app.MapControllers();
 
-    app.MapHub<AccountHub>("Hubs/AccountHub");
+    app.MapHub<AccountHub>("/Hubs/AccountHub");
 
     app.Run();
 
